@@ -448,9 +448,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> slam </tag>
             
@@ -479,9 +479,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> slam </tag>
             
@@ -510,9 +510,9 @@
       
         <tags>
             
-            <tag> bugs </tag>
-            
             <tag> 单片机 </tag>
+            
+            <tag> bugs </tag>
             
         </tags>
       
@@ -851,11 +851,11 @@
     
     
     <entry>
-      <title>百度网盘不限速下载方法</title>
-      <link href="/post/e5808c6a.html"/>
-      <url>/post/e5808c6a.html</url>
+      <title>Windows各版本与Office全系列激活方法</title>
+      <link href="/post/c5d699a.html"/>
+      <url>/post/c5d699a.html</url>
       
-        <content type="html"><![CDATA[<h2 id="一、安装TamperMonkey扩展程序（油猴）">一、安装TamperMonkey扩展程序（油猴）</h2><p>需要使用Edge浏览器或Chrome浏览器。</p><h3 id="1-1-如何使用Edge浏览器安装油猴">1.1 如何使用Edge浏览器安装油猴</h3><p>使用Edge浏览器安装油猴十分简单，直接进入<a href="https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd?hl=zh-CN">【扩展应用商店】</a>安装即可。</p><h3 id="1-2-如何使用Chrome浏览器安装油猴">1.2 如何使用Chrome浏览器安装油猴</h3><ol><li><p>如果可以科学上网，进入<a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=zh-CN">【Chrome扩展程序商店】</a>，点击右侧的添加至chrome即可。<br>ps.查外文文献查资料会经常需要科学上网。<br><img src="https://img.mahaofei.com/img/202112230923512-tampermonkey.png" alt=""></p></li><li><p>如果无法打开上面的网页，可以<a href="https://huffie.lanzouw.com/i6TuUuhjdyd">【点此下载】</a>离线包。①将下载的压缩文件解压；②打开浏览器扩展程序管理页面；③右上角打开开发者模式；④将解压出来的【TamperMonkey.crx】文件拖到到此页面。</p></li></ol><p><img src="https://img.mahaofei.com/img/202112230924215-chrome-extension.png" alt=""><br><img src="https://img.mahaofei.com/img/202112230924091-chrome-extension.png" alt=""></p><h2 id="二、安装油猴脚本">二、安装油猴脚本</h2><p>这一步不论什么浏览器都一样。打开<a href="https://greasyfork.org/zh-CN/scripts/418182-%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E7%AE%80%E6%98%93%E4%B8%8B%E8%BD%BD%E5%8A%A9%E6%89%8B-%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E5%A4%8D%E6%B4%BB%E7%89%88">【此网页】</a>，安装脚本即可。</p><p>ps. 油猴是一个非常实用的插件，GreasyFork里面有很多实用的脚本，想了解的可以自行探索。<br><img src="https://img.mahaofei.com/img/202112230925109-greasyfork.png" alt=""><br><img src="https://img.mahaofei.com/img/202112230927139-baiduwangpan.png" alt=""></p><h2 id="三、开始下载">三、开始下载</h2><h3 id="3-1-准备IDM">3.1 准备IDM</h3><p>如果你已经在使用IDM，那么可以跳过这一步。</p><p>如果没有，可以使用刚才解压的文件夹中的IDM绿色版。</p><ol><li>将压缩包解压后运行【绿化.bat】；<br><img src="https://img.mahaofei.com/img/202112230928396-lvhua.png" alt=""></li><li>运行【IDMan.exe】</li><li>打开【选项】菜单，点击【下载】栏，将用户代理UA修改为：<strong>softxm;netdisk</strong><br><img src="https://img.mahaofei.com/img/202112230929578-daili.png" alt=""></li><li>点击【连接】栏，将最大连接数设置为<strong>4</strong>，点击【确定】<br><img src="https://img.mahaofei.com/img/202112230929559-linknumber.png" alt=""></li></ol><h3 id="3-2-选择文件下载">3.2 选择文件下载</h3><ol><li><p>打开<a href="https://pan.baidu.com/">【百度网盘网页版】</a>，选择一个要下载的文件。（注意只能是一个文件，不能是文件夹）。</p></li><li><p>点击上方的简易下载助手下载。<br><img src="https://img.mahaofei.com/img/202112230929410-xiazai1.png" alt=""></p></li><li><p>点击【获取直链地址】，并【复制直链地址】<br><img src="https://img.mahaofei.com/img/202112230930860-xiazai2.png" alt=""></p></li><li><p>打开IDM，选择新建下载任务，粘贴刚才的直链地址进行下载。<br>下载速度根据当前网络状况，校园网一般在<strong>2MB/s~10MB/s</strong><br><img src="https://img.mahaofei.com/img/202112230930623-ceshi.png" alt=""></p></li></ol>]]></content>
+        <content type="html"><![CDATA[<p>这里提供一个工具的下载链接：<a href="https://huffie.lanzouw.com/i1w7Vuxyzxa">https://huffie.lanzouw.com/i1w7Vuxyzxa</a>，解压后以管理员身份运行。</p><p>具体功能和使用方法不必多说，看图即可。</p><p><strong>需要注意：解压之前一定退出所有安全管家，如果还是找不到，看一下是不是被Windows Defender删掉了</strong></p><p><img src="https://img.mahaofei.com/img/202112230939435-winoffice-1.png" alt=""></p>]]></content>
       
       
       <categories>
@@ -878,11 +878,11 @@
     
     
     <entry>
-      <title>Windows各版本与Office全系列激活方法</title>
-      <link href="/post/c5d699a.html"/>
-      <url>/post/c5d699a.html</url>
+      <title>百度网盘不限速下载方法</title>
+      <link href="/post/e5808c6a.html"/>
+      <url>/post/e5808c6a.html</url>
       
-        <content type="html"><![CDATA[<p>这里提供一个工具的下载链接：<a href="https://huffie.lanzouw.com/i1w7Vuxyzxa">https://huffie.lanzouw.com/i1w7Vuxyzxa</a>，解压后以管理员身份运行。</p><p>具体功能和使用方法不必多说，看图即可。</p><p><strong>需要注意：解压之前一定退出所有安全管家，如果还是找不到，看一下是不是被Windows Defender删掉了</strong></p><p><img src="https://img.mahaofei.com/img/202112230939435-winoffice-1.png" alt=""></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="一、安装TamperMonkey扩展程序（油猴）">一、安装TamperMonkey扩展程序（油猴）</h2><p>需要使用Edge浏览器或Chrome浏览器。</p><h3 id="1-1-如何使用Edge浏览器安装油猴">1.1 如何使用Edge浏览器安装油猴</h3><p>使用Edge浏览器安装油猴十分简单，直接进入<a href="https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd?hl=zh-CN">【扩展应用商店】</a>安装即可。</p><h3 id="1-2-如何使用Chrome浏览器安装油猴">1.2 如何使用Chrome浏览器安装油猴</h3><ol><li><p>如果可以科学上网，进入<a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=zh-CN">【Chrome扩展程序商店】</a>，点击右侧的添加至chrome即可。<br>ps.查外文文献查资料会经常需要科学上网。<br><img src="https://img.mahaofei.com/img/202112230923512-tampermonkey.png" alt=""></p></li><li><p>如果无法打开上面的网页，可以<a href="https://huffie.lanzouw.com/i6TuUuhjdyd">【点此下载】</a>离线包。①将下载的压缩文件解压；②打开浏览器扩展程序管理页面；③右上角打开开发者模式；④将解压出来的【TamperMonkey.crx】文件拖到到此页面。</p></li></ol><p><img src="https://img.mahaofei.com/img/202112230924215-chrome-extension.png" alt=""><br><img src="https://img.mahaofei.com/img/202112230924091-chrome-extension.png" alt=""></p><h2 id="二、安装油猴脚本">二、安装油猴脚本</h2><p>这一步不论什么浏览器都一样。打开<a href="https://greasyfork.org/zh-CN/scripts/418182-%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E7%AE%80%E6%98%93%E4%B8%8B%E8%BD%BD%E5%8A%A9%E6%89%8B-%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E5%A4%8D%E6%B4%BB%E7%89%88">【此网页】</a>，安装脚本即可。</p><p>ps. 油猴是一个非常实用的插件，GreasyFork里面有很多实用的脚本，想了解的可以自行探索。<br><img src="https://img.mahaofei.com/img/202112230925109-greasyfork.png" alt=""><br><img src="https://img.mahaofei.com/img/202112230927139-baiduwangpan.png" alt=""></p><h2 id="三、开始下载">三、开始下载</h2><h3 id="3-1-准备IDM">3.1 准备IDM</h3><p>如果你已经在使用IDM，那么可以跳过这一步。</p><p>如果没有，可以使用刚才解压的文件夹中的IDM绿色版。</p><ol><li>将压缩包解压后运行【绿化.bat】；<br><img src="https://img.mahaofei.com/img/202112230928396-lvhua.png" alt=""></li><li>运行【IDMan.exe】</li><li>打开【选项】菜单，点击【下载】栏，将用户代理UA修改为：<strong>softxm;netdisk</strong><br><img src="https://img.mahaofei.com/img/202112230929578-daili.png" alt=""></li><li>点击【连接】栏，将最大连接数设置为<strong>4</strong>，点击【确定】<br><img src="https://img.mahaofei.com/img/202112230929559-linknumber.png" alt=""></li></ol><h3 id="3-2-选择文件下载">3.2 选择文件下载</h3><ol><li><p>打开<a href="https://pan.baidu.com/">【百度网盘网页版】</a>，选择一个要下载的文件。（注意只能是一个文件，不能是文件夹）。</p></li><li><p>点击上方的简易下载助手下载。<br><img src="https://img.mahaofei.com/img/202112230929410-xiazai1.png" alt=""></p></li><li><p>点击【获取直链地址】，并【复制直链地址】<br><img src="https://img.mahaofei.com/img/202112230930860-xiazai2.png" alt=""></p></li><li><p>打开IDM，选择新建下载任务，粘贴刚才的直链地址进行下载。<br>下载速度根据当前网络状况，校园网一般在<strong>2MB/s~10MB/s</strong><br><img src="https://img.mahaofei.com/img/202112230930623-ceshi.png" alt=""></p></li></ol>]]></content>
       
       
       <categories>
@@ -1023,11 +1023,11 @@
       
         <tags>
             
+            <tag> 实验 </tag>
+            
             <tag> OpenCV </tag>
             
             <tag> C++ </tag>
-            
-            <tag> 实验 </tag>
             
         </tags>
       
@@ -1054,11 +1054,11 @@
       
         <tags>
             
+            <tag> 实验 </tag>
+            
             <tag> OpenCV </tag>
             
             <tag> C++ </tag>
-            
-            <tag> 实验 </tag>
             
         </tags>
       
@@ -2884,9 +2884,9 @@
       
         <tags>
             
-            <tag> Ubuntu </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> Ubuntu </tag>
             
         </tags>
       
@@ -2913,9 +2913,9 @@
       
         <tags>
             
-            <tag> bugs </tag>
-            
             <tag> Ubuntu </tag>
+            
+            <tag> bugs </tag>
             
         </tags>
       
@@ -2942,9 +2942,9 @@
       
         <tags>
             
-            <tag> WordPress </tag>
-            
             <tag> 网站搭建 </tag>
+            
+            <tag> WordPress </tag>
             
             <tag> 阿里云 </tag>
             
@@ -3524,9 +3524,9 @@
       
         <tags>
             
-            <tag> WordPress </tag>
-            
             <tag> 网站搭建 </tag>
+            
+            <tag> WordPress </tag>
             
         </tags>
       
@@ -3553,9 +3553,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> WordPress </tag>
+            
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -3582,9 +3582,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> WordPress </tag>
+            
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -3611,9 +3611,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> WordPress </tag>
+            
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -3698,9 +3698,9 @@
       
         <tags>
             
-            <tag> 网站搭建 </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> 网站搭建 </tag>
             
         </tags>
       
@@ -3727,11 +3727,11 @@
       
         <tags>
             
-            <tag> WordPress </tag>
+            <tag> 树莓派 </tag>
             
             <tag> 网站搭建 </tag>
             
-            <tag> 树莓派 </tag>
+            <tag> WordPress </tag>
             
         </tags>
       
@@ -3758,9 +3758,9 @@
       
         <tags>
             
-            <tag> 网站搭建 </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> 网站搭建 </tag>
             
         </tags>
       
@@ -4226,11 +4226,11 @@
       
         <tags>
             
-            <tag> bugs </tag>
-            
             <tag> 单片机 </tag>
             
             <tag> Proteus </tag>
+            
+            <tag> bugs </tag>
             
         </tags>
       

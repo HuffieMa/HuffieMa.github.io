@@ -6,7 +6,7 @@
   <link href="https://www.mahaofei.com/atom.xml" rel="self"/>
   
   <link href="https://www.mahaofei.com/"/>
-  <updated>2022-06-15T08:27:14.000Z</updated>
+  <updated>2022-06-24T10:54:18.000Z</updated>
   <id>https://www.mahaofei.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>RobotStudio实现喷漆、打磨等功能（曲面路径生成与仿真）</title>
+    <link href="https://www.mahaofei.com/post/3feb0033.html"/>
+    <id>https://www.mahaofei.com/post/3feb0033.html</id>
+    <published>2022-06-24T10:54:18.000Z</published>
+    <updated>2022-06-24T10:54:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1>任务介绍</h1><p>在Robotstudio中导入一个CAD模型，如汽车外壳等复杂曲面模型。使用Robotstudio进行路径规划，实现机械臂的汽车外壳的喷漆功能。</p><h1>所用环境</h1><p>实现本功能，使用到了ABB公司发布的<code>ABB Machining PowerPac</code>功能包。该功能包可以实现的功能包括打磨产品（规则的方形体）、涂胶、火焰切割、卫浴打磨、复杂的大型曲面体打磨、磨边等。</p><p>下载链接如下：<a href="https://robotapps.blob.core.windows.net/apps/d2d4e3fc-1810-4c05-937d-8154d31fca13machiningpowerpac6.04.zip">https://robotapps.blob.core.windows.net/apps/d2d4e3fc-1810-4c05-937d-8154d31fca13machiningpowerpac6.04.zip</a></p><p>如果链接失效，该插件下载方式如下图，找到插件后，在右侧点击链接下载。<br>（由于插件页面无法上下滚动，所以如果屏幕看不到下面的下载链接，还需要调高屏幕分辨率或者把缩放改成100%，下载后再改回来即可）</p><p><img src="https://img.mahaofei.com/img/2022-06-24-153954.png" alt=""></p><blockquote><p>下载后为压缩包格式，解压后运行其中exe再进行解压，注意这次解压不要选带中文的路径，找到解压后的exe运行即可安装。</p><p>该插件为6.04版本，支持<code>Robotstudio6.04</code>及以上版本使用，低于此版本的使用插件时可能会出现兼容性问题，建议使用Robotstudio 6.08，该版本对于大多数插件都有较好的兼容性。使用时双击插件即可加载，加载成功后在<code>Add-Ins</code>栏中即可看到<code>Machining 6.04</code>插件。</p></blockquote><h1>实现方法</h1><h2 id="1-创建工件坐标与工具">1. 创建工件坐标与工具</h2><p>（1）首先创建工件坐标。</p><p><img src="https://img.mahaofei.com/img/20220624161214.png" alt=""></p><p><img src="https://img.mahaofei.com/img/20220624172529.png" alt=""></p><p>（2）然后创建工具。</p><p><img src="https://img.mahaofei.com/img/20220624161651.png" alt=""></p><p><img src="https://img.mahaofei.com/img/20220624163115.png" alt=""></p><p>侧面加工与端面加工，在图中可以直观理解为，使用圆柱的侧面、底面端面加工。</p><p>工具的类型如下：</p><ul><li>T_Cutter：T型刀</li><li>Chamfger_Cutter：倒角铣刀</li><li>Flame_Cutter：火焰切割枪</li><li>Swallow_Cutter：燕尾槽铣刀</li><li>Ball_Cutter：球型铣刀</li><li>None：无形状</li></ul><p><strong>对于喷漆作业来说，选择端面加工；使用T型刀，调整接触圈高度为喷头到工件的距离。</strong></p><p>（3）新建一个空程序组</p><p><img src="https://img.mahaofei.com/img/20220624163500.png" alt=""></p><h2 id="2-提取加工曲面">2. 提取加工曲面</h2><p>（1）新建几何</p><p><img src="https://img.mahaofei.com/img/20220624163756.png" alt=""></p><p>（2）设置曲线类型</p><p><img src="https://img.mahaofei.com/img/20220624182636.png" alt=""></p><p>类型：</p><ul><li>Projection Geometry：投影几何</li><li>Intersection Geometry：交叉口几何</li><li>UV Curve：UV曲线</li><li>Edge Curve：边缘曲线</li><li>Customized Curve：自定义曲线</li></ul><p>对于喷漆来说，我们选择使用Intersection Geometry复杂曲线。</p><p>（3）选择加工区域</p><p><img src="https://img.mahaofei.com/img/20220624173012.png" alt=""></p><p>（4）指定切割平面</p><p><img src="https://img.mahaofei.com/img/20220624182535.png" alt=""></p><h2 id="4-新建操作">4. 新建操作</h2><p>（1）新建一个操作</p><p><img src="https://img.mahaofei.com/img/20220624180205.png" alt=""></p><p><img src="https://img.mahaofei.com/img/20220624183344.png" alt=""></p><p>（2）设置外轴移动模式为：<strong>固定距离模式</strong></p><p><img src="https://img.mahaofei.com/img/20220624180233.png" alt=""></p><p>（3）点击刀具插补设置，点击可达率，在图表中选择一个100%可达率的角度，然后点击应用。</p><p><img src="https://img.mahaofei.com/img/20220624180319.png" alt=""></p><h2 id="5-模拟仿真">5. 模拟仿真</h2><p><img src="https://img.mahaofei.com/img/20220624183434.png" alt=""></p><p><img src="https://img.mahaofei.com/img/20220624184458.png" alt=""></p>]]></content>
+    
+    
+    <summary type="html">在Robotstudio中导入一个CAD模型，如汽车外壳等复杂曲面模型。使用Robotstudio进行路径规划，实现机械臂的汽车外壳的喷漆功能。</summary>
+    
+    
+    
+    <category term="机器人" scheme="https://www.mahaofei.com/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA/"/>
+    
+    <category term="RobotStudio" scheme="https://www.mahaofei.com/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA/RobotStudio/"/>
+    
+    
+    <category term="实验" scheme="https://www.mahaofei.com/tags/%E5%AE%9E%E9%AA%8C/"/>
+    
+    <category term="RobotStudio" scheme="https://www.mahaofei.com/tags/RobotStudio/"/>
+    
+  </entry>
   
   <entry>
     <title>深度学习遇到报错Bug解决方法（不定时更新）</title>
@@ -73,10 +98,10 @@
     <published>2022-05-16T08:28:07.000Z</published>
     <updated>2022-05-16T08:28:07.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="什么是通道channel">什么是通道channel</h2><blockquote><p><a href="https://blog.csdn.net/sscc_learning/article/details/79814146">【CNN】理解卷积神经网络中的通道 channel</a></p></blockquote><p>首先，是 <a href="https://www.tensorflow.org/tutorials/layers">tensorflow</a> 中给出的，对于输入样本中 <code>channels</code> 的含义。一般的RGB图片，<code>channels</code> 数量是 3 （红、绿、蓝）；而monochrome图片，<code>channels</code> 数量是 1 。</p><p>其次，<a href="http://mxnet.incubator.apache.org/api/python/gluon/nn.html#mxnet.gluon.nn.Conv2D">mxnet</a> 中提到的，一般 <code>channels</code> 的含义是，<strong>每个卷积层中卷积核的数量</strong>。</p><p>举例：假设现有一个为 6×6×3 的图片样本，使用 3×3×3 的卷积核（filter）进行卷积操作。此时输入图片的 channels 为 3 ，而卷积核中的 in_channels 与 需要进行卷积操作的数据的 channels 一致（这里就是图片样本，为3）。</p><p>接下来，进行卷积操作，卷积核中的27个数字与分别与样本对应相乘后，再进行求和，得到第一个结果。依次进行，最终得到 4×4 的结果。</p><p><img src="https://img-blog.csdn.net/20180404113714719?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc3NjY19sZWFybmluZw" alt=""></p><p>上面步骤完成后，由于只有一个卷积核，所以最终得到的结果为 4×4×1 ， out_channels 为 1 。</p><p>在实际应用中，都会使用多个卷积核。这里如果再加一个卷积核，就会得到 4×4×2 的结果。</p><p><img src="https://img-blog.csdn.net/20180404150134375?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc3NjY19sZWFybmluZw" alt=""></p><p><strong>总结</strong></p><ul><li>最初输入的图片样本的 <code>channels</code> ，取决于图片类型，比如RGB；</li><li>卷积操作完成后输出的 <code>out_channels</code> ，取决于卷积核的数量。此时的 <code>out_channels</code> 也会作为下一次卷积时的卷积核的 <code>in_channels</code>；</li><li>卷积核中的 <code>in_channels</code> ，就是上一次卷积的 <code>out_channels</code> ，如果是第一次做卷积，就是1中样本图片的 <code>channels</code> 。</li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="什么是通道channel">什么是通道channel</h2><blockquote><p><a href="https://blog.csdn.net/sscc_learning/article/details/79814146">【CNN】理解卷积神经网络中的通道 channel</a></p></blockquote><p>首先，是 <a href="https://www.tensorflow.org/tutorials/layers">tensorflow</a> 中给出的，对于输入样本中 <code>channels</code> 的含义。一般的RGB图片，<code>channels</code> 数量是 3 （红、绿、蓝）；而monochrome图片，<code>channels</code> 数量是 1 。</p><p>其次，<a href="http://mxnet.incubator.apache.org/api/python/gluon/nn.html#mxnet.gluon.nn.Conv2D">mxnet</a> 中提到的，一般 <code>channels</code> 的含义是，<strong>每个卷积层中卷积核的数量</strong>。</p><p>举例：假设现有一个为 6×6×3 的图片样本，使用 3×3×3 的卷积核（filter）进行卷积操作。此时输入图片的 channels 为 3 ，而卷积核中的 in_channels 与 需要进行卷积操作的数据的 channels 一致（这里就是图片样本，为3）。</p><p>接下来，进行卷积操作，卷积核中的27个数字与分别与样本对应相乘后，再进行求和，得到第一个结果。依次进行，最终得到 4×4 的结果。</p><p><img src="https://img.mahaofei.com/img/20220624185902.png" alt=""></p><p>上面步骤完成后，由于只有一个卷积核，所以最终得到的结果为 4×4×1 ， out_channels 为 1 。</p><p>在实际应用中，都会使用多个卷积核。这里如果再加一个卷积核，就会得到 4×4×2 的结果。</p><p><img src="https://img.mahaofei.com/img/20220624185923.png" alt=""></p><p><strong>总结</strong></p><ul><li>最初输入的图片样本的 <code>channels</code> ，取决于图片类型，比如RGB；</li><li>卷积操作完成后输出的 <code>out_channels</code> ，取决于卷积核的数量。此时的 <code>out_channels</code> 也会作为下一次卷积时的卷积核的 <code>in_channels</code>；</li><li>卷积核中的 <code>in_channels</code> ，就是上一次卷积的 <code>out_channels</code> ，如果是第一次做卷积，就是1中样本图片的 <code>channels</code> 。</li></ul>]]></content>
     
     
-    <summary type="html">一般channels的含义是，每个卷积层中卷积核的数量。</summary>
+    <summary type="html">一般channels的含义是，每个卷积层中卷积核的数量。最初输入的图片样本的channels，取决于图片类型，比如RGB；卷积操作完成后输出的out_channels，取决于卷积核的数量。此时的out_channels也会作为下一次卷积时的卷积核的in_channels。</summary>
     
     
     
@@ -474,29 +499,6 @@
     
     <category term="经验" scheme="https://www.mahaofei.com/categories/%E9%9A%8F%E7%AC%94/%E7%BB%8F%E9%AA%8C/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>PS2020 下载与安装教程（可更改安装位置）</title>
-    <link href="https://www.mahaofei.com/post/f43c25b0.html"/>
-    <id>https://www.mahaofei.com/post/f43c25b0.html</id>
-    <published>2021-12-23T01:15:35.000Z</published>
-    <updated>2021-12-23T01:15:35.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>阿里云盘链接：<a href="https://www.aliyundrive.com/s/UFEbPAqUVvD">https://www.aliyundrive.com/s/UFEbPAqUVvD</a></p><p>下载后将文件的后缀名改回【.zip】即可正常解压。</p><p>百度网盘链接：<a href="https://pan.baidu.com/s/1-GCMRxMQLGaOBn_dtcgJmw">https://pan.baidu.com/s/1-GCMRxMQLGaOBn_dtcgJmw</a></p><p>提取码：mhf6</p></blockquote><ol><li>打开解压的文件夹，右键【Set-up.exe】，<strong>以管理员身份运行</strong><br><img src="https://img.mahaofei.com/img/202112230952400-ps2020-1.png" alt=""></li><li>点击右侧按钮<strong>更改安装位置</strong>，安装到除C盘外的区域<br><img src="https://img.mahaofei.com/img/202112230953657-ps2020-2.png" alt=""></li><li><strong>点击继续</strong>，开始安装<br><img src="https://img.mahaofei.com/img/202112230953836-ps2020-3.png" alt=""></li><li>安装过程大约需要3分钟，安装过程自动破解，安装完成就可以直接使用。<br><img src="https://img.mahaofei.com/img/202112230953164-ps2020-4.png" alt=""><br><img src="https://img.mahaofei.com/img/202112230953914-ps2020-5.png" alt=""></li><li>打开软件，可以正常使用<br><img src="https://img.mahaofei.com/img/202112230953060-ps2020-6.png" alt=""></li></ol>]]></content>
-    
-    
-    <summary type="html">Adobe PhotoShop 2020 下载与安装的教程，专业P图软件，安装可更改位置。资源仅供学习参考！</summary>
-    
-    
-    
-    <category term="技巧" scheme="https://www.mahaofei.com/categories/%E6%8A%80%E5%B7%A7/"/>
-    
-    <category term="软件安装" scheme="https://www.mahaofei.com/categories/%E6%8A%80%E5%B7%A7/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
-    
-    
-    <category term="软件安装" scheme="https://www.mahaofei.com/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
     
   </entry>
   

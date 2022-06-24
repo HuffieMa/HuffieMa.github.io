@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>RobotStudio实现喷漆、打磨等功能（曲面路径生成与仿真）</title>
+      <link href="/post/3feb0033.html"/>
+      <url>/post/3feb0033.html</url>
+      
+        <content type="html"><![CDATA[<h1>任务介绍</h1><p>在Robotstudio中导入一个CAD模型，如汽车外壳等复杂曲面模型。使用Robotstudio进行路径规划，实现机械臂的汽车外壳的喷漆功能。</p><h1>所用环境</h1><p>实现本功能，使用到了ABB公司发布的<code>ABB Machining PowerPac</code>功能包。该功能包可以实现的功能包括打磨产品（规则的方形体）、涂胶、火焰切割、卫浴打磨、复杂的大型曲面体打磨、磨边等。</p><p>下载链接如下：<a href="https://robotapps.blob.core.windows.net/apps/d2d4e3fc-1810-4c05-937d-8154d31fca13machiningpowerpac6.04.zip">https://robotapps.blob.core.windows.net/apps/d2d4e3fc-1810-4c05-937d-8154d31fca13machiningpowerpac6.04.zip</a></p><p>如果链接失效，该插件下载方式如下图，找到插件后，在右侧点击链接下载。<br>（由于插件页面无法上下滚动，所以如果屏幕看不到下面的下载链接，还需要调高屏幕分辨率或者把缩放改成100%，下载后再改回来即可）</p><p><img src="https://img.mahaofei.com/img/2022-06-24-153954.png" alt=""></p><blockquote><p>下载后为压缩包格式，解压后运行其中exe再进行解压，注意这次解压不要选带中文的路径，找到解压后的exe运行即可安装。</p><p>该插件为6.04版本，支持<code>Robotstudio6.04</code>及以上版本使用，低于此版本的使用插件时可能会出现兼容性问题，建议使用Robotstudio 6.08，该版本对于大多数插件都有较好的兼容性。使用时双击插件即可加载，加载成功后在<code>Add-Ins</code>栏中即可看到<code>Machining 6.04</code>插件。</p></blockquote><h1>实现方法</h1><h2 id="1-创建工件坐标与工具">1. 创建工件坐标与工具</h2><p>（1）首先创建工件坐标。</p><p><img src="https://img.mahaofei.com/img/20220624161214.png" alt=""></p><p><img src="https://img.mahaofei.com/img/20220624172529.png" alt=""></p><p>（2）然后创建工具。</p><p><img src="https://img.mahaofei.com/img/20220624161651.png" alt=""></p><p><img src="https://img.mahaofei.com/img/20220624163115.png" alt=""></p><p>侧面加工与端面加工，在图中可以直观理解为，使用圆柱的侧面、底面端面加工。</p><p>工具的类型如下：</p><ul><li>T_Cutter：T型刀</li><li>Chamfger_Cutter：倒角铣刀</li><li>Flame_Cutter：火焰切割枪</li><li>Swallow_Cutter：燕尾槽铣刀</li><li>Ball_Cutter：球型铣刀</li><li>None：无形状</li></ul><p><strong>对于喷漆作业来说，选择端面加工；使用T型刀，调整接触圈高度为喷头到工件的距离。</strong></p><p>（3）新建一个空程序组</p><p><img src="https://img.mahaofei.com/img/20220624163500.png" alt=""></p><h2 id="2-提取加工曲面">2. 提取加工曲面</h2><p>（1）新建几何</p><p><img src="https://img.mahaofei.com/img/20220624163756.png" alt=""></p><p>（2）设置曲线类型</p><p><img src="https://img.mahaofei.com/img/20220624182636.png" alt=""></p><p>类型：</p><ul><li>Projection Geometry：投影几何</li><li>Intersection Geometry：交叉口几何</li><li>UV Curve：UV曲线</li><li>Edge Curve：边缘曲线</li><li>Customized Curve：自定义曲线</li></ul><p>对于喷漆来说，我们选择使用Intersection Geometry复杂曲线。</p><p>（3）选择加工区域</p><p><img src="https://img.mahaofei.com/img/20220624173012.png" alt=""></p><p>（4）指定切割平面</p><p><img src="https://img.mahaofei.com/img/20220624182535.png" alt=""></p><h2 id="4-新建操作">4. 新建操作</h2><p>（1）新建一个操作</p><p><img src="https://img.mahaofei.com/img/20220624180205.png" alt=""></p><p><img src="https://img.mahaofei.com/img/20220624183344.png" alt=""></p><p>（2）设置外轴移动模式为：<strong>固定距离模式</strong></p><p><img src="https://img.mahaofei.com/img/20220624180233.png" alt=""></p><p>（3）点击刀具插补设置，点击可达率，在图表中选择一个100%可达率的角度，然后点击应用。</p><p><img src="https://img.mahaofei.com/img/20220624180319.png" alt=""></p><h2 id="5-模拟仿真">5. 模拟仿真</h2><p><img src="https://img.mahaofei.com/img/20220624183434.png" alt=""></p><p><img src="https://img.mahaofei.com/img/20220624184458.png" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 机器人 </category>
+          
+          <category> RobotStudio </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 实验 </tag>
+            
+            <tag> RobotStudio </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>深度学习遇到报错Bug解决方法（不定时更新）</title>
       <link href="/post/f5eca7d2.html"/>
       <url>/post/f5eca7d2.html</url>
@@ -66,7 +95,7 @@
       <link href="/post/e8acb40e.html"/>
       <url>/post/e8acb40e.html</url>
       
-        <content type="html"><![CDATA[<h2 id="什么是通道channel">什么是通道channel</h2><blockquote><p><a href="https://blog.csdn.net/sscc_learning/article/details/79814146">【CNN】理解卷积神经网络中的通道 channel</a></p></blockquote><p>首先，是 <a href="https://www.tensorflow.org/tutorials/layers">tensorflow</a> 中给出的，对于输入样本中 <code>channels</code> 的含义。一般的RGB图片，<code>channels</code> 数量是 3 （红、绿、蓝）；而monochrome图片，<code>channels</code> 数量是 1 。</p><p>其次，<a href="http://mxnet.incubator.apache.org/api/python/gluon/nn.html#mxnet.gluon.nn.Conv2D">mxnet</a> 中提到的，一般 <code>channels</code> 的含义是，<strong>每个卷积层中卷积核的数量</strong>。</p><p>举例：假设现有一个为 6×6×3 的图片样本，使用 3×3×3 的卷积核（filter）进行卷积操作。此时输入图片的 channels 为 3 ，而卷积核中的 in_channels 与 需要进行卷积操作的数据的 channels 一致（这里就是图片样本，为3）。</p><p>接下来，进行卷积操作，卷积核中的27个数字与分别与样本对应相乘后，再进行求和，得到第一个结果。依次进行，最终得到 4×4 的结果。</p><p><img src="https://img-blog.csdn.net/20180404113714719?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc3NjY19sZWFybmluZw" alt=""></p><p>上面步骤完成后，由于只有一个卷积核，所以最终得到的结果为 4×4×1 ， out_channels 为 1 。</p><p>在实际应用中，都会使用多个卷积核。这里如果再加一个卷积核，就会得到 4×4×2 的结果。</p><p><img src="https://img-blog.csdn.net/20180404150134375?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc3NjY19sZWFybmluZw" alt=""></p><p><strong>总结</strong></p><ul><li>最初输入的图片样本的 <code>channels</code> ，取决于图片类型，比如RGB；</li><li>卷积操作完成后输出的 <code>out_channels</code> ，取决于卷积核的数量。此时的 <code>out_channels</code> 也会作为下一次卷积时的卷积核的 <code>in_channels</code>；</li><li>卷积核中的 <code>in_channels</code> ，就是上一次卷积的 <code>out_channels</code> ，如果是第一次做卷积，就是1中样本图片的 <code>channels</code> 。</li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="什么是通道channel">什么是通道channel</h2><blockquote><p><a href="https://blog.csdn.net/sscc_learning/article/details/79814146">【CNN】理解卷积神经网络中的通道 channel</a></p></blockquote><p>首先，是 <a href="https://www.tensorflow.org/tutorials/layers">tensorflow</a> 中给出的，对于输入样本中 <code>channels</code> 的含义。一般的RGB图片，<code>channels</code> 数量是 3 （红、绿、蓝）；而monochrome图片，<code>channels</code> 数量是 1 。</p><p>其次，<a href="http://mxnet.incubator.apache.org/api/python/gluon/nn.html#mxnet.gluon.nn.Conv2D">mxnet</a> 中提到的，一般 <code>channels</code> 的含义是，<strong>每个卷积层中卷积核的数量</strong>。</p><p>举例：假设现有一个为 6×6×3 的图片样本，使用 3×3×3 的卷积核（filter）进行卷积操作。此时输入图片的 channels 为 3 ，而卷积核中的 in_channels 与 需要进行卷积操作的数据的 channels 一致（这里就是图片样本，为3）。</p><p>接下来，进行卷积操作，卷积核中的27个数字与分别与样本对应相乘后，再进行求和，得到第一个结果。依次进行，最终得到 4×4 的结果。</p><p><img src="https://img.mahaofei.com/img/20220624185902.png" alt=""></p><p>上面步骤完成后，由于只有一个卷积核，所以最终得到的结果为 4×4×1 ， out_channels 为 1 。</p><p>在实际应用中，都会使用多个卷积核。这里如果再加一个卷积核，就会得到 4×4×2 的结果。</p><p><img src="https://img.mahaofei.com/img/20220624185923.png" alt=""></p><p><strong>总结</strong></p><ul><li>最初输入的图片样本的 <code>channels</code> ，取决于图片类型，比如RGB；</li><li>卷积操作完成后输出的 <code>out_channels</code> ，取决于卷积核的数量。此时的 <code>out_channels</code> 也会作为下一次卷积时的卷积核的 <code>in_channels</code>；</li><li>卷积核中的 <code>in_channels</code> ，就是上一次卷积的 <code>out_channels</code> ，如果是第一次做卷积，就是1中样本图片的 <code>channels</code> 。</li></ul>]]></content>
       
       
       <categories>
@@ -655,9 +684,9 @@
       
         <tags>
             
-            <tag> 实验 </tag>
-            
             <tag> Python </tag>
+            
+            <tag> 实验 </tag>
             
         </tags>
       
@@ -1259,11 +1288,11 @@
       
         <tags>
             
+            <tag> 实验 </tag>
+            
             <tag> OpenCV </tag>
             
             <tag> C++ </tag>
-            
-            <tag> 实验 </tag>
             
         </tags>
       
@@ -1290,11 +1319,11 @@
       
         <tags>
             
+            <tag> 实验 </tag>
+            
             <tag> OpenCV </tag>
             
             <tag> C++ </tag>
-            
-            <tag> 实验 </tag>
             
         </tags>
       
@@ -3021,7 +3050,7 @@
       <link href="/post/b278544f.html"/>
       <url>/post/b278544f.html</url>
       
-        <content type="html"><![CDATA[<blockquote><p>本文参考ros官网<a href="http://wiki.ros.org/">http://wiki.ros.org/</a>的有关<a href="http://wiki.ros.org/noetic/Installation/Ubuntu">安装教程</a></p></blockquote><h3 id="一、准备工作-2">一、准备工作</h3><h4 id="1-添加ROS软件源">1. 添加ROS软件源</h4><p>打开软件与更新，将下载选项前四个都选上。<br><strong>一定要确保都勾选上，不然后续安装时会出现依赖关系问题</strong><br><img src="https://img.mahaofei.com/img/202112231642871-ubuntu-ros-1.png" alt=""><br>然后执行以下命令添加软件源</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sh -c <span class="string">&#x27;echo &quot;deb https://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span></span><br></pre></td></tr></table></figure><h4 id="2-添加公钥">2. 添加公钥</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key adv --keyserver <span class="string">&#x27;hkp://keyserver.ubuntu.com:80&#x27;</span> --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654</span><br></pre></td></tr></table></figure><h4 id="3-更新索引">3. 更新索引</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure><h3 id="二、安装ROS">二、安装ROS</h3><h4 id="1-安装ROS">1. 安装ROS</h4><p>建议安装桌面完整版</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ros-noetic-desktop-full</span><br></pre></td></tr></table></figure><h4 id="2-设置环境变量">2. 设置环境变量</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;source /opt/ros/noetic/setup.bash&quot;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure><h4 id="3-初始化rosdep">3. 初始化rosdep</h4><p>在使用许多ROS工具之前，需要初始化rosdep。rosdep是运行ROS中某些核心组件所必需的，首先安装rosdep</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python3-rosdep</span><br></pre></td></tr></table></figure><p>然后进行初始化</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br></pre></td></tr></table></figure><blockquote><p>rosdep init如果出现【ERROR: cannot download default sources list from:…<br>Website may be down.】<br>rosdep update如果出现超时问题<br><strong>解决方法：</strong><br>1.<code>sudo apt-get install python3-pip</code><br>2.<code>sudo pip3 install rosdepc</code><br>3.<code>sudo rosdepc init</code><br>4.<code>rosdepc update</code></p></blockquote><h4 id="4-安装其它工具和依赖包">4. 安装其它工具和依赖包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential</span><br></pre></td></tr></table></figure><h3 id="三、测试-2">三、测试</h3><p><strong>打开</strong>终端，输入<code>roscore</code>，运行ros<br><strong>再打开</strong>一个新终端，输入：<code>rosrun turtlesim turtlesim_node</code>，可以看到小乌龟的仿真界面已经打开了。<strong>再打开</strong>一个新终端输入指令：<code>rosrun turtlesim turtle_teleop_key</code>，可以在这个key终端内，通过键盘的方向键控制小乌龟在界面中移动<br><img src="https://img.mahaofei.com/img/202112231643691-ubuntu-ros-2.png" alt=""></p>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>本文参考ros官网<a href="http://wiki.ros.org/">http://wiki.ros.org/</a>的有关<a href="http://wiki.ros.org/noetic/Installation/Ubuntu">安装教程</a></p></blockquote><h3 id="一、准备工作">一、准备工作</h3><h4 id="1-添加ROS软件源">1. 添加ROS软件源</h4><p>打开软件与更新，将下载选项前四个都选上。<br><strong>一定要确保都勾选上，不然后续安装时会出现依赖关系问题</strong><br><img src="https://img.mahaofei.com/img/202112231642871-ubuntu-ros-1.png" alt=""><br>然后执行以下命令添加软件源</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sh -c <span class="string">&#x27;echo &quot;deb https://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span></span><br></pre></td></tr></table></figure><h4 id="2-添加公钥">2. 添加公钥</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key adv --keyserver <span class="string">&#x27;hkp://keyserver.ubuntu.com:80&#x27;</span> --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654</span><br></pre></td></tr></table></figure><h4 id="3-更新索引">3. 更新索引</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure><h3 id="二、安装ROS">二、安装ROS</h3><h4 id="1-安装ROS">1. 安装ROS</h4><p>建议安装桌面完整版</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ros-noetic-desktop-full</span><br></pre></td></tr></table></figure><h4 id="2-设置环境变量">2. 设置环境变量</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;source /opt/ros/noetic/setup.bash&quot;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure><h4 id="3-初始化rosdep">3. 初始化rosdep</h4><p>在使用许多ROS工具之前，需要初始化rosdep。rosdep是运行ROS中某些核心组件所必需的，首先安装rosdep</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python3-rosdep</span><br></pre></td></tr></table></figure><p>然后进行初始化</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br></pre></td></tr></table></figure><blockquote><p>rosdep init如果出现【ERROR: cannot download default sources list from:…<br>Website may be down.】<br>rosdep update如果出现超时问题<br><strong>解决方法：</strong><br>1.<code>sudo apt-get install python3-pip</code><br>2.<code>sudo pip3 install rosdepc</code><br>3.<code>sudo rosdepc init</code><br>4.<code>rosdepc update</code></p></blockquote><h4 id="4-安装其它工具和依赖包">4. 安装其它工具和依赖包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential</span><br></pre></td></tr></table></figure><h3 id="三、测试-2">三、测试</h3><p><strong>打开</strong>终端，输入<code>roscore</code>，运行ros<br><strong>再打开</strong>一个新终端，输入：<code>rosrun turtlesim turtlesim_node</code>，可以看到小乌龟的仿真界面已经打开了。<strong>再打开</strong>一个新终端输入指令：<code>rosrun turtlesim turtle_teleop_key</code>，可以在这个key终端内，通过键盘的方向键控制小乌龟在界面中移动<br><img src="https://img.mahaofei.com/img/202112231643691-ubuntu-ros-2.png" alt=""></p>]]></content>
       
       
       <categories>
@@ -3091,9 +3120,9 @@
       
         <tags>
             
-            <tag> 网站搭建 </tag>
-            
             <tag> Ubuntu </tag>
+            
+            <tag> 网站搭建 </tag>
             
         </tags>
       
@@ -3178,9 +3207,9 @@
       
         <tags>
             
-            <tag> WordPress </tag>
-            
             <tag> 网站搭建 </tag>
+            
+            <tag> WordPress </tag>
             
             <tag> 阿里云 </tag>
             
@@ -3746,7 +3775,7 @@
       <link href="/post/ab6dd331.html"/>
       <url>/post/ab6dd331.html</url>
       
-        <content type="html"><![CDATA[<h2 id="一、准备工作">一、准备工作</h2><h3 id="1-安装Elementor插件">1. 安装Elementor插件</h3><p>进入wordpress后台，搜索插件Elementor进行安装。</p><blockquote><p>如果安装失败，可以在官网下载安装包，手动上传安装，安装方法参考<a href="https://blog.csdn.net/weixin_44543463/article/details/112839933">此篇文章</a><br>下载地址：<a href="https://cn.wordpress.org/plugins/elementor/">https://cn.wordpress.org/plugins/elementor/</a></p></blockquote><h3 id="2-安装主题">2. 安装主题</h3><p>这里以Astra主题为例，进入wordpress后台，搜索主题Astra进行安装。<br><img src="https://img.mahaofei.com/img/202112231129572-wordpress-elementor-2.png" alt=""></p><h3 id="3-安装辅助插件">3. 安装辅助插件</h3><p>根据不同主题的要求，可能需要安装不同的辅助插件，才能导入网站模板。Astra主题需要的插件是Starter Templates。<br><img src="https://img-blog.csdnimg.cn/20210125142716805.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_SGFsZi1BIFN0dWRpbw==,size_16,color_FFFFFF,t_70" width="60%"></p><h2 id="二、导入模板">二、导入模板</h2><p>点击<strong>外观-Starter Templates</strong>，可以看到Astra的一些网站模板。在这里我们可以选择一个符合自己网站主题的模板（点击详情可以预览网页），导入到我们的网站中。<br><img src="https://img.mahaofei.com/img/202112231134720-wordpress-elementor-3.png" alt=""><br><img src="https://img.mahaofei.com/img/202112231135722-wordpress-elementor-4.png" alt=""></p><h2 id="三、可视化编辑">三、可视化编辑</h2><h3 id="1-修改网站logo和标识">1. 修改网站logo和标识</h3><p>（1）进入自己的网站界面，点击上方的使用Elementor编辑，进入Elementor的编辑界面。<br><img src="https://img.mahaofei.com/img/202112231135491-wordpress-elementor-5.png" alt=""><br>（2)点击左上角进入<strong>站点设置-网站标识</strong>，可以修改网站的Logo和标识。<br><img src="https://img.mahaofei.com/img/202112231135732-wordpress-elementor-6.png" alt=""><br><img src="https://img.mahaofei.com/img/202112231136081-wordpress-elementor-7.png" alt=""><br><img src="https://img.mahaofei.com/img/202112231136994-wordpress-elementor-8.png" alt=""></p><h3 id="2-修改内容">2. 修改内容</h3><p>Elementor是模块化的编辑器，它将网站从上到下按不同段进行拼接，每个段内部分成一个或多个栏，可以填加不同的功能模块。<br>（1）修改文字：将鼠标放在要求改的文字上，单击可以直接修改，或者在左侧编辑菜单中修改。<br><img src="https://img.mahaofei.com/img/202112231136545-wordpress-elementor-9.png" alt=""><br>（2）更换图片：点击要修改的图片，可以看到左侧编辑菜单出现了相应的选项，此处可以更换图像，图像可以选择媒体库中已存在的图像，也可以上传图像。同时下方能够修改图像的尺寸和对齐方式。此外还可以在高级设置中进行更多的设置。<br><img src="https://img.mahaofei.com/img/202112231136332-wordpress-elementor-10.png" alt=""><br><img src="https://img.mahaofei.com/img/202112231137596-wordpress-elementor-11.png" alt=""><br>（3)更改图标：还是点击要求改的图标，以Read More→的→为例，在左侧可以选择图标库中已经有的图标，也可以自己上传图标。<br><img src="https://img.mahaofei.com/img/202112231137045-wordpress-elementor-12.png" alt=""><br><img src="https://img.mahaofei.com/img/202112231138675-wordpress-elementor-13.png" alt=""></p><h3 id="3-修改布局">3. 修改布局</h3><p>（1）点击段上方中间的按钮，在左侧可以更改此段的布局（边距、对齐）、结构（分栏数）等。<br><img src="https://img.mahaofei.com/img/202112231138481-wordpress-elementor-14.png" alt=""><br>（2）点击段内部各个栏的左上方的小窗子，可以修改内部各栏的布局。<br><img src="https://img.mahaofei.com/img/202112231138081-wordpress-elementor-15.png" alt=""><br>（3)修改段的位置，点击Elementor编辑菜单下方的导航器。可看到右侧出现了网站的大纲列表，直接拖动对应的段即可直接排序。<br><img src="https://img.mahaofei.com/img/202112231138476-wordpress-elementor-16.png" alt=""><br><img src="https://img.mahaofei.com/img/202112231139125-wordpress-elementor-17.png" alt=""></p><h3 id="4-添加段">4. 添加段</h3><p>（1）翻到页面最下端或者点击某段上方的+，可以添加段<br><img src="https://img.mahaofei.com/img/202112231139207-wordpress-elementor-18.png" alt=""><br>（2）添加新段：选择分栏的方式数目，然后从左侧Elementor的编辑菜单直接拖动需要的功能模块至各栏即可。<br><img src="https://img.mahaofei.com/img/202112231140673-wordpress-elementor-19.png" alt=""><br><img src="https://img.mahaofei.com/img/202112231140366-wordpress-elementor-20.png" alt=""><br>（3）使用Elementor的模板，这里可以在左上角选择模板的分类，比如我要添加About的相关模块。选好后直接插入即可。<br><img src="https://img.mahaofei.com/img/202112231140428-wordpress-elementor-21.png" alt=""><br>（4)有些主题也有自己内置的模块，添加方法类似。<br><img src="https://img.mahaofei.com/img/202112231140591-wordpress-elementor-22.png" alt=""></p><h2 id="四、修改网页导航">四、修改网页导航</h2><p>网页导航就是网站最上方的一排导航按钮，在wordpress后台的外观-菜单中可以修改。可以选择不同的页面添加到导航菜单中，也可以修改导航菜单的顺序，或者修改页面之间的从属关系，实现下拉菜单的效果。<br><img src="https://img.mahaofei.com/img/202112231141181-wordpress-elementor-23.png" alt=""><br><img src="https://img.mahaofei.com/img/202112231141438-wordpress-elementor-24.png" alt=""></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="一、准备工作-2">一、准备工作</h2><h3 id="1-安装Elementor插件">1. 安装Elementor插件</h3><p>进入wordpress后台，搜索插件Elementor进行安装。</p><blockquote><p>如果安装失败，可以在官网下载安装包，手动上传安装，安装方法参考<a href="https://blog.csdn.net/weixin_44543463/article/details/112839933">此篇文章</a><br>下载地址：<a href="https://cn.wordpress.org/plugins/elementor/">https://cn.wordpress.org/plugins/elementor/</a></p></blockquote><h3 id="2-安装主题">2. 安装主题</h3><p>这里以Astra主题为例，进入wordpress后台，搜索主题Astra进行安装。<br><img src="https://img.mahaofei.com/img/202112231129572-wordpress-elementor-2.png" alt=""></p><h3 id="3-安装辅助插件">3. 安装辅助插件</h3><p>根据不同主题的要求，可能需要安装不同的辅助插件，才能导入网站模板。Astra主题需要的插件是Starter Templates。<br><img src="https://img-blog.csdnimg.cn/20210125142716805.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_SGFsZi1BIFN0dWRpbw==,size_16,color_FFFFFF,t_70" width="60%"></p><h2 id="二、导入模板">二、导入模板</h2><p>点击<strong>外观-Starter Templates</strong>，可以看到Astra的一些网站模板。在这里我们可以选择一个符合自己网站主题的模板（点击详情可以预览网页），导入到我们的网站中。<br><img src="https://img.mahaofei.com/img/202112231134720-wordpress-elementor-3.png" alt=""><br><img src="https://img.mahaofei.com/img/202112231135722-wordpress-elementor-4.png" alt=""></p><h2 id="三、可视化编辑">三、可视化编辑</h2><h3 id="1-修改网站logo和标识">1. 修改网站logo和标识</h3><p>（1）进入自己的网站界面，点击上方的使用Elementor编辑，进入Elementor的编辑界面。<br><img src="https://img.mahaofei.com/img/202112231135491-wordpress-elementor-5.png" alt=""><br>（2)点击左上角进入<strong>站点设置-网站标识</strong>，可以修改网站的Logo和标识。<br><img src="https://img.mahaofei.com/img/202112231135732-wordpress-elementor-6.png" alt=""><br><img src="https://img.mahaofei.com/img/202112231136081-wordpress-elementor-7.png" alt=""><br><img src="https://img.mahaofei.com/img/202112231136994-wordpress-elementor-8.png" alt=""></p><h3 id="2-修改内容">2. 修改内容</h3><p>Elementor是模块化的编辑器，它将网站从上到下按不同段进行拼接，每个段内部分成一个或多个栏，可以填加不同的功能模块。<br>（1）修改文字：将鼠标放在要求改的文字上，单击可以直接修改，或者在左侧编辑菜单中修改。<br><img src="https://img.mahaofei.com/img/202112231136545-wordpress-elementor-9.png" alt=""><br>（2）更换图片：点击要修改的图片，可以看到左侧编辑菜单出现了相应的选项，此处可以更换图像，图像可以选择媒体库中已存在的图像，也可以上传图像。同时下方能够修改图像的尺寸和对齐方式。此外还可以在高级设置中进行更多的设置。<br><img src="https://img.mahaofei.com/img/202112231136332-wordpress-elementor-10.png" alt=""><br><img src="https://img.mahaofei.com/img/202112231137596-wordpress-elementor-11.png" alt=""><br>（3)更改图标：还是点击要求改的图标，以Read More→的→为例，在左侧可以选择图标库中已经有的图标，也可以自己上传图标。<br><img src="https://img.mahaofei.com/img/202112231137045-wordpress-elementor-12.png" alt=""><br><img src="https://img.mahaofei.com/img/202112231138675-wordpress-elementor-13.png" alt=""></p><h3 id="3-修改布局">3. 修改布局</h3><p>（1）点击段上方中间的按钮，在左侧可以更改此段的布局（边距、对齐）、结构（分栏数）等。<br><img src="https://img.mahaofei.com/img/202112231138481-wordpress-elementor-14.png" alt=""><br>（2）点击段内部各个栏的左上方的小窗子，可以修改内部各栏的布局。<br><img src="https://img.mahaofei.com/img/202112231138081-wordpress-elementor-15.png" alt=""><br>（3)修改段的位置，点击Elementor编辑菜单下方的导航器。可看到右侧出现了网站的大纲列表，直接拖动对应的段即可直接排序。<br><img src="https://img.mahaofei.com/img/202112231138476-wordpress-elementor-16.png" alt=""><br><img src="https://img.mahaofei.com/img/202112231139125-wordpress-elementor-17.png" alt=""></p><h3 id="4-添加段">4. 添加段</h3><p>（1）翻到页面最下端或者点击某段上方的+，可以添加段<br><img src="https://img.mahaofei.com/img/202112231139207-wordpress-elementor-18.png" alt=""><br>（2）添加新段：选择分栏的方式数目，然后从左侧Elementor的编辑菜单直接拖动需要的功能模块至各栏即可。<br><img src="https://img.mahaofei.com/img/202112231140673-wordpress-elementor-19.png" alt=""><br><img src="https://img.mahaofei.com/img/202112231140366-wordpress-elementor-20.png" alt=""><br>（3）使用Elementor的模板，这里可以在左上角选择模板的分类，比如我要添加About的相关模块。选好后直接插入即可。<br><img src="https://img.mahaofei.com/img/202112231140428-wordpress-elementor-21.png" alt=""><br>（4)有些主题也有自己内置的模块，添加方法类似。<br><img src="https://img.mahaofei.com/img/202112231140591-wordpress-elementor-22.png" alt=""></p><h2 id="四、修改网页导航">四、修改网页导航</h2><p>网页导航就是网站最上方的一排导航按钮，在wordpress后台的外观-菜单中可以修改。可以选择不同的页面添加到导航菜单中，也可以修改导航菜单的顺序，或者修改页面之间的从属关系，实现下拉菜单的效果。<br><img src="https://img.mahaofei.com/img/202112231141181-wordpress-elementor-23.png" alt=""><br><img src="https://img.mahaofei.com/img/202112231141438-wordpress-elementor-24.png" alt=""></p>]]></content>
       
       
       <categories>
@@ -3760,9 +3789,9 @@
       
         <tags>
             
-            <tag> WordPress </tag>
-            
             <tag> 网站搭建 </tag>
+            
+            <tag> WordPress </tag>
             
         </tags>
       
@@ -3876,9 +3905,9 @@
       
         <tags>
             
-            <tag> WordPress </tag>
-            
             <tag> bugs </tag>
+            
+            <tag> WordPress </tag>
             
         </tags>
       
@@ -3905,9 +3934,9 @@
       
         <tags>
             
-            <tag> WordPress </tag>
-            
             <tag> bugs </tag>
+            
+            <tag> WordPress </tag>
             
         </tags>
       
@@ -3963,11 +3992,11 @@
       
         <tags>
             
-            <tag> WordPress </tag>
-            
             <tag> 网站搭建 </tag>
             
             <tag> 树莓派 </tag>
+            
+            <tag> WordPress </tag>
             
         </tags>
       

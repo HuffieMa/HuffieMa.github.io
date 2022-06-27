@@ -4041,6 +4041,8 @@ h1.page-title + .tag-cloud-list {
 #article-container img {
   display: block;
   margin: 0 auto 0.8rem;
+  height: auto;
+  max-width: 100%;
 }
 #article-container p {
   margin: 0 0 0.8rem;

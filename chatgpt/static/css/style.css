@@ -35,7 +35,7 @@
 .answer{
   width: 100%;
   position: relative;
-  height: 80vh;
+  height: 85vh;
 }
 
 .answer .tips{
@@ -79,7 +79,7 @@
 }
 
 .answer #chatWindow {
-  max-height: calc(70vh - 100px);
+  max-height: calc(75vh);
   height:auto;
   overflow-y: auto;
 }

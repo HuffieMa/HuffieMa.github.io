@@ -49,9 +49,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 基础知识 </tag>
             
@@ -161,9 +161,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 统计学习方法 </tag>
             
@@ -281,9 +281,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 统计学习方法 </tag>
             
@@ -312,9 +312,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 统计学习方法 </tag>
             
@@ -343,9 +343,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 统计学习方法 </tag>
             
@@ -519,9 +519,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> 深度学习 </tag>
             
         </tags>
       
@@ -548,9 +548,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> 深度学习 </tag>
             
         </tags>
       
@@ -577,9 +577,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> 深度学习 </tag>
             
         </tags>
       
@@ -606,9 +606,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> 深度学习 </tag>
             
         </tags>
       
@@ -635,9 +635,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> 深度学习 </tag>
             
         </tags>
       
@@ -693,9 +693,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> 深度学习 </tag>
             
         </tags>
       
@@ -722,9 +722,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> 深度学习 </tag>
             
         </tags>
       
@@ -751,9 +751,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> 深度学习 </tag>
             
         </tags>
       
@@ -1086,9 +1086,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> bugs </tag>
+            
+            <tag> 深度学习 </tag>
             
         </tags>
       
@@ -1150,9 +1150,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> 深度学习 </tag>
             
         </tags>
       
@@ -1179,9 +1179,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 基础知识 </tag>
             
@@ -1210,9 +1210,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 基础知识 </tag>
             
@@ -1241,9 +1241,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 基础知识 </tag>
             
@@ -4038,7 +4038,7 @@
       <link href="/post/57898ee9.html"/>
       <url>/post/57898ee9.html</url>
       
-        <content type="html"><![CDATA[<h3 id="一、目标功能">一、目标功能</h3><p>订阅者订阅海龟的位姿信息。</p><h3 id="二、创建功能包">二、创建功能包</h3><p>首先创建工作空间，参考<a href="https://blog.csdn.net/weixin_44543463/article/details/113985223">【ROS学习笔记】（二）工作空间与功能包的创建</a></p><p>然后创建一个功能包</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/catkin_ws/src</span><br><span class="line">catkin_creat_pkg learning_topic roscpp rospy std_msgs geometry_msgs turtlesim</span><br></pre></td></tr></table></figure><h3 id="三、创建订阅者代码">三、创建订阅者代码</h3><p>进入功能包的src文件夹下，创建一个cpp文件（也可以在图形界面直接创建）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/catkin_ws/src/learning_topic/src</span><br><span class="line">touch pose_subscriber.cpp</span><br><span class="line">sudo gedit pose_subscriber.cpp</span><br></pre></td></tr></table></figure><p>输入以下代码</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">/***********************************************************************</span><br><span class="line">Copyright 2020 GuYueHome (www.guyuehome.com).</span><br><span class="line">***********************************************************************/</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 该例程将订阅/turtle1/pose话题，消息类型turtlesim::Pose</span><br><span class="line"> */</span><br><span class="line"> </span><br><span class="line"><span class="comment">#include &lt;ros/ros.h&gt;</span></span><br><span class="line"><span class="comment">#include &quot;turtlesim/Pose.h&quot;</span></span><br><span class="line"></span><br><span class="line">// 接收到订阅的消息后，会进入消息回调函数</span><br><span class="line">void poseCallback(const turtlesim::Pose::ConstPtr&amp; msg)</span><br><span class="line">&#123;</span><br><span class="line">    // 将接收到的消息打印出来</span><br><span class="line">    ROS_INFO(<span class="string">&quot;Turtle pose: x:%0.6f, y:%0.6f&quot;</span>, msg-&gt;x, msg-&gt;y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, char **argv)</span><br><span class="line">&#123;</span><br><span class="line">    // 初始化ROS节点</span><br><span class="line">    ros::init(argc, argv, <span class="string">&quot;pose_subscriber&quot;</span>);</span><br><span class="line"></span><br><span class="line">    // 创建节点句柄</span><br><span class="line">    ros::NodeHandle n;</span><br><span class="line"></span><br><span class="line">    // 创建一个Subscriber，订阅名为/turtle1/pose的topic，注册回调函数poseCallback</span><br><span class="line">    ros::Subscriber pose_sub = n.subscribe(<span class="string">&quot;/turtle1/pose&quot;</span>, 10, poseCallback);</span><br><span class="line"></span><br><span class="line">    // 循环等待回调函数</span><br><span class="line">    ros::spin();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>代码思路：</p><ol><li>初始化ROS节点</li><li>订阅需要的话题</li><li>循环等待话题消息，接收到消息后进入回调函数</li><li>在回调函数中完成消息处理<br><img src="https://img.mahaofei.com/img/202112231649178-ros-notes4-1.png" alt=""></li></ol><h3 id="四、配置订阅者代码编译规则">四、配置订阅者代码编译规则</h3><ol><li><p>设置需要编译的代码和生成的可执行文件</p></li><li><p>设置链接库</p></li></ol><p>在<code>Learning_topic/CMakeList.txt</code>文件的Build下方（Install上方），添加代码如下</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">add_executable(pose_subscriber src/pose_subscriber.cpp)<span class="comment">#描述要把哪个程序文件编译成哪个可执行文件</span></span><br><span class="line">target_link_libraries(pose_subscriber <span class="variable">$&#123;catkin_LIBRARIES&#125;</span>)<span class="comment">#把可执行文件和库做链接</span></span><br></pre></td></tr></table></figure><p><img src="https://img.mahaofei.com/img/202112231649732-ros-notes4-2.png" alt=""></p><h3 id="五、编译并运行订阅者SubScriber">五、编译并运行订阅者SubScriber</h3><h4 id="1-编译">1. 编译</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/catkin_ws</span><br><span class="line">catkin_make</span><br><span class="line"><span class="built_in">source</span> devel/setup.bash</span><br></pre></td></tr></table></figure><blockquote><p>可以在[.bash]文件最后添加source语句，这样就不用每次再在终端输入source命令</p><p>sudo vim ~/catkin_ws<br>source /home/huffie/catkin_ws/devel/setup.bash</p></blockquote><h4 id="2-运行">2. 运行</h4><p>打开小海龟的仿真程序，运行subscriber，同时让小海龟动起来，可以看到姿态坐标在实时改变。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">roscore</span><br><span class="line">rosrun turtlesim turtlesim_node</span><br><span class="line">rosrun learning_topic pose_subscriber</span><br><span class="line">rosrun turtlesim turtle_teleop_key</span><br></pre></td></tr></table></figure><p><img src="https://img.mahaofei.com/img/202112231649325-ros-notes4-3.png" alt=""></p>]]></content>
+        <content type="html"><![CDATA[<h3 id="一、目标功能-2">一、目标功能</h3><p>订阅者订阅海龟的位姿信息。</p><h3 id="二、创建功能包-2">二、创建功能包</h3><p>首先创建工作空间，参考<a href="https://blog.csdn.net/weixin_44543463/article/details/113985223">【ROS学习笔记】（二）工作空间与功能包的创建</a></p><p>然后创建一个功能包</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/catkin_ws/src</span><br><span class="line">catkin_creat_pkg learning_topic roscpp rospy std_msgs geometry_msgs turtlesim</span><br></pre></td></tr></table></figure><h3 id="三、创建订阅者代码">三、创建订阅者代码</h3><p>进入功能包的src文件夹下，创建一个cpp文件（也可以在图形界面直接创建）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/catkin_ws/src/learning_topic/src</span><br><span class="line">touch pose_subscriber.cpp</span><br><span class="line">sudo gedit pose_subscriber.cpp</span><br></pre></td></tr></table></figure><p>输入以下代码</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">/***********************************************************************</span><br><span class="line">Copyright 2020 GuYueHome (www.guyuehome.com).</span><br><span class="line">***********************************************************************/</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 该例程将订阅/turtle1/pose话题，消息类型turtlesim::Pose</span><br><span class="line"> */</span><br><span class="line"> </span><br><span class="line"><span class="comment">#include &lt;ros/ros.h&gt;</span></span><br><span class="line"><span class="comment">#include &quot;turtlesim/Pose.h&quot;</span></span><br><span class="line"></span><br><span class="line">// 接收到订阅的消息后，会进入消息回调函数</span><br><span class="line">void poseCallback(const turtlesim::Pose::ConstPtr&amp; msg)</span><br><span class="line">&#123;</span><br><span class="line">    // 将接收到的消息打印出来</span><br><span class="line">    ROS_INFO(<span class="string">&quot;Turtle pose: x:%0.6f, y:%0.6f&quot;</span>, msg-&gt;x, msg-&gt;y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, char **argv)</span><br><span class="line">&#123;</span><br><span class="line">    // 初始化ROS节点</span><br><span class="line">    ros::init(argc, argv, <span class="string">&quot;pose_subscriber&quot;</span>);</span><br><span class="line"></span><br><span class="line">    // 创建节点句柄</span><br><span class="line">    ros::NodeHandle n;</span><br><span class="line"></span><br><span class="line">    // 创建一个Subscriber，订阅名为/turtle1/pose的topic，注册回调函数poseCallback</span><br><span class="line">    ros::Subscriber pose_sub = n.subscribe(<span class="string">&quot;/turtle1/pose&quot;</span>, 10, poseCallback);</span><br><span class="line"></span><br><span class="line">    // 循环等待回调函数</span><br><span class="line">    ros::spin();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>代码思路：</p><ol><li>初始化ROS节点</li><li>订阅需要的话题</li><li>循环等待话题消息，接收到消息后进入回调函数</li><li>在回调函数中完成消息处理<br><img src="https://img.mahaofei.com/img/202112231649178-ros-notes4-1.png" alt=""></li></ol><h3 id="四、配置订阅者代码编译规则">四、配置订阅者代码编译规则</h3><ol><li><p>设置需要编译的代码和生成的可执行文件</p></li><li><p>设置链接库</p></li></ol><p>在<code>Learning_topic/CMakeList.txt</code>文件的Build下方（Install上方），添加代码如下</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">add_executable(pose_subscriber src/pose_subscriber.cpp)<span class="comment">#描述要把哪个程序文件编译成哪个可执行文件</span></span><br><span class="line">target_link_libraries(pose_subscriber <span class="variable">$&#123;catkin_LIBRARIES&#125;</span>)<span class="comment">#把可执行文件和库做链接</span></span><br></pre></td></tr></table></figure><p><img src="https://img.mahaofei.com/img/202112231649732-ros-notes4-2.png" alt=""></p><h3 id="五、编译并运行订阅者SubScriber">五、编译并运行订阅者SubScriber</h3><h4 id="1-编译-2">1. 编译</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/catkin_ws</span><br><span class="line">catkin_make</span><br><span class="line"><span class="built_in">source</span> devel/setup.bash</span><br></pre></td></tr></table></figure><blockquote><p>可以在[.bash]文件最后添加source语句，这样就不用每次再在终端输入source命令</p><p>sudo vim ~/catkin_ws<br>source /home/huffie/catkin_ws/devel/setup.bash</p></blockquote><h4 id="2-运行-2">2. 运行</h4><p>打开小海龟的仿真程序，运行subscriber，同时让小海龟动起来，可以看到姿态坐标在实时改变。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">roscore</span><br><span class="line">rosrun turtlesim turtlesim_node</span><br><span class="line">rosrun learning_topic pose_subscriber</span><br><span class="line">rosrun turtlesim turtle_teleop_key</span><br></pre></td></tr></table></figure><p><img src="https://img.mahaofei.com/img/202112231649325-ros-notes4-3.png" alt=""></p>]]></content>
       
       
       <categories>
@@ -4067,7 +4067,7 @@
       <link href="/post/5bbac892.html"/>
       <url>/post/5bbac892.html</url>
       
-        <content type="html"><![CDATA[<h3 id="一、目标功能-2">一、目标功能</h3><p>ROS Master内有两个节点，一个是Subscriber(turtlesim)，一个是Publisher，发布者通过程序实现发布Message，Message的内容包括线速度、角度，通过Topic管道，传递给Subscriber，从而控制小海龟的运动。</p><h3 id="二、创建功能包-2">二、创建功能包</h3><p>首先先创建一个工作空间，具体参考上一节<a href="https://blog.csdn.net/weixin_44543463/article/details/113985223">【ROS学习笔记】（二）工作空间与功能包的创建</a></p><p>然后创建一个功能包</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/catkin_ws/src</span><br><span class="line">catkin_create_pkg learning_topic roscpp rospy std_msgs geometry_msgs turtlesim</span><br></pre></td></tr></table></figure><p><img src="https://img.mahaofei.com/img/202112231647709-ros-notes3-1.png" alt=""></p><h3 id="三、创建发布者代码">三、创建发布者代码</h3><p>进入功能包的src文件夹下，创建一个cpp文件（也可以在图形界面直接创建）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/catkin_ws/src/learning_topic/src</span><br><span class="line">touch velocity_publisher.cpp</span><br><span class="line">sudo gedit velocity_publisher.cpp</span><br></pre></td></tr></table></figure><p>输入以下代码</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 该例程将发布turtle1/cmd_vel话题，消息类型geometry_msgs::Twist</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ros/ros.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;geometry_msgs/Twist.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> **argv)</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// ROS节点初始化</span></span><br><span class="line">ros::init(argc, argv, <span class="string">&quot;velocity_publisher&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建节点句柄</span></span><br><span class="line">ros::NodeHandle n;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个Publisher，发布名为/turtle1/cmd_vel的topic，消息类型为geometry_msgs::Twist，队列长度10</span></span><br><span class="line">ros::Publisher turtle_vel_pub = n.advertise&lt;geometry_msgs::Twist&gt;(<span class="string">&quot;/turtle1/cmd_vel&quot;</span>, <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置循环的频率</span></span><br><span class="line">ros::Rate <span class="title function_">loop_rate</span><span class="params">(<span class="number">10</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (ros::ok())</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 初始化geometry_msgs::Twist类型的消息</span></span><br><span class="line">geometry_msgs::Twist vel_msg;</span><br><span class="line">vel_msg.linear.x = <span class="number">0.5</span>;</span><br><span class="line">vel_msg.angular.z = <span class="number">0.2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 发布消息</span></span><br><span class="line">turtle_vel_pub.publish(vel_msg);</span><br><span class="line">ROS_INFO(<span class="string">&quot;Publsh turtle velocity command[%0.2f m/s, %0.2f rad/s]&quot;</span>, </span><br><span class="line">vel_msg.linear.x, vel_msg.angular.z);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 按照循环频率延时</span></span><br><span class="line">    loop_rate.sleep();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><img src="https://img.mahaofei.com/img/202112231647723-ros-notes3-2.png" alt=""></p><h3 id="四、配置发布者代码编译规则">四、配置发布者代码编译规则</h3><ol><li><p>设置需要编译的代码和生成的可执行文件</p></li><li><p>设置链接库</p></li></ol><p>在<code>Learning_topic/CMakeList.txt</code>文件的Build下方（Install上方），添加代码如下</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">add_executable(velocity_publisher src/velocity_publisher.cpp)<span class="comment">#描述要把哪个程序文件编译成哪个可执行文件</span></span><br><span class="line">target_link_libraries(velocity_publisher <span class="variable">$&#123;catkin_LIBRARIES&#125;</span>)<span class="comment">#把可执行文件和库做链接</span></span><br></pre></td></tr></table></figure><p><img src="https://img.mahaofei.com/img/202112231648236-ros-notes3-3.png" alt=""></p><h3 id="五、编译并运行发布者Publisher">五、编译并运行发布者Publisher</h3><h4 id="1-编译-2">1. 编译</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/catkin_ws</span><br><span class="line">catkin_make</span><br><span class="line"><span class="built_in">source</span> devel/setup.bash</span><br></pre></td></tr></table></figure><blockquote><p>可以在<code>~/.bashrc</code>文件最后添加source语句，这样就不用每次再在终端输入source命令创建环境变量（路径中替换成自己的用户名）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /home/【Username】/catkin_ws/devel/setup.bash</span><br></pre></td></tr></table></figure></blockquote><p><img src="https://img.mahaofei.com/img/202112231648682-ros-notes3-4.png" alt=""></p><h4 id="2-运行-2">2. 运行</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">roscore</span><br><span class="line">rosrun turtlesim turtlesim_node</span><br><span class="line">rosrun learning_topic velocity_publisher</span><br></pre></td></tr></table></figure><p><img src="https://img.mahaofei.com/img/202112231648643-ros-notes3-5.png" alt=""></p><blockquote><p>参考教程：<strong>古月ROS入门21讲</strong><br>GitHub：<a href="https://github.com/guyuehome/ros_21_tutorials">https://github.com/guyuehome/ros_21_tutorials</a><br>Bilibili：<a href="https://www.bilibili.com/video/BV1zt411G7Vn">https://www.bilibili.com/video/BV1zt411G7Vn</a></p></blockquote>]]></content>
+        <content type="html"><![CDATA[<h3 id="一、目标功能">一、目标功能</h3><p>ROS Master内有两个节点，一个是Subscriber(turtlesim)，一个是Publisher，发布者通过程序实现发布Message，Message的内容包括线速度、角度，通过Topic管道，传递给Subscriber，从而控制小海龟的运动。</p><h3 id="二、创建功能包">二、创建功能包</h3><p>首先先创建一个工作空间，具体参考上一节<a href="https://blog.csdn.net/weixin_44543463/article/details/113985223">【ROS学习笔记】（二）工作空间与功能包的创建</a></p><p>然后创建一个功能包</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/catkin_ws/src</span><br><span class="line">catkin_create_pkg learning_topic roscpp rospy std_msgs geometry_msgs turtlesim</span><br></pre></td></tr></table></figure><p><img src="https://img.mahaofei.com/img/202112231647709-ros-notes3-1.png" alt=""></p><h3 id="三、创建发布者代码">三、创建发布者代码</h3><p>进入功能包的src文件夹下，创建一个cpp文件（也可以在图形界面直接创建）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/catkin_ws/src/learning_topic/src</span><br><span class="line">touch velocity_publisher.cpp</span><br><span class="line">sudo gedit velocity_publisher.cpp</span><br></pre></td></tr></table></figure><p>输入以下代码</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 该例程将发布turtle1/cmd_vel话题，消息类型geometry_msgs::Twist</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ros/ros.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;geometry_msgs/Twist.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> **argv)</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// ROS节点初始化</span></span><br><span class="line">ros::init(argc, argv, <span class="string">&quot;velocity_publisher&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建节点句柄</span></span><br><span class="line">ros::NodeHandle n;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个Publisher，发布名为/turtle1/cmd_vel的topic，消息类型为geometry_msgs::Twist，队列长度10</span></span><br><span class="line">ros::Publisher turtle_vel_pub = n.advertise&lt;geometry_msgs::Twist&gt;(<span class="string">&quot;/turtle1/cmd_vel&quot;</span>, <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置循环的频率</span></span><br><span class="line">ros::Rate <span class="title function_">loop_rate</span><span class="params">(<span class="number">10</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (ros::ok())</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 初始化geometry_msgs::Twist类型的消息</span></span><br><span class="line">geometry_msgs::Twist vel_msg;</span><br><span class="line">vel_msg.linear.x = <span class="number">0.5</span>;</span><br><span class="line">vel_msg.angular.z = <span class="number">0.2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 发布消息</span></span><br><span class="line">turtle_vel_pub.publish(vel_msg);</span><br><span class="line">ROS_INFO(<span class="string">&quot;Publsh turtle velocity command[%0.2f m/s, %0.2f rad/s]&quot;</span>, </span><br><span class="line">vel_msg.linear.x, vel_msg.angular.z);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 按照循环频率延时</span></span><br><span class="line">    loop_rate.sleep();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><img src="https://img.mahaofei.com/img/202112231647723-ros-notes3-2.png" alt=""></p><h3 id="四、配置发布者代码编译规则">四、配置发布者代码编译规则</h3><ol><li><p>设置需要编译的代码和生成的可执行文件</p></li><li><p>设置链接库</p></li></ol><p>在<code>Learning_topic/CMakeList.txt</code>文件的Build下方（Install上方），添加代码如下</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">add_executable(velocity_publisher src/velocity_publisher.cpp)<span class="comment">#描述要把哪个程序文件编译成哪个可执行文件</span></span><br><span class="line">target_link_libraries(velocity_publisher <span class="variable">$&#123;catkin_LIBRARIES&#125;</span>)<span class="comment">#把可执行文件和库做链接</span></span><br></pre></td></tr></table></figure><p><img src="https://img.mahaofei.com/img/202112231648236-ros-notes3-3.png" alt=""></p><h3 id="五、编译并运行发布者Publisher">五、编译并运行发布者Publisher</h3><h4 id="1-编译">1. 编译</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/catkin_ws</span><br><span class="line">catkin_make</span><br><span class="line"><span class="built_in">source</span> devel/setup.bash</span><br></pre></td></tr></table></figure><blockquote><p>可以在<code>~/.bashrc</code>文件最后添加source语句，这样就不用每次再在终端输入source命令创建环境变量（路径中替换成自己的用户名）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /home/【Username】/catkin_ws/devel/setup.bash</span><br></pre></td></tr></table></figure></blockquote><p><img src="https://img.mahaofei.com/img/202112231648682-ros-notes3-4.png" alt=""></p><h4 id="2-运行">2. 运行</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">roscore</span><br><span class="line">rosrun turtlesim turtlesim_node</span><br><span class="line">rosrun learning_topic velocity_publisher</span><br></pre></td></tr></table></figure><p><img src="https://img.mahaofei.com/img/202112231648643-ros-notes3-5.png" alt=""></p><blockquote><p>参考教程：<strong>古月ROS入门21讲</strong><br>GitHub：<a href="https://github.com/guyuehome/ros_21_tutorials">https://github.com/guyuehome/ros_21_tutorials</a><br>Bilibili：<a href="https://www.bilibili.com/video/BV1zt411G7Vn">https://www.bilibili.com/video/BV1zt411G7Vn</a></p></blockquote>]]></content>
       
       
       <categories>
@@ -4208,33 +4208,6 @@
     
     
     <entry>
-      <title>ubuntu使用VNC实现远程桌面</title>
-      <link href="/post/c1d87973.html"/>
-      <url>/post/c1d87973.html</url>
-      
-        <content type="html"><![CDATA[<hr><p>此方案已经弃用，更好的方案是使用xrdp远程连接，十分方便。</p><p>参考<a href="https://www.mahaofei.com/post/cdee659e.html">https://www.mahaofei.com/post/cdee659e.html</a>的2.1节</p><hr><h3 id="前言">前言</h3><p>我是在树莓派4B上安装的Ubuntu20.10，想通过VNC实现远程桌面连接，进行接下来的试验。<br>但是在网上搜索了许多关于VNC连接的博客，也尝试了各种方法，但总是出现各种问题，要么连接不上，要么连接上了就黑屏灰屏，总之出现了各种问题，重装了n次系统，最终找到了一种实现的方法。<br><strong>注：已经试验过Ubunt18.04、Ubuntu20.04与Ubuntu20.10，均正常实现</strong></p><h3 id="Windows端">Windows端</h3><p>安装VNC Viewer，进入其<a href="https://www.realvnc.com/en/connect/download/viewer/">VNC Viewer官网</a>下载安装。<br><img src="https://img.mahaofei.com/img/202112231640381-ubuntu-vnc-1.png" alt=""></p><h3 id="Ubuntu端">Ubuntu端</h3><p><strong>进行VNC设置之前，需要有图形界面，没有的可以执行以下代码安装图形界面</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ubuntu-desktop</span><br><span class="line">sudo apt-get install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal</span><br><span class="line">sudo reboot <span class="comment">#重启即可看到图形界面</span></span><br></pre></td></tr></table></figure><h4 id="1-安装x11vnc程序">1. 安装x11vnc程序</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install x11vnc</span><br></pre></td></tr></table></figure><h4 id="2-安装lightdm">2. 安装lightdm</h4><p>因为使用的是gnome图形界面，为了保证x11vnc与图形界面的兼容性，这里需要安装lightdm</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install lightdm</span><br></pre></td></tr></table></figure><p>安装过程中会跳出一个界面，<strong>选择lightdm</strong>即可<br><img src="https://img.mahaofei.com/img/202112231640773-ubuntu-vnc-2.png" alt=""></p><h4 id="3-创建配置目录">3. 创建配置目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> -pv /home/【USERNAME】/.vnc</span><br></pre></td></tr></table></figure><p>其中的**【USERNAME】**替换成你的用户名</p><h4 id="4-生成当前用户的VNC连接密码">4. 生成当前用户的VNC连接密码</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo x11vnc -storepasswd 【Password】 /home/【USERNAME】/.vnc/passwd</span><br></pre></td></tr></table></figure><p>其中的**【Password】<strong>处设置连接VNC时的密码，</strong>【USERNAME】**替换成你的用户名<br><img src="https://img.mahaofei.com/img/202112231641706-ubuntu-vnc-3.png" alt=""></p><h4 id="5-生成VNC配置文件">5. 生成VNC配置文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span>&gt;x11vnc.service&lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">[Unit] </span></span><br><span class="line"><span class="string">Description=Start x11vnc at startup. </span></span><br><span class="line"><span class="string">After=multi-user.target </span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">[Service] </span></span><br><span class="line"><span class="string">Type=simple </span></span><br><span class="line"><span class="string">ExecStart=/usr/bin/x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbauth /home/【USERNAME】/.vnc/passwd -rfbport 5900 -shared </span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">[Install] </span></span><br><span class="line"><span class="string">WantedBy=multi-user.target</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure><p>配置文件生成后将其移动到<code>/lib/systemd/sydtem/</code>目录下</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mv</span> x11vnc.service /lib/systemd/system/x11vnc.service</span><br></pre></td></tr></table></figure><p>修改权限为root</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chown</span> root:root /lib/systemd/system/x11vnc.service</span><br></pre></td></tr></table></figure><h4 id="6-重新加载服务配置文件">6. 重新加载服务配置文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure><p>执行以下命令可以查看服务开启情况</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl list-unit-files | grep x11vnc</span><br></pre></td></tr></table></figure><p><img src="https://img.mahaofei.com/img/202112231641384-ubuntu-vnc-4.png" alt=""></p><h4 id="7-开机启动VNC服务">7. 开机启动VNC服务</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> x11vnc.service</span><br></pre></td></tr></table></figure><h4 id="8-重启系统">8. 重启系统</h4><p>因为之前安装了lightdm图形管理程序，所以需要重启一下系统</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure><h4 id="9-查看一下监听端口">9. 查看一下监听端口</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ss -tunlp</span><br></pre></td></tr></table></figure><p>可以看到x11vnc的监听端口已经打开了<br><img src="https://img.mahaofei.com/img/202112231641133-ubuntu-vnc-5.png" alt=""></p><h4 id="10-共享剪切板">10. 共享剪切板</h4><p>由于VNC Viewer只能控制鼠标键盘，想要复制bug查询，或者复制代码的话，很不方便。</p><p>安装下面的软件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install autocutsel</span><br></pre></td></tr></table></figure><p>然后使用下面的命令打开</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autocutsel</span><br></pre></td></tr></table></figure><p>或者将这条命令加入到开机自启动里面（在开始-Startu Applications里面可以设置）</p><p><img src="https://img.mahaofei.com/img/20220903193047.png" alt=""></p><h3 id="远程连接">远程连接</h3><p>打开windows端的VNC Viewer，输入IP地址:5900即<code>192.168.6.6:5900</code>进行远程连接，密码是之前设置的密码。<br><img src="https://img.mahaofei.com/img/202112231641205-ubuntu-vnc-6.png" alt=""></p><p><img src="https://img.mahaofei.com/img/202112231642992-ubuntu-vnc-7.png" alt=""></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 程序设计 </category>
-          
-          <category> Linux </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Ubuntu </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>NodeJs安装方法</title>
       <link href="/post/7349121e.html"/>
       <url>/post/7349121e.html</url>
@@ -4256,6 +4229,33 @@
             <tag> Ubuntu </tag>
             
             <tag> 网站搭建 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ubuntu使用VNC实现远程桌面</title>
+      <link href="/post/c1d87973.html"/>
+      <url>/post/c1d87973.html</url>
+      
+        <content type="html"><![CDATA[<hr><p>此方案已经弃用，更好的方案是使用xrdp远程连接，十分方便。</p><p>参考<a href="https://www.mahaofei.com/post/cdee659e.html">https://www.mahaofei.com/post/cdee659e.html</a>的2.1节</p><hr><h3 id="前言">前言</h3><p>我是在树莓派4B上安装的Ubuntu20.10，想通过VNC实现远程桌面连接，进行接下来的试验。<br>但是在网上搜索了许多关于VNC连接的博客，也尝试了各种方法，但总是出现各种问题，要么连接不上，要么连接上了就黑屏灰屏，总之出现了各种问题，重装了n次系统，最终找到了一种实现的方法。<br><strong>注：已经试验过Ubunt18.04、Ubuntu20.04与Ubuntu20.10，均正常实现</strong></p><h3 id="Windows端">Windows端</h3><p>安装VNC Viewer，进入其<a href="https://www.realvnc.com/en/connect/download/viewer/">VNC Viewer官网</a>下载安装。<br><img src="https://img.mahaofei.com/img/202112231640381-ubuntu-vnc-1.png" alt=""></p><h3 id="Ubuntu端">Ubuntu端</h3><p><strong>进行VNC设置之前，需要有图形界面，没有的可以执行以下代码安装图形界面</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ubuntu-desktop</span><br><span class="line">sudo apt-get install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal</span><br><span class="line">sudo reboot <span class="comment">#重启即可看到图形界面</span></span><br></pre></td></tr></table></figure><h4 id="1-安装x11vnc程序">1. 安装x11vnc程序</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install x11vnc</span><br></pre></td></tr></table></figure><h4 id="2-安装lightdm">2. 安装lightdm</h4><p>因为使用的是gnome图形界面，为了保证x11vnc与图形界面的兼容性，这里需要安装lightdm</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install lightdm</span><br></pre></td></tr></table></figure><p>安装过程中会跳出一个界面，<strong>选择lightdm</strong>即可<br><img src="https://img.mahaofei.com/img/202112231640773-ubuntu-vnc-2.png" alt=""></p><h4 id="3-创建配置目录">3. 创建配置目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> -pv /home/【USERNAME】/.vnc</span><br></pre></td></tr></table></figure><p>其中的**【USERNAME】**替换成你的用户名</p><h4 id="4-生成当前用户的VNC连接密码">4. 生成当前用户的VNC连接密码</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo x11vnc -storepasswd 【Password】 /home/【USERNAME】/.vnc/passwd</span><br></pre></td></tr></table></figure><p>其中的**【Password】<strong>处设置连接VNC时的密码，</strong>【USERNAME】**替换成你的用户名<br><img src="https://img.mahaofei.com/img/202112231641706-ubuntu-vnc-3.png" alt=""></p><h4 id="5-生成VNC配置文件">5. 生成VNC配置文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span>&gt;x11vnc.service&lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">[Unit] </span></span><br><span class="line"><span class="string">Description=Start x11vnc at startup. </span></span><br><span class="line"><span class="string">After=multi-user.target </span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">[Service] </span></span><br><span class="line"><span class="string">Type=simple </span></span><br><span class="line"><span class="string">ExecStart=/usr/bin/x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbauth /home/【USERNAME】/.vnc/passwd -rfbport 5900 -shared </span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">[Install] </span></span><br><span class="line"><span class="string">WantedBy=multi-user.target</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure><p>配置文件生成后将其移动到<code>/lib/systemd/sydtem/</code>目录下</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mv</span> x11vnc.service /lib/systemd/system/x11vnc.service</span><br></pre></td></tr></table></figure><p>修改权限为root</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chown</span> root:root /lib/systemd/system/x11vnc.service</span><br></pre></td></tr></table></figure><h4 id="6-重新加载服务配置文件">6. 重新加载服务配置文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure><p>执行以下命令可以查看服务开启情况</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl list-unit-files | grep x11vnc</span><br></pre></td></tr></table></figure><p><img src="https://img.mahaofei.com/img/202112231641384-ubuntu-vnc-4.png" alt=""></p><h4 id="7-开机启动VNC服务">7. 开机启动VNC服务</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> x11vnc.service</span><br></pre></td></tr></table></figure><h4 id="8-重启系统">8. 重启系统</h4><p>因为之前安装了lightdm图形管理程序，所以需要重启一下系统</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure><h4 id="9-查看一下监听端口">9. 查看一下监听端口</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ss -tunlp</span><br></pre></td></tr></table></figure><p>可以看到x11vnc的监听端口已经打开了<br><img src="https://img.mahaofei.com/img/202112231641133-ubuntu-vnc-5.png" alt=""></p><h4 id="10-共享剪切板">10. 共享剪切板</h4><p>由于VNC Viewer只能控制鼠标键盘，想要复制bug查询，或者复制代码的话，很不方便。</p><p>安装下面的软件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install autocutsel</span><br></pre></td></tr></table></figure><p>然后使用下面的命令打开</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autocutsel</span><br></pre></td></tr></table></figure><p>或者将这条命令加入到开机自启动里面（在开始-Startu Applications里面可以设置）</p><p><img src="https://img.mahaofei.com/img/20220903193047.png" alt=""></p><h3 id="远程连接">远程连接</h3><p>打开windows端的VNC Viewer，输入IP地址:5900即<code>192.168.6.6:5900</code>进行远程连接，密码是之前设置的密码。<br><img src="https://img.mahaofei.com/img/202112231641205-ubuntu-vnc-6.png" alt=""></p><p><img src="https://img.mahaofei.com/img/202112231642992-ubuntu-vnc-7.png" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 程序设计 </category>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Ubuntu </tag>
             
         </tags>
       

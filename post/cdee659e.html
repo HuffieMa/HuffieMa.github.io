@@ -220,6 +220,8 @@
 <p>将软件源改为<code>https://mirrors.hit.edu.cn/ubuntu</code>，速度会快很多。</p>
 <p>然后更新软件源：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
+<p>安装编译必须组件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev</span><br></pre></td></tr></table></figure>
 <h2 id="1-2-安装openssh-server">1.2 安装openssh-server</h2>
 <p>Ubuntu远程连接的基础功能包。<br>
 如果不安装此包直接使用Putty连接，会报错Network error Connection refused。</p>
@@ -250,19 +252,13 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-grub</span><br></pre></td></tr></table></figure>
 <h1>二、必备软件</h1>
 <h2 id="2-1-NVIDIA显卡驱动">2.1 NVIDIA显卡驱动</h2>
-<ol>
-<li>
-<p>进入系统的图形桌面，打开<code>Software &amp; Updates</code>软件，可以看到标签栏有一个<code>Additional Drivers</code></p>
-</li>
-<li>
-<p>选择第一个安装Nvidia官方驱动（第二个是开源驱动）即可，根据网络情况稍等大概十分钟，安装完重启服务器。</p>
-</li>
-<li>
-<p>重启完之后更新一下软件：</p>
-</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
-<p>这里会连带Nvidia的驱动一起升级一遍，更新到最新的驱动；更新完可能会出现nvidia-smi命令报错，再重启一下就解决了。</p>
+<p>到NVIDIA官网下载驱动：<a target="_blank" rel="noopener" href="https://www.nvidia.cn/geforce/drivers/">https://www.nvidia.cn/geforce/drivers/</a></p>
+<p>然后使用<code>chmod +x</code>指令赋予下载的驱动文件可执行权限。</p>
+<p>然受使用<code>sudo ./驱动文件名.run</code>来安装驱动。</p>
+<blockquote>
+<p>金莲不要使用<code>Software &amp; Updates</code>里面直接安装驱动，尝试过在4060笔记本上安装，完成后重启不管怎么样<code>nvidia-smi</code>都显示<code>no devices were found </code>。<br>
+直到我卸载了驱动，重新从NVIDIA官网下载驱动安装才好。nvidia</p>
+</blockquote>
 <h2 id="2-2-CUDA">2.2 CUDA</h2>
 <ol>
 <li>去官网下载cuda安装包：<a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-11-6-0-download-archive?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=20.04&amp;target_type=deb_local">CUDA11.6</a>，相关选项如下（根据实际情况选择）：</li>

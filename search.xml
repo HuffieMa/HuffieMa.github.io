@@ -37,7 +37,7 @@
       <link href="/post/dd16f220.html"/>
       <url>/post/dd16f220.html</url>
       
-        <content type="html"><![CDATA[<h1>一、注册Github并创建仓库</h1><p>这一步不细说了，需要科学上网，参考<a href="https://www.mahaofei.com/post/96c83ac9.html">这篇文章</a>，[[03_如何访问Google。。学术来查阅文献|Google学术访问方法]]。</p><p>下载安装<a href="https://link.zhihu.com/?target=http%3A//git-scm.com/downloads">Git</a>。</p><h1>二、下载Git并配置</h1><h2 id="2-1-Git安装">2.1 Git安装</h2><p>下载安装<a href="https://link.zhihu.com/?target=http%3A//git-scm.com/downloads">Git</a>。</p><p>在资源管理器内右键，选择<code>Git bash here</code>打开Git界面。</p><h2 id="2-2-Git配置">2.2 Git配置</h2><p>输入下面的代码，按下回车，生成ssh密钥</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;邮箱地址&quot;</span><br></pre></td></tr></table></figure><p>出现要求设置密码，可以不用设置，连续回车两次就可以。</p><p>打开<code>C:\Users\用户名\.ssh</code>，可以看到有一个<code>id_rsa.pub</code>文件，这就是刚才生成的密钥。</p><p>使用记事本打开此文件，复制里面的密钥内容。</p><h2 id="2-3-Github添加ssh-key">2.3 Github添加ssh key</h2><p>进入<a href="https://github.com/">Github官网</a>，点击右上角【setting --&gt; SSH and GPG keys --&gt; New SSH key】，在这里添加密钥，其中</p><ul><li>Title：自己写一个ssh key的名字，用于区分多个ssh key</li><li>Key：刚刚复制的密钥<br>填写完成后点击Add SSH key添加。</li></ul><p>然后在git bash中输入</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure><p>如果连接成功，会让你输入<code>yes/no</code>，输入yes即可。</p><h2 id="2-4-配置用户名和邮箱">2.4 配置用户名和邮箱</h2><p>输入下面的代码配置自己的用户名和邮箱，两个信息都要和Github账号的信息一致</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;用户名&quot;</span><br><span class="line">git config --global user.email &quot;邮箱&quot;</span><br></pre></td></tr></table></figure><h1>三、代码管理</h1><h2 id="3-1-代码上传">3.1 代码上传</h2><p><strong>（1）初始化</strong></p><p>创建一个文件夹，在这个文件夹内，右键<code>git bash here</code>，然后输入<code>git init</code>完成初始化。</p><p>可以看到目录中出现了一个<code>.git</code>隐藏文件夹，这说明已经完成了初始化。</p><p><strong>（2）链接远程仓库</strong></p><p>在刚刚的<code>git bash</code>窗口，输入下面的命令同步到远程仓库</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:用户名/仓库名.git</span><br></pre></td></tr></table></figure><p>如果出现fatal: remote origin already exists.可按以下步骤</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:用户名/仓库名.git</span><br><span class="line">git pull git@github.com:用户名/仓库名.git</span><br></pre></td></tr></table></figure><p><strong>（3）上传本地文件</strong></p><p>添加本地文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add.</span><br></pre></td></tr></table></figure><p>提交本地文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;说明信息，一般说明本次提交更新了什么&quot;</span><br></pre></td></tr></table></figure><p>推送到远端仓库</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git push git@github.com:用户名/仓库名.git</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或</span></span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure><h2 id="3-2-拉取代码">3.2 拉取代码</h2><p>从项目中拉取代码</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master</span><br></pre></td></tr></table></figure><p>如果出现<code>fatal: refusing to merge unrelated histories</code></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master --allow-unrelated-histories</span><br></pre></td></tr></table></figure><h2 id="3-3-分支管理">3.3 分支管理</h2><p><strong>（1）查看分支</strong></p><p>在命令行窗口的光标处，输入git branch命令，查看 Git 仓库的分支情况。分支前有*表示是当前所在的分支。</p><p><strong>（2）创建分支</strong></p><p>使用下面的命令创建一个名为a的分支</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch a</span><br></pre></td></tr></table></figure><p><strong>（3）分支切换</strong></p><p>在命令行窗口的光标处，输入git checkout a命令，切换到a分支。</p><p><strong>（4）合并分支</strong></p><p>切换到master分支，然后输入git merge a命令，将a分支合并到master分支。</p><p><strong>（5）删除分支</strong></p><p>在命令行窗口的光标处，输入git branch -d a命令，删除a分支。</p><p><strong>（6）为分支添加标签</strong></p><p>在命令行窗口的光标处，输入git tag test_tag命令，为当前分支添加标签test_tag</p><h2 id="3-4-修改分支名称">3.4 修改分支名称</h2><p>假设分支名称为oldName，想要修改为 newName</p><ol><li>本地分支重命名(还没有推送到远程)</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -m oldName newName</span><br></pre></td></tr></table></figure><ol start="2"><li>远程分支重命名 (已经推送远程-假设本地分支和远程对应分支名称相同)</li></ol><p>重命名远程分支对应的本地分支</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -m oldName newName</span><br></pre></td></tr></table></figure><p>删除远程分支</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --delete origin oldName</span><br></pre></td></tr></table></figure><p>上传新命名的本地分支</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin newName</span><br></pre></td></tr></table></figure><p>把修改后的本地分支与远程分支关联</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --set-upstream-to origin/newName</span><br></pre></td></tr></table></figure><p>注意：如果本地分支已经关联了远程分支，需要先解除原先的关联关系：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --unset-upstream </span><br></pre></td></tr></table></figure><h2 id="3-5-报错信息">3.5 报错信息</h2><p><strong>（1）error: src refspec master does not match any. error: failed to push some refs to</strong></p><p>仔细检查push的是<code>master</code>分支还是<code>main</code>分支。</p>]]></content>
+        <content type="html"><![CDATA[<h1>一、注册Github并创建仓库</h1><p>这一步不细说了，需要科学上网，参考<a href="https://www.mahaofei.com/post/96c83ac9.html">这篇文章</a>，[[03_如何访问Google。。学术来查阅文献|Google学术访问方法]]。</p><p>下载安装<a href="https://link.zhihu.com/?target=http%3A//git-scm.com/downloads">Git</a>。</p><h1>二、下载Git并配置</h1><h2 id="2-1-Git安装">2.1 Git安装</h2><p>下载安装<a href="https://link.zhihu.com/?target=http%3A//git-scm.com/downloads">Git</a>。</p><p>在资源管理器内右键，选择<code>Git bash here</code>打开Git界面。</p><h2 id="2-2-Git配置">2.2 Git配置</h2><p>输入下面的代码，按下回车，生成ssh密钥</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;邮箱地址&quot;</span><br></pre></td></tr></table></figure><p>出现要求设置密码，可以不用设置，连续回车两次就可以。</p><p>打开<code>C:\Users\用户名\.ssh</code>，可以看到有一个<code>id_rsa.pub</code>文件，这就是刚才生成的密钥。</p><p>使用记事本打开此文件，复制里面的密钥内容。</p><h2 id="2-3-Github添加ssh-key">2.3 Github添加ssh key</h2><p>进入<a href="https://github.com/">Github官网</a>，点击右上角【setting --&gt; SSH and GPG keys --&gt; New SSH key】，在这里添加密钥，其中</p><ul><li>Title：自己写一个ssh key的名字，用于区分多个ssh key</li><li>Key：刚刚复制的密钥<br>填写完成后点击Add SSH key添加。</li></ul><p>然后在git bash中输入</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure><p>如果连接成功，会让你输入<code>yes/no</code>，输入yes即可。</p><h2 id="2-4-配置用户名和邮箱">2.4 配置用户名和邮箱</h2><p>输入下面的代码配置自己的用户名和邮箱，两个信息都要和Github账号的信息一致</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;用户名&quot;</span><br><span class="line">git config --global user.email &quot;邮箱&quot;</span><br></pre></td></tr></table></figure><h1>三、代码管理</h1><h2 id="3-1-代码上传">3.1 代码上传</h2><p><strong>（1）初始化</strong></p><p>创建一个文件夹，在这个文件夹内，右键<code>git bash here</code>，然后输入<code>git init</code>完成初始化。</p><p>可以看到目录中出现了一个<code>.git</code>隐藏文件夹，这说明已经完成了初始化。</p><p><strong>（2）链接远程仓库</strong></p><p>在刚刚的<code>git bash</code>窗口，输入下面的命令同步到远程仓库</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:用户名/仓库名.git</span><br></pre></td></tr></table></figure><p>如果出现fatal: remote origin already exists.可按以下步骤</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@github.com:用户名/仓库名.git</span><br><span class="line">git pull git@github.com:用户名/仓库名.git</span><br></pre></td></tr></table></figure><p><strong>（3）上传本地文件</strong></p><p>添加本地文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add.</span><br></pre></td></tr></table></figure><p>提交本地文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;说明信息，一般说明本次提交更新了什么&quot;</span><br></pre></td></tr></table></figure><p>推送到远端仓库</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git push git@github.com:用户名/仓库名.git</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或</span></span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure><h2 id="3-2-拉取代码">3.2 拉取代码</h2><p>从项目中拉取代码</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master</span><br></pre></td></tr></table></figure><p>如果出现<code>fatal: refusing to merge unrelated histories</code></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master --allow-unrelated-histories</span><br></pre></td></tr></table></figure><h2 id="3-3-分支管理">3.3 分支管理</h2><p><strong>（1）查看分支</strong></p><p>在命令行窗口的光标处，输入git branch命令，查看 Git 仓库的分支情况。分支前有*表示是当前所在的分支。</p><p><strong>（2）创建分支</strong></p><p>使用下面的命令创建一个名为a的分支</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch a</span><br></pre></td></tr></table></figure><p><strong>（3）分支切换</strong></p><p>在命令行窗口的光标处，输入git checkout a命令，切换到a分支。</p><p><strong>（4）合并分支</strong></p><p>切换到master分支，然后输入git merge a命令，将a分支合并到master分支。</p><p><strong>（5）删除分支</strong></p><p>在命令行窗口的光标处，输入git branch -d a命令，删除a分支。</p><p><strong>（6）为分支添加标签</strong></p><p>在命令行窗口的光标处，输入git tag test_tag命令，为当前分支添加标签test_tag</p><h2 id="3-4-修改分支名称">3.4 修改分支名称</h2><p>假设分支名称为oldName，想要修改为 newName</p><ol><li>本地分支重命名(还没有推送到远程)</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -m oldName newName</span><br></pre></td></tr></table></figure><ol start="2"><li>远程分支重命名 (已经推送远程-假设本地分支和远程对应分支名称相同)</li></ol><p>重命名远程分支对应的本地分支</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -m oldName newName</span><br></pre></td></tr></table></figure><p>到github修改默认分支的分支名。</p><p>上传新命名的本地分支</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin newName</span><br></pre></td></tr></table></figure><p>把修改后的本地分支与远程分支关联</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --set-upstream-to origin/newName</span><br></pre></td></tr></table></figure><p>注意：如果本地分支已经关联了远程分支，需要先解除原先的关联关系：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --unset-upstream </span><br></pre></td></tr></table></figure><h2 id="3-5-报错信息">3.5 报错信息</h2><p><strong>（1）error: src refspec master does not match any. error: failed to push some refs to</strong></p><p>仔细检查push的是<code>master</code>分支还是<code>main</code>分支。</p>]]></content>
       
       
       <categories>
@@ -1177,9 +1177,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 视觉 </tag>
             
@@ -1629,9 +1629,9 @@
       
         <tags>
             
-            <tag> ROS </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> ROS </tag>
             
         </tags>
       
@@ -1830,9 +1830,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> slam </tag>
             
@@ -1861,9 +1861,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> slam </tag>
             
@@ -1892,9 +1892,9 @@
       
         <tags>
             
-            <tag> bugs </tag>
-            
             <tag> 单片机 </tag>
+            
+            <tag> bugs </tag>
             
         </tags>
       
@@ -1921,9 +1921,9 @@
       
         <tags>
             
-            <tag> ROS </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> ROS </tag>
             
         </tags>
       
@@ -2008,9 +2008,9 @@
       
         <tags>
             
-            <tag> ROS </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> ROS </tag>
             
         </tags>
       
@@ -2099,9 +2099,9 @@
       
         <tags>
             
-            <tag> ROS </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> ROS </tag>
             
         </tags>
       
@@ -2235,11 +2235,11 @@
     
     
     <entry>
-      <title>Windows各版本与Office全系列激活方法</title>
-      <link href="/post/c5d699a.html"/>
-      <url>/post/c5d699a.html</url>
+      <title>百度网盘不限速下载方法</title>
+      <link href="/post/e5808c6a.html"/>
+      <url>/post/e5808c6a.html</url>
       
-        <content type="html"><![CDATA[<h1>Office推荐方法</h1><p><a href="https://account.microsoft.com/services">https://account.microsoft.com/services</a></p><p>到这个网站能看到自己已经购买过的office，一般买过电脑后，都会附赠office，从这里下载然后安装，再登陆自己的账号，就能正常使用了，而且是绝对正版的。</p><p><img src="https://img.mahaofei.com/img/20230314162622.png" alt=""></p><h1>万能激活方法</h1><p>这里提供一个工具的下载链接：<a href="https://huffie.lanzouw.com/i1w7Vuxyzxa">https://huffie.lanzouw.com/i1w7Vuxyzxa</a>，解压后以管理员身份运行。</p><p>具体功能和使用方法不必多说，看图即可（一键激活）。</p><p><strong>需要注意：解压之前一定退出所有安全管家，如果还是找不到，看一下是不是被Windows Defender删掉了</strong></p><p><img src="https://img.mahaofei.com/img/202112230939435-winoffice-1.png" alt=""></p><p>如果完成后，出现【Microsoft office无法验证此产品的许可证，应使用控制面板修复office程序】</p><ol><li>点击【其它】</li><li>选择产品【Microsoft Office 20XX】；选择版本选择【XXXX】（你自己的版本）</li><li>选择类型【Fix_Banner_New】</li><li>点击【开始】</li></ol><p>就可以修复许可证弹窗了。</p><h1>许可证问题解决方案</h1><p>如果按照上面的Fix_Banner_New还是解决不了许可证弹窗问题，那么按照官方回答的方法：</p><p><a href="https://answers.microsoft.com/zh-hans/msoffice/forum/all/win10-office-16/3bf97673-1a84-46be-9e15-71f9859368f4">https://answers.microsoft.com/zh-hans/msoffice/forum/all/win10-office-16/3bf97673-1a84-46be-9e15-71f9859368f4</a></p><p>《修改注册表权限》</p><ol><li>登陆管理者账号</li><li>同时按【win键+R】，输入regedit，打开【注册表】</li><li>展开 【HKEY_USERS】&gt;【 S-1-5-20】</li><li>右键单击【 S-1-5-20】&gt;【权限】</li><li>选择【添加】</li><li>键入登录的用户的名称，选择【检查名称】&gt;【确定】</li><li>选择【高级】&gt;【高级安全设置】&gt;【权限】选项卡</li><li>为下方的用户，添加权限：  【编辑】&gt;【基本权限】&gt; 选择【完全控制】&gt; 【确定】</li></ol><ul><li>刚刚添加的用户</li><li>【NETWORK SERVICE】</li></ul><ol start="9"><li>返回到【高级安全设置】&gt; 勾选【替换所有子对象权限项目】&gt;【确定】</li><li>重启电脑</li></ol><p>如果没找到【NETWORK SERVICE】用户，那么就按照第6步手动添加一个。</p>]]></content>
+        <content type="html"><![CDATA[<h1>一、安装TamperMonkey扩展程序（油猴）</h1><p>需要使用Edge浏览器或Chrome浏览器。</p><h2 id="1-1-如何使用Edge浏览器安装油猴">1.1 如何使用Edge浏览器安装油猴</h2><p>使用Edge浏览器安装油猴十分简单，直接进入<a href="https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd?hl=zh-CN">【扩展应用商店】</a>安装即可。</p><h2 id="1-2-如何使用Chrome浏览器安装油猴">1.2 如何使用Chrome浏览器安装油猴</h2><ol><li><p>如果可以科学上网，进入<a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=zh-CN">【Chrome扩展程序商店】</a>，点击右侧的添加至chrome即可。<br>ps.查外文文献查资料会经常需要科学上网。<br><img src="https://img.mahaofei.com/img/202112230923512-tampermonkey.png" alt=""></p></li><li><p>如果无法打开上面的网页，可以<a href="https://huffie.lanzouw.com/i6TuUuhjdyd">【点此下载】</a>离线包。①将下载的压缩文件解压；②打开浏览器扩展程序管理页面；③右上角打开开发者模式；④将解压出来的【TamperMonkey.crx】文件拖到到此页面。</p></li></ol><p><img src="https://img.mahaofei.com/img/202112230924215-chrome-extension.png" alt=""><br><img src="https://img.mahaofei.com/img/202112230924091-chrome-extension.png" alt=""></p><h2 id="二、安装油猴脚本">二、安装油猴脚本</h2><p>这一步不论什么浏览器都一样。打开<a href="https://greasyfork.org/zh-CN/scripts/436446-%E7%BD%91%E7%9B%98%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E5%8A%A9%E6%89%8B">【此网页】</a>，安装脚本即可。</p><p>ps. 油猴是一个非常实用的插件，GreasyFork里面有很多实用的脚本，想了解的可以自行探索。</p><h1>三、开始下载</h1><h2 id="3-1-下载方法">3.1 下载方法</h2><p>进入<a href="http://pan.baidu.com/">百度网盘网页版</a>，选中要下载的文件，点击左上角的下载助手-API下载，即可直接下载。</p><p><img src="https://pic.rmb.bdstatic.com/bjh/32b2bead4b1c7fc806eacfde29b78f975055.gif" alt=""></p><p><img src="https://pic.rmb.bdstatic.com/bjh/5511a57ed37398ab870ab0095b78948a6031.gif" alt=""></p><h2 id="3-2-更快的下载">3.2 更快的下载</h2><p><strong>默认的网页下载是单线程的，而如果想要下载更快，还可以使用多线程下载器，比如IDM。</strong></p><p>如果你已经在使用IDM，那么可以跳过这一步。</p><p>如果没有，可以使用<a href="https://huffie.lanzouw.com/i6TuUuhjdyd">【点此下载】</a>离线包解压的文件夹中的IDM绿色版。</p><ol><li>将压缩包解压后运行【绿化.bat】；<br><img src="https://img.mahaofei.com/img/202112230928396-lvhua.png" alt=""></li><li>运行【IDMan.exe】</li><li>打开【选项】菜单，点击【下载】栏，将用户代理UA修改为：<strong>softxm;netdisk</strong><br><img src="https://img.mahaofei.com/img/202112230929578-daili.png" alt=""></li><li>点击【连接】栏，将最大连接数设置为<strong>4</strong>，点击【确定】<br><img src="https://img.mahaofei.com/img/202112230929559-linknumber.png" alt=""></li></ol><h2 id="3-3-选择文件下载">3.3 选择文件下载</h2><p>还是使用上面的方法，进行下载。</p><p>下载速度根据当前网络状况，校园网一般在<strong>5MB/s~10MB/s</strong><br><img src="https://img.mahaofei.com/img/202112230930623-ceshi.png" alt=""></p><h1>四、其它方法</h1><p>据我所知，有一款工具名为<a href="https://kinhdown.kinh.cc/">KinhDown</a>也十分好用，有兴趣的可以去官网了解一下。</p>]]></content>
       
       
       <categories>
@@ -2262,11 +2262,11 @@
     
     
     <entry>
-      <title>百度网盘不限速下载方法</title>
-      <link href="/post/e5808c6a.html"/>
-      <url>/post/e5808c6a.html</url>
+      <title>Windows各版本与Office全系列激活方法</title>
+      <link href="/post/c5d699a.html"/>
+      <url>/post/c5d699a.html</url>
       
-        <content type="html"><![CDATA[<h1>一、安装TamperMonkey扩展程序（油猴）</h1><p>需要使用Edge浏览器或Chrome浏览器。</p><h2 id="1-1-如何使用Edge浏览器安装油猴">1.1 如何使用Edge浏览器安装油猴</h2><p>使用Edge浏览器安装油猴十分简单，直接进入<a href="https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd?hl=zh-CN">【扩展应用商店】</a>安装即可。</p><h2 id="1-2-如何使用Chrome浏览器安装油猴">1.2 如何使用Chrome浏览器安装油猴</h2><ol><li><p>如果可以科学上网，进入<a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=zh-CN">【Chrome扩展程序商店】</a>，点击右侧的添加至chrome即可。<br>ps.查外文文献查资料会经常需要科学上网。<br><img src="https://img.mahaofei.com/img/202112230923512-tampermonkey.png" alt=""></p></li><li><p>如果无法打开上面的网页，可以<a href="https://huffie.lanzouw.com/i6TuUuhjdyd">【点此下载】</a>离线包。①将下载的压缩文件解压；②打开浏览器扩展程序管理页面；③右上角打开开发者模式；④将解压出来的【TamperMonkey.crx】文件拖到到此页面。</p></li></ol><p><img src="https://img.mahaofei.com/img/202112230924215-chrome-extension.png" alt=""><br><img src="https://img.mahaofei.com/img/202112230924091-chrome-extension.png" alt=""></p><h2 id="二、安装油猴脚本">二、安装油猴脚本</h2><p>这一步不论什么浏览器都一样。打开<a href="https://greasyfork.org/zh-CN/scripts/436446-%E7%BD%91%E7%9B%98%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E5%8A%A9%E6%89%8B">【此网页】</a>，安装脚本即可。</p><p>ps. 油猴是一个非常实用的插件，GreasyFork里面有很多实用的脚本，想了解的可以自行探索。</p><h1>三、开始下载</h1><h2 id="3-1-下载方法">3.1 下载方法</h2><p>进入<a href="http://pan.baidu.com/">百度网盘网页版</a>，选中要下载的文件，点击左上角的下载助手-API下载，即可直接下载。</p><p><img src="https://pic.rmb.bdstatic.com/bjh/32b2bead4b1c7fc806eacfde29b78f975055.gif" alt=""></p><p><img src="https://pic.rmb.bdstatic.com/bjh/5511a57ed37398ab870ab0095b78948a6031.gif" alt=""></p><h2 id="3-2-更快的下载">3.2 更快的下载</h2><p><strong>默认的网页下载是单线程的，而如果想要下载更快，还可以使用多线程下载器，比如IDM。</strong></p><p>如果你已经在使用IDM，那么可以跳过这一步。</p><p>如果没有，可以使用<a href="https://huffie.lanzouw.com/i6TuUuhjdyd">【点此下载】</a>离线包解压的文件夹中的IDM绿色版。</p><ol><li>将压缩包解压后运行【绿化.bat】；<br><img src="https://img.mahaofei.com/img/202112230928396-lvhua.png" alt=""></li><li>运行【IDMan.exe】</li><li>打开【选项】菜单，点击【下载】栏，将用户代理UA修改为：<strong>softxm;netdisk</strong><br><img src="https://img.mahaofei.com/img/202112230929578-daili.png" alt=""></li><li>点击【连接】栏，将最大连接数设置为<strong>4</strong>，点击【确定】<br><img src="https://img.mahaofei.com/img/202112230929559-linknumber.png" alt=""></li></ol><h2 id="3-3-选择文件下载">3.3 选择文件下载</h2><p>还是使用上面的方法，进行下载。</p><p>下载速度根据当前网络状况，校园网一般在<strong>5MB/s~10MB/s</strong><br><img src="https://img.mahaofei.com/img/202112230930623-ceshi.png" alt=""></p><h1>四、其它方法</h1><p>据我所知，有一款工具名为<a href="https://kinhdown.kinh.cc/">KinhDown</a>也十分好用，有兴趣的可以去官网了解一下。</p>]]></content>
+        <content type="html"><![CDATA[<h1>Office推荐方法</h1><p><a href="https://account.microsoft.com/services">https://account.microsoft.com/services</a></p><p>到这个网站能看到自己已经购买过的office，一般买过电脑后，都会附赠office，从这里下载然后安装，再登陆自己的账号，就能正常使用了，而且是绝对正版的。</p><p><img src="https://img.mahaofei.com/img/20230314162622.png" alt=""></p><h1>万能激活方法</h1><p>这里提供一个工具的下载链接：<a href="https://huffie.lanzouw.com/i1w7Vuxyzxa">https://huffie.lanzouw.com/i1w7Vuxyzxa</a>，解压后以管理员身份运行。</p><p>具体功能和使用方法不必多说，看图即可（一键激活）。</p><p><strong>需要注意：解压之前一定退出所有安全管家，如果还是找不到，看一下是不是被Windows Defender删掉了</strong></p><p><img src="https://img.mahaofei.com/img/202112230939435-winoffice-1.png" alt=""></p><p>如果完成后，出现【Microsoft office无法验证此产品的许可证，应使用控制面板修复office程序】</p><ol><li>点击【其它】</li><li>选择产品【Microsoft Office 20XX】；选择版本选择【XXXX】（你自己的版本）</li><li>选择类型【Fix_Banner_New】</li><li>点击【开始】</li></ol><p>就可以修复许可证弹窗了。</p><h1>许可证问题解决方案</h1><p>如果按照上面的Fix_Banner_New还是解决不了许可证弹窗问题，那么按照官方回答的方法：</p><p><a href="https://answers.microsoft.com/zh-hans/msoffice/forum/all/win10-office-16/3bf97673-1a84-46be-9e15-71f9859368f4">https://answers.microsoft.com/zh-hans/msoffice/forum/all/win10-office-16/3bf97673-1a84-46be-9e15-71f9859368f4</a></p><p>《修改注册表权限》</p><ol><li>登陆管理者账号</li><li>同时按【win键+R】，输入regedit，打开【注册表】</li><li>展开 【HKEY_USERS】&gt;【 S-1-5-20】</li><li>右键单击【 S-1-5-20】&gt;【权限】</li><li>选择【添加】</li><li>键入登录的用户的名称，选择【检查名称】&gt;【确定】</li><li>选择【高级】&gt;【高级安全设置】&gt;【权限】选项卡</li><li>为下方的用户，添加权限：  【编辑】&gt;【基本权限】&gt; 选择【完全控制】&gt; 【确定】</li></ol><ul><li>刚刚添加的用户</li><li>【NETWORK SERVICE】</li></ul><ol start="9"><li>返回到【高级安全设置】&gt; 勾选【替换所有子对象权限项目】&gt;【确定】</li><li>重启电脑</li></ol><p>如果没找到【NETWORK SERVICE】用户，那么就按照第6步手动添加一个。</p>]]></content>
       
       
       <categories>
@@ -2349,9 +2349,9 @@
       
         <tags>
             
-            <tag> ROS </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> ROS </tag>
             
         </tags>
       
@@ -4305,9 +4305,9 @@
       
         <tags>
             
-            <tag> Ubuntu </tag>
-            
             <tag> 网站搭建 </tag>
+            
+            <tag> Ubuntu </tag>
             
         </tags>
       
@@ -4334,9 +4334,9 @@
       
         <tags>
             
-            <tag> Ubuntu </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> Ubuntu </tag>
             
         </tags>
       
@@ -5003,9 +5003,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> WordPress </tag>
+            
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -5090,9 +5090,9 @@
       
         <tags>
             
-            <tag> 网站搭建 </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> 网站搭建 </tag>
             
         </tags>
       
@@ -5119,9 +5119,9 @@
       
         <tags>
             
-            <tag> 网站搭建 </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> 网站搭建 </tag>
             
             <tag> WordPress </tag>
             
@@ -5150,9 +5150,9 @@
       
         <tags>
             
-            <tag> 网站搭建 </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> 网站搭建 </tag>
             
         </tags>
       
@@ -5618,11 +5618,11 @@
       
         <tags>
             
-            <tag> bugs </tag>
-            
             <tag> 单片机 </tag>
             
             <tag> Proteus </tag>
+            
+            <tag> bugs </tag>
             
         </tags>
       

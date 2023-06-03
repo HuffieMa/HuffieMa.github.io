@@ -1177,9 +1177,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 视觉 </tag>
             
@@ -1830,9 +1830,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> slam </tag>
             
@@ -1861,9 +1861,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> slam </tag>
             
@@ -1892,9 +1892,9 @@
       
         <tags>
             
-            <tag> bugs </tag>
-            
             <tag> 单片机 </tag>
+            
+            <tag> bugs </tag>
             
         </tags>
       
@@ -1932,11 +1932,11 @@
     
     
     <entry>
-      <title>Keil5 C51版 下载与安装教程（51单片机编程软件）</title>
-      <link href="/post/6c3a51dc.html"/>
-      <url>/post/6c3a51dc.html</url>
+      <title>Keil5 MDK版 下载与安装教程（STM32单片机编程软件）</title>
+      <link href="/post/1b083906.html"/>
+      <url>/post/1b083906.html</url>
       
-        <content type="html"><![CDATA[<blockquote><p>阿里云盘<br>链接：<a href="https://www.aliyundrive.com/s/ttZBZXBNMja">https://www.aliyundrive.com/s/ttZBZXBNMja</a><br>下载完成后将文件后缀名改回【.7z】即可正常解压。</p></blockquote><ol><li><p>解压安装包，右键【C51-V957.exe】，<strong>以管理员身份运行</strong></p><p><img src="https://img.mahaofei.com/img/202112232002909-keil51-1.png" alt=""></p></li></ol><ol><li><p>莫得选择，<strong>点击next</strong>继续安装</p><p><img src="https://img.mahaofei.com/img/202112232002704-keil51-2.png" alt=""></p></li></ol><ol><li><p><strong>同意</strong>用户协议，<strong>点击next</strong>继续</p><p><img src="https://img.mahaofei.com/img/202112232003825-keil51-3.png" alt=""></p></li></ol><ol><li><p>选择安装路径，<strong>路径不能有中文</strong>，进行安装（注：如果想要安装51和MDK两个版本的Keil，也就是想要编写51单片机和32单片机两种程序，需要安装在两个单独的文件夹中）</p><p><img src="https://img.mahaofei.com/img/202112232003419-keil51-4.png" alt=""></p></li></ol><ol><li><p><strong>信息随便输</strong>，输完直接<strong>点击next</strong>就可以</p><p><img src="https://img.mahaofei.com/img/202112232003599-keil51-5.png" alt=""></p></li></ol><ol><li><p>安装过程很快，大约十几秒，点击finish完成安装</p><p><img src="https://img.mahaofei.com/img/202112232004114-keil51-6.png" alt=""></p><p><img src="https://img.mahaofei.com/img/202112232004458-keil51-7.png" alt=""></p></li></ol><ol><li><p>回到桌面，找到【Keil5】的快捷方式，右键<strong>以管理员身份运行</strong>，然后打开【File -&gt; License Management】选项卡</p><p><img src="https://img.mahaofei.com/img/202112232004254-keil51-8.png" alt=""></p><p><img src="https://img.mahaofei.com/img/202112232004032-keil51-9.png" alt=""></p></li></ol><ol><li><p>在解压的安装包中找到【Crack.exe】文件，<strong>右键以管理员身份运行</strong></p><p><img src="https://img.mahaofei.com/img/202112232005088-keil51-10.png" alt=""></p></li></ol><ol><li><p>在【License Management】中<strong>复制CID</strong>，<strong>粘贴到破解程序</strong>中，target选择C51，<strong>点击Generate</strong>生成激活码</p><p><img src="https://img.mahaofei.com/img/202112232005496-keil51-11.png" alt=""></p><p><img src="https://img.mahaofei.com/img/202112232005539-keil51-12.png" alt=""></p></li></ol><ol><li><p>将激活码粘贴回【License Management】下方的输入框中，并点击【Add LIC】</p><p><img src="https://img.mahaofei.com/img/202112232006203-keil51-13.png" alt=""></p></li></ol><ol><li><p>可以看到已经成功激活，激活时间到2032年</p><p><img src="https://img.mahaofei.com/img/202112232006493-keil51-14.png" alt=""></p></li></ol>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>阿里云盘<br>链接：<a href="https://www.aliyundrive.com/s/42a1npEEsrw">https://www.aliyundrive.com/s/42a1npEEsrw</a><br>下载完成后将文件后缀名改回【.7z】即可正常解压。</p></blockquote><ol><li><p>解压安装包，<strong>以管理员身份运行</strong>【MDK528.exe】</p><p><img src="https://img.mahaofei.com/img/202112232006461-keilmdk-1.png" alt=""></p></li></ol><ol><li><p>按步骤一直安装就可以，每一步我都在下面截了图，可以对照一下。</p><p><img src="https://img.mahaofei.com/img/202112232007055-keilmdk-2.png" alt=""></p></li></ol><ol><li><p>选择我同意用户协议，然后next</p><p><img src="https://img.mahaofei.com/img/202112232007859-keilmdk-3.png" alt=""></p></li></ol><ol><li><p>选择安装位置，一定要和Keil C51版本安装在<strong>不同的文件夹</strong>中</p><p><img src="https://img.mahaofei.com/img/202112232007389-keilmdk-4.png" alt=""></p></li></ol><ol><li><p>信息随便填</p><p><img src="https://img.mahaofei.com/img/202112232010807-keilmdk-5.png" alt=""></p></li></ol><ol><li><p>等待安装，大约耗时1分钟左右</p><p><img src="https://img.mahaofei.com/img/202112232010318-keilmdk-6.png" alt=""></p></li></ol><ol><li><p>如果安装过程中弹出需要安装某驱动，一定要安装</p><p><img src="https://img.mahaofei.com/img/202112232011061-keilmdk-7.png" alt=""></p></li></ol><ol><li><p>不需要展示新特性，直接下一步点击finish完成即可。</p><p><img src="https://img.mahaofei.com/img/202112232011656-keilmdk-8.png" alt=""></p></li></ol><ol><li><p>出现下面这个包安装界面，直接关闭即可，后续我们手动安装包，要快得多</p><p><img src="https://img.mahaofei.com/img/202112232012974-keilmdk-9.png" alt=""></p></li></ol><blockquote><p>如果之前安装过Keil51版本，想要两个版本共存，需要加入以下步骤。如果仅安装Keil MDK版，可跳过此部分。</p><ol><li><p>打开C51安装路径，找到 TOOLS.INI  这个文件</p></li><li><p>以记事本打开【TOOLS.INI】这个文件，复制 [C51]（包括）以下的全部内容</p></li><li><p>粘贴至MDK-ARM安装目录下的  TOOLS.INI 文件末尾，保存，关闭。</p><p><img src="https://img.mahaofei.com/img/202112232012255-keilmdk-10.png" alt=""></p><ol><li>在桌面找到【Keil 5】的快捷方式，右键以管理员身份运行。然后打开【File -&gt; License Management】选项卡。</li></ol></li></ol></blockquote><pre><code> ![](https://img.mahaofei.com/img/202112232012315-keilmdk-11.png)</code></pre><ol><li><p>复制右上角的CID</p><p><img src="https://img.mahaofei.com/img/202112232013981-keilmdk-12.png" alt=""></p></li></ol><ol><li><p>打开解压的安装包，找到【keygen.exe】，右键以管理员身份运行</p><p><img src="https://img.mahaofei.com/img/202112232013788-keilmdk-13.png" alt=""></p></li></ol><ol><li><p><strong>粘贴CID</strong>到对应的输入框中，<strong>target选择ARM</strong>，然后点击<strong>Generate生成激活码</strong>。</p><p><img src="https://img.mahaofei.com/img/202112232014581-keilmdk-14.png" alt=""></p></li></ol><ol><li><p>复制生成的激活码，回到Keil中的【License Management】对话框，在下方LIC中粘贴激活码，然后点击Add LIC激活成功。（激活的日期过了也不影响使用）</p><p><img src="https://img.mahaofei.com/img/202112232014618-keilmdk-15.png" alt=""></p></li></ol><ol><li><p>安装剩下的两个库文件，直接双击就可以安装。（两个库文件分别对应STM32F1和F4的芯片）</p><p><img src="https://img.mahaofei.com/img/202112232014820-keilmdk-16.png" alt=""></p></li></ol><ol><li><p>至此安装完成，可以正常使用。</p><p><img src="https://img.mahaofei.com/img/202112232015660-keilmdk-17.png" alt=""></p></li></ol>]]></content>
       
       
       <categories>
@@ -1961,11 +1961,11 @@
     
     
     <entry>
-      <title>Keil5 MDK版 下载与安装教程（STM32单片机编程软件）</title>
-      <link href="/post/1b083906.html"/>
-      <url>/post/1b083906.html</url>
+      <title>Keil5 C51版 下载与安装教程（51单片机编程软件）</title>
+      <link href="/post/6c3a51dc.html"/>
+      <url>/post/6c3a51dc.html</url>
       
-        <content type="html"><![CDATA[<blockquote><p>阿里云盘<br>链接：<a href="https://www.aliyundrive.com/s/42a1npEEsrw">https://www.aliyundrive.com/s/42a1npEEsrw</a><br>下载完成后将文件后缀名改回【.7z】即可正常解压。</p></blockquote><ol><li><p>解压安装包，<strong>以管理员身份运行</strong>【MDK528.exe】</p><p><img src="https://img.mahaofei.com/img/202112232006461-keilmdk-1.png" alt=""></p></li></ol><ol><li><p>按步骤一直安装就可以，每一步我都在下面截了图，可以对照一下。</p><p><img src="https://img.mahaofei.com/img/202112232007055-keilmdk-2.png" alt=""></p></li></ol><ol><li><p>选择我同意用户协议，然后next</p><p><img src="https://img.mahaofei.com/img/202112232007859-keilmdk-3.png" alt=""></p></li></ol><ol><li><p>选择安装位置，一定要和Keil C51版本安装在<strong>不同的文件夹</strong>中</p><p><img src="https://img.mahaofei.com/img/202112232007389-keilmdk-4.png" alt=""></p></li></ol><ol><li><p>信息随便填</p><p><img src="https://img.mahaofei.com/img/202112232010807-keilmdk-5.png" alt=""></p></li></ol><ol><li><p>等待安装，大约耗时1分钟左右</p><p><img src="https://img.mahaofei.com/img/202112232010318-keilmdk-6.png" alt=""></p></li></ol><ol><li><p>如果安装过程中弹出需要安装某驱动，一定要安装</p><p><img src="https://img.mahaofei.com/img/202112232011061-keilmdk-7.png" alt=""></p></li></ol><ol><li><p>不需要展示新特性，直接下一步点击finish完成即可。</p><p><img src="https://img.mahaofei.com/img/202112232011656-keilmdk-8.png" alt=""></p></li></ol><ol><li><p>出现下面这个包安装界面，直接关闭即可，后续我们手动安装包，要快得多</p><p><img src="https://img.mahaofei.com/img/202112232012974-keilmdk-9.png" alt=""></p></li></ol><blockquote><p>如果之前安装过Keil51版本，想要两个版本共存，需要加入以下步骤。如果仅安装Keil MDK版，可跳过此部分。</p><ol><li><p>打开C51安装路径，找到 TOOLS.INI  这个文件</p></li><li><p>以记事本打开【TOOLS.INI】这个文件，复制 [C51]（包括）以下的全部内容</p></li><li><p>粘贴至MDK-ARM安装目录下的  TOOLS.INI 文件末尾，保存，关闭。</p><p><img src="https://img.mahaofei.com/img/202112232012255-keilmdk-10.png" alt=""></p><ol><li>在桌面找到【Keil 5】的快捷方式，右键以管理员身份运行。然后打开【File -&gt; License Management】选项卡。</li></ol></li></ol></blockquote><pre><code> ![](https://img.mahaofei.com/img/202112232012315-keilmdk-11.png)</code></pre><ol><li><p>复制右上角的CID</p><p><img src="https://img.mahaofei.com/img/202112232013981-keilmdk-12.png" alt=""></p></li></ol><ol><li><p>打开解压的安装包，找到【keygen.exe】，右键以管理员身份运行</p><p><img src="https://img.mahaofei.com/img/202112232013788-keilmdk-13.png" alt=""></p></li></ol><ol><li><p><strong>粘贴CID</strong>到对应的输入框中，<strong>target选择ARM</strong>，然后点击<strong>Generate生成激活码</strong>。</p><p><img src="https://img.mahaofei.com/img/202112232014581-keilmdk-14.png" alt=""></p></li></ol><ol><li><p>复制生成的激活码，回到Keil中的【License Management】对话框，在下方LIC中粘贴激活码，然后点击Add LIC激活成功。（激活的日期过了也不影响使用）</p><p><img src="https://img.mahaofei.com/img/202112232014618-keilmdk-15.png" alt=""></p></li></ol><ol><li><p>安装剩下的两个库文件，直接双击就可以安装。（两个库文件分别对应STM32F1和F4的芯片）</p><p><img src="https://img.mahaofei.com/img/202112232014820-keilmdk-16.png" alt=""></p></li></ol><ol><li><p>至此安装完成，可以正常使用。</p><p><img src="https://img.mahaofei.com/img/202112232015660-keilmdk-17.png" alt=""></p></li></ol>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>阿里云盘<br>链接：<a href="https://www.aliyundrive.com/s/ttZBZXBNMja">https://www.aliyundrive.com/s/ttZBZXBNMja</a><br>下载完成后将文件后缀名改回【.7z】即可正常解压。</p></blockquote><ol><li><p>解压安装包，右键【C51-V957.exe】，<strong>以管理员身份运行</strong></p><p><img src="https://img.mahaofei.com/img/202112232002909-keil51-1.png" alt=""></p></li></ol><ol><li><p>莫得选择，<strong>点击next</strong>继续安装</p><p><img src="https://img.mahaofei.com/img/202112232002704-keil51-2.png" alt=""></p></li></ol><ol><li><p><strong>同意</strong>用户协议，<strong>点击next</strong>继续</p><p><img src="https://img.mahaofei.com/img/202112232003825-keil51-3.png" alt=""></p></li></ol><ol><li><p>选择安装路径，<strong>路径不能有中文</strong>，进行安装（注：如果想要安装51和MDK两个版本的Keil，也就是想要编写51单片机和32单片机两种程序，需要安装在两个单独的文件夹中）</p><p><img src="https://img.mahaofei.com/img/202112232003419-keil51-4.png" alt=""></p></li></ol><ol><li><p><strong>信息随便输</strong>，输完直接<strong>点击next</strong>就可以</p><p><img src="https://img.mahaofei.com/img/202112232003599-keil51-5.png" alt=""></p></li></ol><ol><li><p>安装过程很快，大约十几秒，点击finish完成安装</p><p><img src="https://img.mahaofei.com/img/202112232004114-keil51-6.png" alt=""></p><p><img src="https://img.mahaofei.com/img/202112232004458-keil51-7.png" alt=""></p></li></ol><ol><li><p>回到桌面，找到【Keil5】的快捷方式，右键<strong>以管理员身份运行</strong>，然后打开【File -&gt; License Management】选项卡</p><p><img src="https://img.mahaofei.com/img/202112232004254-keil51-8.png" alt=""></p><p><img src="https://img.mahaofei.com/img/202112232004032-keil51-9.png" alt=""></p></li></ol><ol><li><p>在解压的安装包中找到【Crack.exe】文件，<strong>右键以管理员身份运行</strong></p><p><img src="https://img.mahaofei.com/img/202112232005088-keil51-10.png" alt=""></p></li></ol><ol><li><p>在【License Management】中<strong>复制CID</strong>，<strong>粘贴到破解程序</strong>中，target选择C51，<strong>点击Generate</strong>生成激活码</p><p><img src="https://img.mahaofei.com/img/202112232005496-keil51-11.png" alt=""></p><p><img src="https://img.mahaofei.com/img/202112232005539-keil51-12.png" alt=""></p></li></ol><ol><li><p>将激活码粘贴回【License Management】下方的输入框中，并点击【Add LIC】</p><p><img src="https://img.mahaofei.com/img/202112232006203-keil51-13.png" alt=""></p></li></ol><ol><li><p>可以看到已经成功激活，激活时间到2032年</p><p><img src="https://img.mahaofei.com/img/202112232006493-keil51-14.png" alt=""></p></li></ol>]]></content>
       
       
       <categories>
@@ -4260,6 +4260,33 @@
     
     
     <entry>
+      <title>ubuntu使用VNC实现远程桌面</title>
+      <link href="/post/c1d87973.html"/>
+      <url>/post/c1d87973.html</url>
+      
+        <content type="html"><![CDATA[<hr><p>此方案已经弃用，更好的方案是使用xrdp远程连接，十分方便。</p><p>参考<a href="https://www.mahaofei.com/post/cdee659e.html">https://www.mahaofei.com/post/cdee659e.html</a>的2.1节</p><hr><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我是在树莓派4B上安装的Ubuntu20.10，想通过VNC实现远程桌面连接，进行接下来的试验。<br>但是在网上搜索了许多关于VNC连接的博客，也尝试了各种方法，但总是出现各种问题，要么连接不上，要么连接上了就黑屏灰屏，总之出现了各种问题，重装了n次系统，最终找到了一种实现的方法。<br><strong>注：已经试验过Ubunt18.04、Ubuntu20.04与Ubuntu20.10，均正常实现</strong></p><h1 id="Windows端"><a href="#Windows端" class="headerlink" title="Windows端"></a>Windows端</h1><p>安装VNC Viewer，进入其<a href="https://www.realvnc.com/en/connect/download/viewer/">VNC Viewer官网</a>下载安装。<br><img src="https://img.mahaofei.com/img/202112231640381-ubuntu-vnc-1.png" alt=""></p><h1 id="Ubuntu端"><a href="#Ubuntu端" class="headerlink" title="Ubuntu端"></a>Ubuntu端</h1><p><strong>进行VNC设置之前，需要有图形界面，没有的可以执行以下代码安装图形界面</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ubuntu-desktop</span><br><span class="line">sudo apt-get install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal</span><br><span class="line">sudo reboot <span class="comment">#重启即可看到图形界面</span></span><br></pre></td></tr></table></figure><h2 id="1-安装x11vnc程序"><a href="#1-安装x11vnc程序" class="headerlink" title="1. 安装x11vnc程序"></a>1. 安装x11vnc程序</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install x11vnc</span><br></pre></td></tr></table></figure><h2 id="2-安装lightdm"><a href="#2-安装lightdm" class="headerlink" title="2. 安装lightdm"></a>2. 安装lightdm</h2><p>因为使用的是gnome图形界面，为了保证x11vnc与图形界面的兼容性，这里需要安装lightdm<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install lightdm</span><br></pre></td></tr></table></figure><br>安装过程中会跳出一个界面，<strong>选择lightdm</strong>即可<br><img src="https://img.mahaofei.com/img/202112231640773-ubuntu-vnc-2.png" alt=""></p><h2 id="3-创建配置目录"><a href="#3-创建配置目录" class="headerlink" title="3. 创建配置目录"></a>3. 创建配置目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> -pv /home/【USERNAME】/.vnc</span><br></pre></td></tr></table></figure><p>其中的<strong>【USERNAME】</strong>替换成你的用户名**</p><h2 id="4-生成当前用户的VNC连接密码"><a href="#4-生成当前用户的VNC连接密码" class="headerlink" title="4. 生成当前用户的VNC连接密码"></a>4. 生成当前用户的VNC连接密码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo x11vnc -storepasswd 【Password】 /home/【USERNAME】/.vnc/passwd</span><br></pre></td></tr></table></figure><p>其中的<strong>【Password】</strong>处设置连接VNC时的密码，<strong>【USERNAME】</strong>替换成你的用户名<br><img src="https://img.mahaofei.com/img/202112231641706-ubuntu-vnc-3.png" alt=""></p><h2 id="5-生成VNC配置文件"><a href="#5-生成VNC配置文件" class="headerlink" title="5. 生成VNC配置文件"></a>5. 生成VNC配置文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span>&gt;x11vnc.service&lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">[Unit] </span></span><br><span class="line"><span class="string">Description=Start x11vnc at startup. </span></span><br><span class="line"><span class="string">After=multi-user.target </span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">[Service] </span></span><br><span class="line"><span class="string">Type=simple </span></span><br><span class="line"><span class="string">ExecStart=/usr/bin/x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbauth /home/【USERNAME】/.vnc/passwd -rfbport 5900 -shared </span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">[Install] </span></span><br><span class="line"><span class="string">WantedBy=multi-user.target</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure><p>配置文件生成后将其移动到<code>/lib/systemd/sydtem/</code>目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mv</span> x11vnc.service /lib/systemd/system/x11vnc.service</span><br></pre></td></tr></table></figure><br>修改权限为root<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chown</span> root:root /lib/systemd/system/x11vnc.service</span><br></pre></td></tr></table></figure></p><h2 id="6-重新加载服务配置文件"><a href="#6-重新加载服务配置文件" class="headerlink" title="6. 重新加载服务配置文件"></a>6. 重新加载服务配置文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure><p>执行以下命令可以查看服务开启情况<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl list-unit-files | grep x11vnc</span><br></pre></td></tr></table></figure><br><img src="https://img.mahaofei.com/img/202112231641384-ubuntu-vnc-4.png" alt=""></p><h2 id="7-开机启动VNC服务"><a href="#7-开机启动VNC服务" class="headerlink" title="7. 开机启动VNC服务"></a>7. 开机启动VNC服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> x11vnc.service</span><br></pre></td></tr></table></figure><h2 id="8-重启系统"><a href="#8-重启系统" class="headerlink" title="8. 重启系统"></a>8. 重启系统</h2><p>因为之前安装了lightdm图形管理程序，所以需要重启一下系统<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure></p><h2 id="9-查看一下监听端口"><a href="#9-查看一下监听端口" class="headerlink" title="9. 查看一下监听端口"></a>9. 查看一下监听端口</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ss -tunlp</span><br></pre></td></tr></table></figure><p>可以看到x11vnc的监听端口已经打开了<br><img src="https://img.mahaofei.com/img/202112231641133-ubuntu-vnc-5.png" alt=""></p><h2 id="10-共享剪切板"><a href="#10-共享剪切板" class="headerlink" title="10. 共享剪切板"></a>10. 共享剪切板</h2><p>由于VNC Viewer只能控制鼠标键盘，想要复制bug查询，或者复制代码的话，很不方便。</p><p>安装下面的软件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install autocutsel</span><br></pre></td></tr></table></figure><p>然后使用下面的命令打开</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autocutsel</span><br></pre></td></tr></table></figure><p>或者将这条命令加入到开机自启动里面（在开始-Startu Applications里面可以设置）</p><p><img src="https://img.mahaofei.com/img/20220903193047.png" alt=""></p><h1 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h1><p>打开windows端的VNC Viewer，输入IP地址:5900即<code>192.168.6.6:5900</code>进行远程连接，密码是之前设置的密码。<br><img src="https://img.mahaofei.com/img/202112231641205-ubuntu-vnc-6.png" alt=""></p><p><img src="https://img.mahaofei.com/img/202112231642992-ubuntu-vnc-7.png" alt=""></p><h1 id="解决不插显示器的远程桌面"><a href="#解决不插显示器的远程桌面" class="headerlink" title="解决不插显示器的远程桌面"></a>解决不插显示器的远程桌面</h1><p>安装xserver-xorg-video-dummy，做一个虚拟的显示器</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install xserver-xorg-video-dummy</span><br></pre></td></tr></table></figure><p>具体配置只要复制粘贴就可以了：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/share/X11/xorg.conf.d</span><br><span class="line">sudo vim xorg.conf</span><br></pre></td></tr></table></figure><p>建立xorg.conf文件，粘贴如下内容：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Section &quot;Device&quot;</span><br><span class="line">    Identifier &quot;DummyDevice&quot;</span><br><span class="line">    Driver &quot;dummy&quot;</span><br><span class="line">    VideoRam 256000</span><br><span class="line">EndSection</span><br><span class="line"> </span><br><span class="line">Section &quot;Screen&quot;</span><br><span class="line">    Identifier &quot;DummyScreen&quot;</span><br><span class="line">    Device &quot;DummyDevice&quot;</span><br><span class="line">    Monitor &quot;DummyMonitor&quot;</span><br><span class="line">    DefaultDepth 24</span><br><span class="line">    SubSection &quot;Display&quot;</span><br><span class="line">        Depth 24</span><br><span class="line">        Modes &quot;1920x1080_60.0&quot;</span><br><span class="line">    EndSubSection</span><br><span class="line">EndSection</span><br><span class="line"> </span><br><span class="line">Section &quot;Monitor&quot;</span><br><span class="line">    Identifier &quot;DummyMonitor&quot;</span><br><span class="line">    HorizSync 30-70</span><br><span class="line">    VertRefresh 50-75</span><br><span class="line">    ModeLine &quot;1920x1080&quot; 148.50 1920 2448 2492 2640 1080 1084 1089 1125 +Hsync +Vsync</span><br><span class="line">EndSection</span><br></pre></td></tr></table></figure><p>然后重启即可。配置的1080分辨率的虚拟显示器和直接连接的物理机器一样</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 程序设计 </category>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Ubuntu </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>NodeJs安装方法</title>
       <link href="/post/7349121e.html"/>
       <url>/post/7349121e.html</url>
@@ -4278,34 +4305,7 @@
       
         <tags>
             
-            <tag> Ubuntu </tag>
-            
             <tag> 网站搭建 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>ubuntu使用VNC实现远程桌面</title>
-      <link href="/post/c1d87973.html"/>
-      <url>/post/c1d87973.html</url>
-      
-        <content type="html"><![CDATA[<hr><p>此方案已经弃用，更好的方案是使用xrdp远程连接，十分方便。</p><p>参考<a href="https://www.mahaofei.com/post/cdee659e.html">https://www.mahaofei.com/post/cdee659e.html</a>的2.1节</p><hr><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我是在树莓派4B上安装的Ubuntu20.10，想通过VNC实现远程桌面连接，进行接下来的试验。<br>但是在网上搜索了许多关于VNC连接的博客，也尝试了各种方法，但总是出现各种问题，要么连接不上，要么连接上了就黑屏灰屏，总之出现了各种问题，重装了n次系统，最终找到了一种实现的方法。<br><strong>注：已经试验过Ubunt18.04、Ubuntu20.04与Ubuntu20.10，均正常实现</strong></p><h1 id="Windows端"><a href="#Windows端" class="headerlink" title="Windows端"></a>Windows端</h1><p>安装VNC Viewer，进入其<a href="https://www.realvnc.com/en/connect/download/viewer/">VNC Viewer官网</a>下载安装。<br><img src="https://img.mahaofei.com/img/202112231640381-ubuntu-vnc-1.png" alt=""></p><h1 id="Ubuntu端"><a href="#Ubuntu端" class="headerlink" title="Ubuntu端"></a>Ubuntu端</h1><p><strong>进行VNC设置之前，需要有图形界面，没有的可以执行以下代码安装图形界面</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ubuntu-desktop</span><br><span class="line">sudo apt-get install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal</span><br><span class="line">sudo reboot <span class="comment">#重启即可看到图形界面</span></span><br></pre></td></tr></table></figure><h2 id="1-安装x11vnc程序"><a href="#1-安装x11vnc程序" class="headerlink" title="1. 安装x11vnc程序"></a>1. 安装x11vnc程序</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install x11vnc</span><br></pre></td></tr></table></figure><h2 id="2-安装lightdm"><a href="#2-安装lightdm" class="headerlink" title="2. 安装lightdm"></a>2. 安装lightdm</h2><p>因为使用的是gnome图形界面，为了保证x11vnc与图形界面的兼容性，这里需要安装lightdm<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install lightdm</span><br></pre></td></tr></table></figure><br>安装过程中会跳出一个界面，<strong>选择lightdm</strong>即可<br><img src="https://img.mahaofei.com/img/202112231640773-ubuntu-vnc-2.png" alt=""></p><h2 id="3-创建配置目录"><a href="#3-创建配置目录" class="headerlink" title="3. 创建配置目录"></a>3. 创建配置目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> -pv /home/【USERNAME】/.vnc</span><br></pre></td></tr></table></figure><p>其中的<strong>【USERNAME】</strong>替换成你的用户名**</p><h2 id="4-生成当前用户的VNC连接密码"><a href="#4-生成当前用户的VNC连接密码" class="headerlink" title="4. 生成当前用户的VNC连接密码"></a>4. 生成当前用户的VNC连接密码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo x11vnc -storepasswd 【Password】 /home/【USERNAME】/.vnc/passwd</span><br></pre></td></tr></table></figure><p>其中的<strong>【Password】</strong>处设置连接VNC时的密码，<strong>【USERNAME】</strong>替换成你的用户名<br><img src="https://img.mahaofei.com/img/202112231641706-ubuntu-vnc-3.png" alt=""></p><h2 id="5-生成VNC配置文件"><a href="#5-生成VNC配置文件" class="headerlink" title="5. 生成VNC配置文件"></a>5. 生成VNC配置文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span>&gt;x11vnc.service&lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">[Unit] </span></span><br><span class="line"><span class="string">Description=Start x11vnc at startup. </span></span><br><span class="line"><span class="string">After=multi-user.target </span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">[Service] </span></span><br><span class="line"><span class="string">Type=simple </span></span><br><span class="line"><span class="string">ExecStart=/usr/bin/x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbauth /home/【USERNAME】/.vnc/passwd -rfbport 5900 -shared </span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">[Install] </span></span><br><span class="line"><span class="string">WantedBy=multi-user.target</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure><p>配置文件生成后将其移动到<code>/lib/systemd/sydtem/</code>目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mv</span> x11vnc.service /lib/systemd/system/x11vnc.service</span><br></pre></td></tr></table></figure><br>修改权限为root<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chown</span> root:root /lib/systemd/system/x11vnc.service</span><br></pre></td></tr></table></figure></p><h2 id="6-重新加载服务配置文件"><a href="#6-重新加载服务配置文件" class="headerlink" title="6. 重新加载服务配置文件"></a>6. 重新加载服务配置文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure><p>执行以下命令可以查看服务开启情况<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl list-unit-files | grep x11vnc</span><br></pre></td></tr></table></figure><br><img src="https://img.mahaofei.com/img/202112231641384-ubuntu-vnc-4.png" alt=""></p><h2 id="7-开机启动VNC服务"><a href="#7-开机启动VNC服务" class="headerlink" title="7. 开机启动VNC服务"></a>7. 开机启动VNC服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> x11vnc.service</span><br></pre></td></tr></table></figure><h2 id="8-重启系统"><a href="#8-重启系统" class="headerlink" title="8. 重启系统"></a>8. 重启系统</h2><p>因为之前安装了lightdm图形管理程序，所以需要重启一下系统<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure></p><h2 id="9-查看一下监听端口"><a href="#9-查看一下监听端口" class="headerlink" title="9. 查看一下监听端口"></a>9. 查看一下监听端口</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ss -tunlp</span><br></pre></td></tr></table></figure><p>可以看到x11vnc的监听端口已经打开了<br><img src="https://img.mahaofei.com/img/202112231641133-ubuntu-vnc-5.png" alt=""></p><h2 id="10-共享剪切板"><a href="#10-共享剪切板" class="headerlink" title="10. 共享剪切板"></a>10. 共享剪切板</h2><p>由于VNC Viewer只能控制鼠标键盘，想要复制bug查询，或者复制代码的话，很不方便。</p><p>安装下面的软件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install autocutsel</span><br></pre></td></tr></table></figure><p>然后使用下面的命令打开</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autocutsel</span><br></pre></td></tr></table></figure><p>或者将这条命令加入到开机自启动里面（在开始-Startu Applications里面可以设置）</p><p><img src="https://img.mahaofei.com/img/20220903193047.png" alt=""></p><h1 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h1><p>打开windows端的VNC Viewer，输入IP地址:5900即<code>192.168.6.6:5900</code>进行远程连接，密码是之前设置的密码。<br><img src="https://img.mahaofei.com/img/202112231641205-ubuntu-vnc-6.png" alt=""></p><p><img src="https://img.mahaofei.com/img/202112231642992-ubuntu-vnc-7.png" alt=""></p><h1 id="解决不插显示器的远程桌面"><a href="#解决不插显示器的远程桌面" class="headerlink" title="解决不插显示器的远程桌面"></a>解决不插显示器的远程桌面</h1><p>安装xserver-xorg-video-dummy，做一个虚拟的显示器</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install xserver-xorg-video-dummy</span><br></pre></td></tr></table></figure><p>具体配置只要复制粘贴就可以了：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/share/X11/xorg.conf.d</span><br><span class="line">sudo vim xorg.conf</span><br></pre></td></tr></table></figure><p>建立xorg.conf文件，粘贴如下内容：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Section &quot;Device&quot;</span><br><span class="line">    Identifier &quot;DummyDevice&quot;</span><br><span class="line">    Driver &quot;dummy&quot;</span><br><span class="line">    VideoRam 256000</span><br><span class="line">EndSection</span><br><span class="line"> </span><br><span class="line">Section &quot;Screen&quot;</span><br><span class="line">    Identifier &quot;DummyScreen&quot;</span><br><span class="line">    Device &quot;DummyDevice&quot;</span><br><span class="line">    Monitor &quot;DummyMonitor&quot;</span><br><span class="line">    DefaultDepth 24</span><br><span class="line">    SubSection &quot;Display&quot;</span><br><span class="line">        Depth 24</span><br><span class="line">        Modes &quot;1920x1080_60.0&quot;</span><br><span class="line">    EndSubSection</span><br><span class="line">EndSection</span><br><span class="line"> </span><br><span class="line">Section &quot;Monitor&quot;</span><br><span class="line">    Identifier &quot;DummyMonitor&quot;</span><br><span class="line">    HorizSync 30-70</span><br><span class="line">    VertRefresh 50-75</span><br><span class="line">    ModeLine &quot;1920x1080&quot; 148.50 1920 2448 2492 2640 1080 1084 1089 1125 +Hsync +Vsync</span><br><span class="line">EndSection</span><br></pre></td></tr></table></figure><p>然后重启即可。配置的1080分辨率的虚拟显示器和直接连接的物理机器一样</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 程序设计 </category>
-          
-          <category> Linux </category>
-          
-      </categories>
-      
-      
-        <tags>
             
             <tag> Ubuntu </tag>
             
@@ -4334,9 +4334,9 @@
       
         <tags>
             
-            <tag> Ubuntu </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> Ubuntu </tag>
             
         </tags>
       
@@ -5003,9 +5003,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> WordPress </tag>
+            
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -5090,9 +5090,9 @@
       
         <tags>
             
-            <tag> 网站搭建 </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> 网站搭建 </tag>
             
         </tags>
       
@@ -5119,9 +5119,9 @@
       
         <tags>
             
-            <tag> 网站搭建 </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> 网站搭建 </tag>
             
             <tag> WordPress </tag>
             
@@ -5150,9 +5150,9 @@
       
         <tags>
             
-            <tag> 网站搭建 </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> 网站搭建 </tag>
             
         </tags>
       
@@ -5618,11 +5618,11 @@
       
         <tags>
             
-            <tag> bugs </tag>
-            
             <tag> 单片机 </tag>
             
             <tag> Proteus </tag>
+            
+            <tag> bugs </tag>
             
         </tags>
       

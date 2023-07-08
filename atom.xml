@@ -35,9 +35,9 @@
     <category term="ros" scheme="https://www.mahaofei.com/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA/ros/"/>
     
     
-    <category term="bugs" scheme="https://www.mahaofei.com/tags/bugs/"/>
-    
     <category term="ROS" scheme="https://www.mahaofei.com/tags/ROS/"/>
+    
+    <category term="bugs" scheme="https://www.mahaofei.com/tags/bugs/"/>
     
   </entry>
   

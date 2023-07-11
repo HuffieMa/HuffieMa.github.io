@@ -117,9 +117,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 抓取 </tag>
             
@@ -249,9 +249,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 抓取 </tag>
             
@@ -311,9 +311,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 视觉 </tag>
             
@@ -348,9 +348,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 视觉 </tag>
             
@@ -815,9 +815,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 视觉 </tag>
             
@@ -1762,9 +1762,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 视觉 </tag>
             
@@ -1899,11 +1899,11 @@
     
     
     <entry>
-      <title>深度学习环境配置Pytorch</title>
-      <link href="/post/20d30e4e.html"/>
-      <url>/post/20d30e4e.html</url>
+      <title>深度学习环境配置CUDA+TensorFlow2+Keras</title>
+      <link href="/post/a858b698.html"/>
+      <url>/post/a858b698.html</url>
       
-        <content type="html"><![CDATA[<h1 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h1><p>Anaconda是管理各个python包的工具，这里我们主要使用的是numpy，以及其他的一些常用包。</p><p>Anaconda官网链接：<a href="https://www.anaconda.com/">https://www.anaconda.com/</a></p><p>各个系统版本的Anaconda安装程序都可以直接下载安装即可，相关使用方法可以参考<a href="https://www.mahaofei.com/post/8543c9d.html">该文章</a></p><h1 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h1><ol><li>首先<strong>查看自己电脑GPU对应的cuda版本</strong>，如图所示<strong>打开 NVIDIA控制面板-&gt;帮助-&gt;系统信息-&gt;组件</strong>（可在控制中心或右下角通知栏打开），我这里GPU对应的cuda版本是11.6.106，所以安装的cuda不能超过这个版本。</li></ol><p><img src="https://img.mahaofei.com/img/20220515111335.png" alt=""></p><p>或者在cmd命令行输入<code>nvidia-smi</code>也可以查看CUDA版本。</p><ol><li><strong>进入<a href="https://developer.nvidia.com/cuda-toolkit-archive">CUDA Toolkit Archive</a>网站</strong>选择低于刚才查到的版本的cudatoolkit，本文选择CUDA Toolkit 11.0 Update 3，<strong>下载安装包</strong>约2.7G。</li></ol><blockquote><p>注意：这里选择的cuda版本会决定后面安装cudnn和tensorflow-gpu的版本，三者是相关的，如果版本不匹配将无法使用，具体匹配版本参考<a href="https://tensorflow.google.cn/install/source_windows">https://tensorflow.google.cn/install/source_windows</a>，下表为节选。</p></blockquote><div class="table-container"><table><thead><tr><th style="text-align:left">版本</th><th style="text-align:left">Python 版本</th><th style="text-align:left">编译器</th><th style="text-align:left">构建工具</th><th style="text-align:left">cuDNN</th><th style="text-align:left">CUDA</th></tr></thead><tbody><tr><td style="text-align:left">tensorflow_gpu-2.6.0</td><td style="text-align:left">3.6-3.9</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 3.7.2</td><td style="text-align:left">8.1</td><td style="text-align:left">11.2</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.5.0</td><td style="text-align:left">3.6-3.9</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 3.7.2</td><td style="text-align:left">8.1</td><td style="text-align:left">11.2</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.4.0</td><td style="text-align:left">3.6-3.8</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 3.1.0</td><td style="text-align:left">8.0</td><td style="text-align:left">11.0</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.3.0</td><td style="text-align:left">3.5-3.8</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 3.1.0</td><td style="text-align:left">7.6</td><td style="text-align:left">10.1</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.2.0</td><td style="text-align:left">3.5-3.8</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 2.0.0</td><td style="text-align:left">7.6</td><td style="text-align:left">10.1</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.1.0</td><td style="text-align:left">3.5-3.7</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 0.27.1-0.29.1</td><td style="text-align:left">7.6</td><td style="text-align:left">10.1</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.0.0</td><td style="text-align:left">3.5-3.7</td><td style="text-align:left">MSVC 2017</td><td style="text-align:left">Bazel 0.26.1</td><td style="text-align:left">7.4</td><td style="text-align:left">10</td></tr><tr><td style="text-align:left">tensorflow_gpu-1.15.0</td><td style="text-align:left">3.5-3.7</td><td style="text-align:left">MSVC 2017</td><td style="text-align:left">Bazel 0.26.1</td><td style="text-align:left">7.4</td><td style="text-align:left">10</td></tr><tr><td style="text-align:left">tensorflow_gpu-1.14.0</td><td style="text-align:left">3.5-3.7</td><td style="text-align:left">MSVC 2017</td><td style="text-align:left">Bazel 0.24.1-0.25.2</td><td style="text-align:left">7.4</td><td style="text-align:left">10</td></tr><tr><td style="text-align:left">tensorflow_gpu-1.13.0</td><td style="text-align:left">3.5-3.7</td><td style="text-align:left">MSVC 2015 update 3</td><td style="text-align:left">Bazel 0.19.0-0.21.0</td><td style="text-align:left">7.4</td><td style="text-align:left">10</td></tr></tbody></table></div><p><img src="https://img.mahaofei.com/img/20220515141105.png" alt=""></p><ol><li>双击下载的<strong>exe安装包</strong>，选择<strong>临时解压</strong>位置，然后点击ok，解压时间两分钟左右。</li></ol><p><img src="https://img.mahaofei.com/img/20220515140740.png" alt=""></p><ol><li><strong>同意许可协议</strong>，然后选择<strong>自定义安装</strong>选项，然后点击<strong>下一步</strong></li></ol><p><img src="https://img.mahaofei.com/img/20220515141240.png" alt=""></p><p><img src="https://img.mahaofei.com/img/20220515141310.png" alt=""></p><ol><li>选择驱动程序组件，一定要<strong>勾选CUDA</strong>，然后点击<strong>下一步</strong>。</li></ol><p><img src="https://img.mahaofei.com/img/20220515141348.png" alt=""></p><ol><li>选择自己电脑上的一个安装位置，然后<strong>开始安装</strong>。</li></ol><p><img src="https://img.mahaofei.com/img/20220515141701.png" alt=""></p><ol><li><p><strong>等待安装结束</strong>，本电脑18年笔记本机械硬盘安装<strong>耗时约5分钟</strong></p></li><li><p><strong>检查环境变量</strong>，一般安装完成后会自动配置好环境变量，打开<strong>设置-系统-系统信息-高级系统设置-环境变量</strong>进行检查，如果没有则需要自行添加（注意添加时修改成自己的安装路径）</p></li></ol><ul><li>系统变量中是否有<strong>CUDA</strong>和<strong>NVCUDASAMPLES</strong>两组环境变量。</li></ul><p><img src="https://img.mahaofei.com/img/20220515142616.png" alt=""></p><ul><li>打开系统变量的Path，查看是否有以下环境变量。</li></ul><p><img src="https://img.mahaofei.com/img/20220515142701.png" alt=""></p><ol><li>CUDA安装完成</li></ol><h1 id="Pytorch"><a href="#Pytorch" class="headerlink" title="Pytorch"></a>Pytorch</h1><p><strong>（1）创建Pytorch环境</strong></p><p>使用anaconda创建一个pytorch的虚拟环境，主要是为了区分不同的项目，比如tensorflow和pytorch使用的各种包环境等都是不同的，新建一个环境可以处理项目之间不兼容的问题。</p><ol><li><p>打开<code>Anaconda Prompt</code></p></li><li><p>新建一个虚拟环境</p></li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n pytorch python=3.8</span><br></pre></td></tr></table></figure><p>这里创建一个pytorch环境，语句中pytorch是环境名，叫什么都可以，python版本这里3.8和3.9都可以。</p><p>使用<code>conda info --envs</code>命令可以看到所有环境，使用<code>conda activate pytorch</code>可以激活刚才创建的pytorch环境。</p><p>前面从（base）变为（pytorch）时表示此时已经切换到pytorch环境。</p><p><img src="https://img.mahaofei.com/img/20220705182340.png" alt=""></p><p><strong>（2）安装pytorch</strong></p><p>进入PyTorch官网：<a href="https://pytorch.org/">https://pytorch.org/</a>，可以看到pytorch安装页面。</p><p>这里默认已经根据你的电脑情况选择了一部分信息，只需要选择CUDA版本即可，刚才查看了我的电脑cuda版本是11.6.106，所以这里选择CUDA 11.6。</p><p><img src="https://img.mahaofei.com/img/20220705182724.png" alt=""></p><p>这里提示了安装前电脑需要安装cudatoolkit，上一节我们已经安装了，所以直接在conda的pytorch环境中运行下面给出的安装代码即可。</p><p>进入虚拟环境</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate pytorch</span><br></pre></td></tr></table></figure><p>安装pytorch</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch torchvision torchaudio cudatoolkit=11.6 -c pytorch -c conda-forge</span><br></pre></td></tr></table></figure><blockquote><p>如果下载报错，注意关掉自己的科学上网工具，然后到<a href="https://mirror.tuna.tsinghua.edu.cn/help/anaconda/">清华大学镜像站</a>按步骤添加一下索引。<br>如果仍报错且自己能够科学上网，那么可以使用命令<code>conda config --remove-key channels</code>删除清华源，并删除<code>C:/用户/xxx/.condarc</code>文件，使用科学上网+默认源下载。</p></blockquote><h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>打开Anaconda Prompt命令行，进入pytorch环境。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate pytorch</span><br></pre></td></tr></table></figure><p>输入<code>python</code>，进入python交互界面</p><p>输入下面命令进行测试：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch </span><br><span class="line"><span class="built_in">print</span>(torch.__version__) <span class="comment"># pytorch版本</span></span><br><span class="line"><span class="built_in">print</span>(torch.version.cuda) <span class="comment"># cuda版本</span></span><br><span class="line"><span class="built_in">print</span>(torch.cuda.is_available()) <span class="comment"># 查看cuda是否可用</span></span><br></pre></td></tr></table></figure><p><img src="https://img.mahaofei.com/img/20220705205436.png" alt=""></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h1><p>Anaconda是管理各个python包的工具，这里我们主要使用的是numpy，以及其他的一些常用包。</p><p>Anaconda官网链接：<a href="https://www.anaconda.com/">https://www.anaconda.com/</a></p><p>各个系统版本的Anaconda安装程序都可以直接下载安装即可，相关使用方法可以参考<a href="https://www.mahaofei.com/post/8543c9d.html">该文章</a></p><h1 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h1><ol><li>首先<strong>查看自己电脑GPU对应的cuda版本</strong>，如图所示<strong>打开 NVIDIA控制面板-&gt;帮助-&gt;系统信息-&gt;组件</strong>（可在控制中心或右下角通知栏打开），我这里GPU对应的cuda版本是11.6.106，所以安装的cuda不能超过这个版本。</li></ol><p><img src="https://img.mahaofei.com/img/20220515111335.png" alt=""></p><p>或者在cmd命令行输入<code>nvidia-smi</code>也可以查看CUDA版本。</p><ol><li><strong>进入<a href="https://developer.nvidia.com/cuda-toolkit-archive">CUDA Toolkit Archive</a>网站</strong>选择低于刚才查到的版本的cudatoolkit，本文选择CUDA Toolkit 11.0 Update 3，<strong>下载安装包</strong>约2.7G。</li></ol><blockquote><p>注意：这里选择的cuda版本会决定后面安装cudnn和tensorflow-gpu的版本，三者是相关的，如果版本不匹配将无法使用，具体匹配版本参考<a href="https://tensorflow.google.cn/install/source_windows">https://tensorflow.google.cn/install/source_windows</a>，下表为节选。</p></blockquote><div class="table-container"><table><thead><tr><th style="text-align:left">版本</th><th style="text-align:left">Python 版本</th><th style="text-align:left">编译器</th><th style="text-align:left">构建工具</th><th style="text-align:left">cuDNN</th><th style="text-align:left">CUDA</th></tr></thead><tbody><tr><td style="text-align:left">tensorflow_gpu-2.6.0</td><td style="text-align:left">3.6-3.9</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 3.7.2</td><td style="text-align:left">8.1</td><td style="text-align:left">11.2</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.5.0</td><td style="text-align:left">3.6-3.9</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 3.7.2</td><td style="text-align:left">8.1</td><td style="text-align:left">11.2</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.4.0</td><td style="text-align:left">3.6-3.8</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 3.1.0</td><td style="text-align:left">8.0</td><td style="text-align:left">11.0</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.3.0</td><td style="text-align:left">3.5-3.8</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 3.1.0</td><td style="text-align:left">7.6</td><td style="text-align:left">10.1</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.2.0</td><td style="text-align:left">3.5-3.8</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 2.0.0</td><td style="text-align:left">7.6</td><td style="text-align:left">10.1</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.1.0</td><td style="text-align:left">3.5-3.7</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 0.27.1-0.29.1</td><td style="text-align:left">7.6</td><td style="text-align:left">10.1</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.0.0</td><td style="text-align:left">3.5-3.7</td><td style="text-align:left">MSVC 2017</td><td style="text-align:left">Bazel 0.26.1</td><td style="text-align:left">7.4</td><td style="text-align:left">10</td></tr><tr><td style="text-align:left">tensorflow_gpu-1.15.0</td><td style="text-align:left">3.5-3.7</td><td style="text-align:left">MSVC 2017</td><td style="text-align:left">Bazel 0.26.1</td><td style="text-align:left">7.4</td><td style="text-align:left">10</td></tr><tr><td style="text-align:left">tensorflow_gpu-1.14.0</td><td style="text-align:left">3.5-3.7</td><td style="text-align:left">MSVC 2017</td><td style="text-align:left">Bazel 0.24.1-0.25.2</td><td style="text-align:left">7.4</td><td style="text-align:left">10</td></tr><tr><td style="text-align:left">tensorflow_gpu-1.13.0</td><td style="text-align:left">3.5-3.7</td><td style="text-align:left">MSVC 2015 update 3</td><td style="text-align:left">Bazel 0.19.0-0.21.0</td><td style="text-align:left">7.4</td><td style="text-align:left">10</td></tr></tbody></table></div><p><img src="https://img.mahaofei.com/img/20220515141105.png" alt=""></p><ol><li>双击下载的<strong>exe安装包</strong>，选择<strong>临时解压</strong>位置，然后点击ok，解压时间两分钟左右。</li></ol><p><img src="https://img.mahaofei.com/img/20220515140740.png" alt=""></p><ol><li><strong>同意许可协议</strong>，然后选择<strong>自定义安装</strong>选项，然后点击<strong>下一步</strong></li></ol><p><img src="https://img.mahaofei.com/img/20220515141240.png" alt=""></p><p><img src="https://img.mahaofei.com/img/20220515141310.png" alt=""></p><ol><li>选择驱动程序组件，一定要<strong>勾选CUDA</strong>，然后点击<strong>下一步</strong>。</li></ol><p><img src="https://img.mahaofei.com/img/20220515141348.png" alt=""></p><ol><li>选择自己电脑上的一个安装位置，然后<strong>开始安装</strong>。</li></ol><p><img src="https://img.mahaofei.com/img/20220515141701.png" alt=""></p><ol><li><p><strong>等待安装结束</strong>，本电脑18年笔记本机械硬盘安装<strong>耗时约5分钟</strong></p></li><li><p><strong>检查环境变量</strong>，一般安装完成后会自动配置好环境变量，打开<strong>设置-系统-系统信息-高级系统设置-环境变量</strong>进行检查，如果没有则需要自行添加（注意添加时修改成自己的安装路径）</p></li></ol><ul><li>系统变量中是否有<strong>CUDA</strong>和<strong>NVCUDASAMPLES</strong>两组环境变量。</li></ul><p><img src="https://img.mahaofei.com/img/20220515142616.png" alt=""></p><ul><li>打开系统变量的Path，查看是否有以下环境变量。</li></ul><p><img src="https://img.mahaofei.com/img/20220515142701.png" alt=""></p><ol><li>CUDA安装完成</li></ol><h1 id="cnDNN"><a href="#cnDNN" class="headerlink" title="cnDNN"></a>cnDNN</h1><ol><li>打开<a href="https://developer.nvidia.com/rdp/cudnn-archive">cudnn官网</a>，根据上面的表格查看自己应该下载的cuDNN版本，我的CUDA版本为11.0，对应cuDNN版本为8.0，注意看清cuDNN后面有对应的CUDA版本，一个cuDNN可能对应多个版本的CUDA，下载时会要求先注册NVIDIA账号。</li></ol><p><img src="https://img.mahaofei.com/img/20220515140956.png" alt=""></p><ol><li>解压文件，将解压后的文件移动到CUDA对应的安装目录中</li></ol><p><img src="https://img.mahaofei.com/img/20220515143854.png" alt=""></p><ol><li>cuDNN安装完成</li></ol><h1 id="安装TensorFlow"><a href="#安装TensorFlow" class="headerlink" title="安装TensorFlow"></a>安装TensorFlow</h1><ol><li>打开cmd命令行界面（建议以管理员身份打开），切换opentuna的pip镜像源</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip config set global.index-url https://opentuna.cn/pypi/web/simple</span><br></pre></td></tr></table></figure><ol><li>创建虚拟环境，后面跟的是电脑安装的python版本，注意是否与</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n tensorflow2 python=3.8</span><br></pre></td></tr></table></figure><ol><li>激活虚拟环境</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate tensorflow2</span><br></pre></td></tr></table></figure><ol><li>安装tensorflow，具体版本号根据上面的表格对应。</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install tensorflow-gpu==2.3.0</span><br></pre></td></tr></table></figure><p><img src="https://img.mahaofei.com/img/20220515145711.png" alt=""></p><ol><li>验证安装是否成功，打开cmd界面，输入以下命令，查看输出是否Successfly</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">tf.config.list_physical_devices(<span class="string">&#x27;GPU&#x27;</span>)</span><br></pre></td></tr></table></figure><p><img src="https://img.mahaofei.com/img/20220515154240.png" alt=""></p><p>如果出现<code>Could not load dynamic library &#39;cudart64_110.dll&#39;</code>不要慌，说明安装完成之后没有重启电脑，重启再运行就好了。</p><h1 id="Keras"><a href="#Keras" class="headerlink" title="Keras"></a>Keras</h1><ol><li>TensorFlow与Keras版本对应参考下表</li></ol><div class="table-container"><table><thead><tr><th>Tensorflow</th><th>Keras</th></tr></thead><tbody><tr><td>TensorFlow 2.0.0</td><td>Keras 2.3.1</td></tr><tr><td>TensorFlow 2.1.0</td><td>Keras 2.3.1</td></tr><tr><td>TensorFlow 2.2.0</td><td>Keras 2.3.1</td></tr><tr><td>TensorFlow 2.4.0</td><td>Keras 2.4.3</td></tr><tr><td>TensorFlow 2.6.0</td><td>Keras 2.6.0</td></tr></tbody></table></div><ol><li>运行仍然在Anaconda的<strong>tensorflow2环境中运行下面的指令</strong></li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install keras==2.4.3</span><br></pre></td></tr></table></figure><p><img src="https://img.mahaofei.com/img/20220515151729.png" alt=""></p>]]></content>
       
       
       <categories>
@@ -1928,11 +1928,11 @@
     
     
     <entry>
-      <title>深度学习环境配置CUDA+TensorFlow2+Keras</title>
-      <link href="/post/a858b698.html"/>
-      <url>/post/a858b698.html</url>
+      <title>深度学习环境配置Pytorch</title>
+      <link href="/post/20d30e4e.html"/>
+      <url>/post/20d30e4e.html</url>
       
-        <content type="html"><![CDATA[<h1 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h1><p>Anaconda是管理各个python包的工具，这里我们主要使用的是numpy，以及其他的一些常用包。</p><p>Anaconda官网链接：<a href="https://www.anaconda.com/">https://www.anaconda.com/</a></p><p>各个系统版本的Anaconda安装程序都可以直接下载安装即可，相关使用方法可以参考<a href="https://www.mahaofei.com/post/8543c9d.html">该文章</a></p><h1 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h1><ol><li>首先<strong>查看自己电脑GPU对应的cuda版本</strong>，如图所示<strong>打开 NVIDIA控制面板-&gt;帮助-&gt;系统信息-&gt;组件</strong>（可在控制中心或右下角通知栏打开），我这里GPU对应的cuda版本是11.6.106，所以安装的cuda不能超过这个版本。</li></ol><p><img src="https://img.mahaofei.com/img/20220515111335.png" alt=""></p><p>或者在cmd命令行输入<code>nvidia-smi</code>也可以查看CUDA版本。</p><ol><li><strong>进入<a href="https://developer.nvidia.com/cuda-toolkit-archive">CUDA Toolkit Archive</a>网站</strong>选择低于刚才查到的版本的cudatoolkit，本文选择CUDA Toolkit 11.0 Update 3，<strong>下载安装包</strong>约2.7G。</li></ol><blockquote><p>注意：这里选择的cuda版本会决定后面安装cudnn和tensorflow-gpu的版本，三者是相关的，如果版本不匹配将无法使用，具体匹配版本参考<a href="https://tensorflow.google.cn/install/source_windows">https://tensorflow.google.cn/install/source_windows</a>，下表为节选。</p></blockquote><div class="table-container"><table><thead><tr><th style="text-align:left">版本</th><th style="text-align:left">Python 版本</th><th style="text-align:left">编译器</th><th style="text-align:left">构建工具</th><th style="text-align:left">cuDNN</th><th style="text-align:left">CUDA</th></tr></thead><tbody><tr><td style="text-align:left">tensorflow_gpu-2.6.0</td><td style="text-align:left">3.6-3.9</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 3.7.2</td><td style="text-align:left">8.1</td><td style="text-align:left">11.2</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.5.0</td><td style="text-align:left">3.6-3.9</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 3.7.2</td><td style="text-align:left">8.1</td><td style="text-align:left">11.2</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.4.0</td><td style="text-align:left">3.6-3.8</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 3.1.0</td><td style="text-align:left">8.0</td><td style="text-align:left">11.0</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.3.0</td><td style="text-align:left">3.5-3.8</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 3.1.0</td><td style="text-align:left">7.6</td><td style="text-align:left">10.1</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.2.0</td><td style="text-align:left">3.5-3.8</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 2.0.0</td><td style="text-align:left">7.6</td><td style="text-align:left">10.1</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.1.0</td><td style="text-align:left">3.5-3.7</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 0.27.1-0.29.1</td><td style="text-align:left">7.6</td><td style="text-align:left">10.1</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.0.0</td><td style="text-align:left">3.5-3.7</td><td style="text-align:left">MSVC 2017</td><td style="text-align:left">Bazel 0.26.1</td><td style="text-align:left">7.4</td><td style="text-align:left">10</td></tr><tr><td style="text-align:left">tensorflow_gpu-1.15.0</td><td style="text-align:left">3.5-3.7</td><td style="text-align:left">MSVC 2017</td><td style="text-align:left">Bazel 0.26.1</td><td style="text-align:left">7.4</td><td style="text-align:left">10</td></tr><tr><td style="text-align:left">tensorflow_gpu-1.14.0</td><td style="text-align:left">3.5-3.7</td><td style="text-align:left">MSVC 2017</td><td style="text-align:left">Bazel 0.24.1-0.25.2</td><td style="text-align:left">7.4</td><td style="text-align:left">10</td></tr><tr><td style="text-align:left">tensorflow_gpu-1.13.0</td><td style="text-align:left">3.5-3.7</td><td style="text-align:left">MSVC 2015 update 3</td><td style="text-align:left">Bazel 0.19.0-0.21.0</td><td style="text-align:left">7.4</td><td style="text-align:left">10</td></tr></tbody></table></div><p><img src="https://img.mahaofei.com/img/20220515141105.png" alt=""></p><ol><li>双击下载的<strong>exe安装包</strong>，选择<strong>临时解压</strong>位置，然后点击ok，解压时间两分钟左右。</li></ol><p><img src="https://img.mahaofei.com/img/20220515140740.png" alt=""></p><ol><li><strong>同意许可协议</strong>，然后选择<strong>自定义安装</strong>选项，然后点击<strong>下一步</strong></li></ol><p><img src="https://img.mahaofei.com/img/20220515141240.png" alt=""></p><p><img src="https://img.mahaofei.com/img/20220515141310.png" alt=""></p><ol><li>选择驱动程序组件，一定要<strong>勾选CUDA</strong>，然后点击<strong>下一步</strong>。</li></ol><p><img src="https://img.mahaofei.com/img/20220515141348.png" alt=""></p><ol><li>选择自己电脑上的一个安装位置，然后<strong>开始安装</strong>。</li></ol><p><img src="https://img.mahaofei.com/img/20220515141701.png" alt=""></p><ol><li><p><strong>等待安装结束</strong>，本电脑18年笔记本机械硬盘安装<strong>耗时约5分钟</strong></p></li><li><p><strong>检查环境变量</strong>，一般安装完成后会自动配置好环境变量，打开<strong>设置-系统-系统信息-高级系统设置-环境变量</strong>进行检查，如果没有则需要自行添加（注意添加时修改成自己的安装路径）</p></li></ol><ul><li>系统变量中是否有<strong>CUDA</strong>和<strong>NVCUDASAMPLES</strong>两组环境变量。</li></ul><p><img src="https://img.mahaofei.com/img/20220515142616.png" alt=""></p><ul><li>打开系统变量的Path，查看是否有以下环境变量。</li></ul><p><img src="https://img.mahaofei.com/img/20220515142701.png" alt=""></p><ol><li>CUDA安装完成</li></ol><h1 id="cnDNN"><a href="#cnDNN" class="headerlink" title="cnDNN"></a>cnDNN</h1><ol><li>打开<a href="https://developer.nvidia.com/rdp/cudnn-archive">cudnn官网</a>，根据上面的表格查看自己应该下载的cuDNN版本，我的CUDA版本为11.0，对应cuDNN版本为8.0，注意看清cuDNN后面有对应的CUDA版本，一个cuDNN可能对应多个版本的CUDA，下载时会要求先注册NVIDIA账号。</li></ol><p><img src="https://img.mahaofei.com/img/20220515140956.png" alt=""></p><ol><li>解压文件，将解压后的文件移动到CUDA对应的安装目录中</li></ol><p><img src="https://img.mahaofei.com/img/20220515143854.png" alt=""></p><ol><li>cuDNN安装完成</li></ol><h1 id="安装TensorFlow"><a href="#安装TensorFlow" class="headerlink" title="安装TensorFlow"></a>安装TensorFlow</h1><ol><li>打开cmd命令行界面（建议以管理员身份打开），切换opentuna的pip镜像源</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip config set global.index-url https://opentuna.cn/pypi/web/simple</span><br></pre></td></tr></table></figure><ol><li>创建虚拟环境，后面跟的是电脑安装的python版本，注意是否与</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n tensorflow2 python=3.8</span><br></pre></td></tr></table></figure><ol><li>激活虚拟环境</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate tensorflow2</span><br></pre></td></tr></table></figure><ol><li>安装tensorflow，具体版本号根据上面的表格对应。</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install tensorflow-gpu==2.3.0</span><br></pre></td></tr></table></figure><p><img src="https://img.mahaofei.com/img/20220515145711.png" alt=""></p><ol><li>验证安装是否成功，打开cmd界面，输入以下命令，查看输出是否Successfly</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">tf.config.list_physical_devices(<span class="string">&#x27;GPU&#x27;</span>)</span><br></pre></td></tr></table></figure><p><img src="https://img.mahaofei.com/img/20220515154240.png" alt=""></p><p>如果出现<code>Could not load dynamic library &#39;cudart64_110.dll&#39;</code>不要慌，说明安装完成之后没有重启电脑，重启再运行就好了。</p><h1 id="Keras"><a href="#Keras" class="headerlink" title="Keras"></a>Keras</h1><ol><li>TensorFlow与Keras版本对应参考下表</li></ol><div class="table-container"><table><thead><tr><th>Tensorflow</th><th>Keras</th></tr></thead><tbody><tr><td>TensorFlow 2.0.0</td><td>Keras 2.3.1</td></tr><tr><td>TensorFlow 2.1.0</td><td>Keras 2.3.1</td></tr><tr><td>TensorFlow 2.2.0</td><td>Keras 2.3.1</td></tr><tr><td>TensorFlow 2.4.0</td><td>Keras 2.4.3</td></tr><tr><td>TensorFlow 2.6.0</td><td>Keras 2.6.0</td></tr></tbody></table></div><ol><li>运行仍然在Anaconda的<strong>tensorflow2环境中运行下面的指令</strong></li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install keras==2.4.3</span><br></pre></td></tr></table></figure><p><img src="https://img.mahaofei.com/img/20220515151729.png" alt=""></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h1><p>Anaconda是管理各个python包的工具，这里我们主要使用的是numpy，以及其他的一些常用包。</p><p>Anaconda官网链接：<a href="https://www.anaconda.com/">https://www.anaconda.com/</a></p><p>各个系统版本的Anaconda安装程序都可以直接下载安装即可，相关使用方法可以参考<a href="https://www.mahaofei.com/post/8543c9d.html">该文章</a></p><h1 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h1><ol><li>首先<strong>查看自己电脑GPU对应的cuda版本</strong>，如图所示<strong>打开 NVIDIA控制面板-&gt;帮助-&gt;系统信息-&gt;组件</strong>（可在控制中心或右下角通知栏打开），我这里GPU对应的cuda版本是11.6.106，所以安装的cuda不能超过这个版本。</li></ol><p><img src="https://img.mahaofei.com/img/20220515111335.png" alt=""></p><p>或者在cmd命令行输入<code>nvidia-smi</code>也可以查看CUDA版本。</p><ol><li><strong>进入<a href="https://developer.nvidia.com/cuda-toolkit-archive">CUDA Toolkit Archive</a>网站</strong>选择低于刚才查到的版本的cudatoolkit，本文选择CUDA Toolkit 11.0 Update 3，<strong>下载安装包</strong>约2.7G。</li></ol><blockquote><p>注意：这里选择的cuda版本会决定后面安装cudnn和tensorflow-gpu的版本，三者是相关的，如果版本不匹配将无法使用，具体匹配版本参考<a href="https://tensorflow.google.cn/install/source_windows">https://tensorflow.google.cn/install/source_windows</a>，下表为节选。</p></blockquote><div class="table-container"><table><thead><tr><th style="text-align:left">版本</th><th style="text-align:left">Python 版本</th><th style="text-align:left">编译器</th><th style="text-align:left">构建工具</th><th style="text-align:left">cuDNN</th><th style="text-align:left">CUDA</th></tr></thead><tbody><tr><td style="text-align:left">tensorflow_gpu-2.6.0</td><td style="text-align:left">3.6-3.9</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 3.7.2</td><td style="text-align:left">8.1</td><td style="text-align:left">11.2</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.5.0</td><td style="text-align:left">3.6-3.9</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 3.7.2</td><td style="text-align:left">8.1</td><td style="text-align:left">11.2</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.4.0</td><td style="text-align:left">3.6-3.8</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 3.1.0</td><td style="text-align:left">8.0</td><td style="text-align:left">11.0</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.3.0</td><td style="text-align:left">3.5-3.8</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 3.1.0</td><td style="text-align:left">7.6</td><td style="text-align:left">10.1</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.2.0</td><td style="text-align:left">3.5-3.8</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 2.0.0</td><td style="text-align:left">7.6</td><td style="text-align:left">10.1</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.1.0</td><td style="text-align:left">3.5-3.7</td><td style="text-align:left">MSVC 2019</td><td style="text-align:left">Bazel 0.27.1-0.29.1</td><td style="text-align:left">7.6</td><td style="text-align:left">10.1</td></tr><tr><td style="text-align:left">tensorflow_gpu-2.0.0</td><td style="text-align:left">3.5-3.7</td><td style="text-align:left">MSVC 2017</td><td style="text-align:left">Bazel 0.26.1</td><td style="text-align:left">7.4</td><td style="text-align:left">10</td></tr><tr><td style="text-align:left">tensorflow_gpu-1.15.0</td><td style="text-align:left">3.5-3.7</td><td style="text-align:left">MSVC 2017</td><td style="text-align:left">Bazel 0.26.1</td><td style="text-align:left">7.4</td><td style="text-align:left">10</td></tr><tr><td style="text-align:left">tensorflow_gpu-1.14.0</td><td style="text-align:left">3.5-3.7</td><td style="text-align:left">MSVC 2017</td><td style="text-align:left">Bazel 0.24.1-0.25.2</td><td style="text-align:left">7.4</td><td style="text-align:left">10</td></tr><tr><td style="text-align:left">tensorflow_gpu-1.13.0</td><td style="text-align:left">3.5-3.7</td><td style="text-align:left">MSVC 2015 update 3</td><td style="text-align:left">Bazel 0.19.0-0.21.0</td><td style="text-align:left">7.4</td><td style="text-align:left">10</td></tr></tbody></table></div><p><img src="https://img.mahaofei.com/img/20220515141105.png" alt=""></p><ol><li>双击下载的<strong>exe安装包</strong>，选择<strong>临时解压</strong>位置，然后点击ok，解压时间两分钟左右。</li></ol><p><img src="https://img.mahaofei.com/img/20220515140740.png" alt=""></p><ol><li><strong>同意许可协议</strong>，然后选择<strong>自定义安装</strong>选项，然后点击<strong>下一步</strong></li></ol><p><img src="https://img.mahaofei.com/img/20220515141240.png" alt=""></p><p><img src="https://img.mahaofei.com/img/20220515141310.png" alt=""></p><ol><li>选择驱动程序组件，一定要<strong>勾选CUDA</strong>，然后点击<strong>下一步</strong>。</li></ol><p><img src="https://img.mahaofei.com/img/20220515141348.png" alt=""></p><ol><li>选择自己电脑上的一个安装位置，然后<strong>开始安装</strong>。</li></ol><p><img src="https://img.mahaofei.com/img/20220515141701.png" alt=""></p><ol><li><p><strong>等待安装结束</strong>，本电脑18年笔记本机械硬盘安装<strong>耗时约5分钟</strong></p></li><li><p><strong>检查环境变量</strong>，一般安装完成后会自动配置好环境变量，打开<strong>设置-系统-系统信息-高级系统设置-环境变量</strong>进行检查，如果没有则需要自行添加（注意添加时修改成自己的安装路径）</p></li></ol><ul><li>系统变量中是否有<strong>CUDA</strong>和<strong>NVCUDASAMPLES</strong>两组环境变量。</li></ul><p><img src="https://img.mahaofei.com/img/20220515142616.png" alt=""></p><ul><li>打开系统变量的Path，查看是否有以下环境变量。</li></ul><p><img src="https://img.mahaofei.com/img/20220515142701.png" alt=""></p><ol><li>CUDA安装完成</li></ol><h1 id="Pytorch"><a href="#Pytorch" class="headerlink" title="Pytorch"></a>Pytorch</h1><p><strong>（1）创建Pytorch环境</strong></p><p>使用anaconda创建一个pytorch的虚拟环境，主要是为了区分不同的项目，比如tensorflow和pytorch使用的各种包环境等都是不同的，新建一个环境可以处理项目之间不兼容的问题。</p><ol><li><p>打开<code>Anaconda Prompt</code></p></li><li><p>新建一个虚拟环境</p></li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n pytorch python=3.8</span><br></pre></td></tr></table></figure><p>这里创建一个pytorch环境，语句中pytorch是环境名，叫什么都可以，python版本这里3.8和3.9都可以。</p><p>使用<code>conda info --envs</code>命令可以看到所有环境，使用<code>conda activate pytorch</code>可以激活刚才创建的pytorch环境。</p><p>前面从（base）变为（pytorch）时表示此时已经切换到pytorch环境。</p><p><img src="https://img.mahaofei.com/img/20220705182340.png" alt=""></p><p><strong>（2）安装pytorch</strong></p><p>进入PyTorch官网：<a href="https://pytorch.org/">https://pytorch.org/</a>，可以看到pytorch安装页面。</p><p>这里默认已经根据你的电脑情况选择了一部分信息，只需要选择CUDA版本即可，刚才查看了我的电脑cuda版本是11.6.106，所以这里选择CUDA 11.6。</p><p><img src="https://img.mahaofei.com/img/20220705182724.png" alt=""></p><p>这里提示了安装前电脑需要安装cudatoolkit，上一节我们已经安装了，所以直接在conda的pytorch环境中运行下面给出的安装代码即可。</p><p>进入虚拟环境</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate pytorch</span><br></pre></td></tr></table></figure><p>安装pytorch</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch torchvision torchaudio cudatoolkit=11.6 -c pytorch -c conda-forge</span><br></pre></td></tr></table></figure><blockquote><p>如果下载报错，注意关掉自己的科学上网工具，然后到<a href="https://mirror.tuna.tsinghua.edu.cn/help/anaconda/">清华大学镜像站</a>按步骤添加一下索引。<br>如果仍报错且自己能够科学上网，那么可以使用命令<code>conda config --remove-key channels</code>删除清华源，并删除<code>C:/用户/xxx/.condarc</code>文件，使用科学上网+默认源下载。</p></blockquote><h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>打开Anaconda Prompt命令行，进入pytorch环境。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate pytorch</span><br></pre></td></tr></table></figure><p>输入<code>python</code>，进入python交互界面</p><p>输入下面命令进行测试：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch </span><br><span class="line"><span class="built_in">print</span>(torch.__version__) <span class="comment"># pytorch版本</span></span><br><span class="line"><span class="built_in">print</span>(torch.version.cuda) <span class="comment"># cuda版本</span></span><br><span class="line"><span class="built_in">print</span>(torch.cuda.is_available()) <span class="comment"># 查看cuda是否可用</span></span><br></pre></td></tr></table></figure><p><img src="https://img.mahaofei.com/img/20220705205436.png" alt=""></p>]]></content>
       
       
       <categories>
@@ -2415,9 +2415,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> slam </tag>
             
@@ -2446,9 +2446,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> slam </tag>
             
@@ -2477,9 +2477,9 @@
       
         <tags>
             
-            <tag> bugs </tag>
-            
             <tag> 单片机 </tag>
+            
+            <tag> bugs </tag>
             
         </tags>
       
@@ -4890,9 +4890,9 @@
       
         <tags>
             
-            <tag> Ubuntu </tag>
-            
             <tag> 网站搭建 </tag>
+            
+            <tag> Ubuntu </tag>
             
         </tags>
       
@@ -4919,9 +4919,9 @@
       
         <tags>
             
-            <tag> Ubuntu </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> Ubuntu </tag>
             
         </tags>
       
@@ -5588,9 +5588,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> WordPress </tag>
+            
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -5675,9 +5675,9 @@
       
         <tags>
             
-            <tag> 网站搭建 </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> 网站搭建 </tag>
             
         </tags>
       
@@ -5704,9 +5704,9 @@
       
         <tags>
             
-            <tag> 网站搭建 </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> 网站搭建 </tag>
             
             <tag> WordPress </tag>
             
@@ -5735,9 +5735,9 @@
       
         <tags>
             
-            <tag> 网站搭建 </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> 网站搭建 </tag>
             
         </tags>
       
@@ -6203,11 +6203,11 @@
       
         <tags>
             
-            <tag> bugs </tag>
-            
             <tag> 单片机 </tag>
             
             <tag> Proteus </tag>
+            
+            <tag> bugs </tag>
             
         </tags>
       
@@ -6391,9 +6391,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 视觉 </tag>
             

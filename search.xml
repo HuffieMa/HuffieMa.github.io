@@ -51,9 +51,9 @@
       
         <tags>
             
-            <tag> ROS </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> ROS </tag>
             
             <tag> 抓取 </tag>
             
@@ -117,9 +117,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 抓取 </tag>
             
@@ -249,9 +249,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 抓取 </tag>
             
@@ -311,9 +311,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 视觉 </tag>
             
@@ -332,7 +332,7 @@
       <link href="/post/250dc866.html"/>
       <url>/post/250dc866.html</url>
       
-        <content type="html"><![CDATA[<h1>一、GDR-Net: Geometry-Guided Direct Regression Network for Monocular 6D Object Pose Estimation</h1><blockquote><p><strong>期刊 / 会议</strong>：CVPR2021<br><strong>作者 / 机构</strong>：Gu Wang,  Tsinghua University, BNRist<br><strong>关键词</strong>：位姿估计；端到端<br><strong>时间</strong>：2021<br><strong>代码</strong>：<a href="https://github.com/THU-DA-6D-Pose-Group/GDR-Net">https://github.com/THU-DA-6D-Pose-Group/GDR-Net</a></p></blockquote><h2 id="1-目标问题-16">1 目标问题</h2><p>提出一种端到端的位姿估计算法。</p><h2 id="2-方法-16">2 方法</h2><p><img src="https://img.mahaofei.com/img/20230316104020.png" alt=""></p><p><strong>（1）网络架构</strong></p><p>首先向GDR-Net提供256x256的ROI图，预测出三个64x64的中间特征图</p><ul><li>稠密对应图$M_{2D-3D}$：将稠密坐标映射$M_{XYZ}$对跌倒2D像素坐标上得到，反映了对象的几何形状信息。</li><li>表面区域注意图$M_{SRA}$：采用最远点采样从$M_{XYZ}$中到处，代表了对象的对称性。</li><li>可见对象掩码$M_{vis}$</li></ul><p>使用一个简单的2D卷积Patch Pnp模块直接从特征图中回归6D对象姿态。Patch PnP模块由三个卷积层组成，然后用两个全连接层用于扁平化特征，最后连个全连接层输出R6D旋转和tSITE平移。</p><h2 id="3-思考-16">3 思考</h2><p>本文专注于图像的特征提取和处理工作，实现从单一图片预测位姿的功能。</p><h1>二、算法复现</h1><h2 id="2-1-数据集准备">2.1 数据集准备</h2><p>下载<a href="https://bop.felk.cvut.cz/datasets/">BOP数据集</a>和<a href="https://pjreddie.com/projects/pascal-voc-dataset-mirror/">VOC2012数据集</a>，从<a href="https://mailstsinghuaeducn-my.sharepoint.com/:f:/g/personal/liuxy21_mails_tsinghua_edu_cn/EgOQzGZn9A5DlaQhgpTtHBwB2Bwyx8qmvLauiHFcJbnGSw?e=EZ60La">Onedrive (password: groupji)</a>或者<a href="https://pan.baidu.com/s/1FzTO4Emfu-DxYkNG40EDKw">百度网盘(密码: vp58)</a>下载test_boxes，完成后datasets文件夹的结构如下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">datasets/</span><br><span class="line">├── BOP_DATASETS   # https://bop.felk.cvut.cz/datasets/</span><br><span class="line">    ├──tudl</span><br><span class="line">    ├──lmo</span><br><span class="line">    ├──ycbv</span><br><span class="line">    ├──icbin</span><br><span class="line">    ├──hb</span><br><span class="line">    ├──itodd</span><br><span class="line">    └──tless</span><br><span class="line">└──VOCdevkit</span><br></pre></td></tr></table></figure><p>从<a href="https://mailstsinghuaeducn-my.sharepoint.com/:f:/g/personal/liuxy21_mails_tsinghua_edu_cn/EgOQzGZn9A5DlaQhgpTtHBwB2Bwyx8qmvLauiHFcJbnGSw?e=EZ60La">Onedrive (password: groupji)</a>或者<a href="https://pan.baidu.com/s/1LhXblEic6pYf1i6hOm6Otw">百度网盘(密码10t3)</a>下载预训练模型，并将其放到<code>./output</code>文件夹内。</p><h2 id="2-2-环境准备">2.2 环境准备</h2><p>要求Ubuntu 18.04/20.04, CUDA 10.1/10.2/11.6, python &gt;= 3.7, PyTorch &gt;= 1.9, torchvision</p><p><strong>（1）创建虚拟环境</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n gdrnpp python=3.7</span><br><span class="line">conda activate grdnpp</span><br></pre></td></tr></table></figure><p><strong>（2）安装依赖</strong></p><p>打开<code>requirements/requirement.txt</code>，修改第48行为<code>pytorch-lightning==1.6.0</code></p><p>运行<code>sh scripts/install_deps.sh</code></p><p><strong>（3）从<a href="https://github.com/facebookresearch/detectron2">源码</a>安装detectron2</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install &#x27;git+https://github.com/facebookresearch/detectron2.git&#x27;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">(add --user <span class="keyword">if</span> you don<span class="string">&#x27;t have permission)</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">Or, to install it from a local clone:</span></span></span><br><span class="line">git clone https://github.com/facebookresearch/detectron2.git</span><br><span class="line">python -m pip install -e detectron2</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">On macOS, you may need to prepend the above commands with a few environment variables:</span></span></span><br><span class="line">CC=clang CXX=clang++ ARCHFLAGS=&quot;-arch x86_64&quot; python -m pip install ...</span><br></pre></td></tr></table></figure><p><strong>（4）编译 fps 的cpp扩展</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh core/csrc/compile.sh</span><br></pre></td></tr></table></figure><p><strong>（5）编译egl_renderer的cpp扩展</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh lib/egl_renderer/compile_cpp_egl_renderer.sh</span><br></pre></td></tr></table></figure><h2 id="2-3-目标检测算法">2.3 目标检测算法</h2><p>从 <a href="https://mailstsinghuaeducn-my.sharepoint.com/:f:/g/personal/liuxy21_mails_tsinghua_edu_cn/EkCTrRfHUZVEtD7eHwLkYSkBCTXlh9ekDteSzK6jM4oo-A?e=m0aNCy">Onedrive</a> (password: groupji) or <a href="https://pan.baidu.com/s/1AU7DGCmZWsH9VgQnbTRjow">BaiDuYunPan</a>(password: aw68)中下载预训练模型。</p><p><strong>（1）训练</strong></p><p><code>./det/yolox/tools/train_yolox.sh &lt;config_path&gt; &lt;gpu_ids&gt; (other args)</code></p><p><strong>（2）测试</strong></p><p><code>./det/yolox/tools/test_yolox.sh &lt;config_path&gt; &lt;gpu_ids&gt; &lt;ckpt_path&gt; (other args)</code></p><h2 id="2-4-位姿估计算法">2.4 位姿估计算法</h2><p><strong>（1）训练</strong></p><p>打开<code>core/gdrn_modeling/datasets/lm_pbr.py</code>，注释第190行<code>assert osp.exists(xyz_path), xyz_path</code></p><p><code>./core/gdrn_modeling/train_gdrn.sh &lt;config_path&gt; &lt;gpu_ids&gt; (other args)</code></p><p>例如：</p><p><code>./core/gdrn_modeling/train_gdrn.sh configs/gdrn/ycbv/convnext_a6_AugCosyAAEGray_BG05_mlL1_DMask_amodalClipBox_classAware_ycbv.py 0</code></p><p><strong>（2）测试</strong></p><p><code>./core/gdrn_modeling/test_gdrn.sh &lt;config_path&gt; &lt;gpu_ids&gt; &lt;ckpt_path&gt; (other args)</code></p><p>例如：</p><p><code>./core/gdrn_modeling/test_gdrn.sh configs/gdrn/ycbv/convnext_a6_AugCosyAAEGray_BG05_mlL1_DMask_amodalClipBox_classAware_ycbv.py 0 output/gdrn/ycbv/convnext_a6_AugCosyAAEGray_BG05_mlL1_DMask_amodalClipBox_classAware_ycbv/model_final_wo_optim.pth</code></p>]]></content>
+        <content type="html"><![CDATA[<h1>一、GDR-Net: Geometry-Guided Direct Regression Network for Monocular 6D Object Pose Estimation</h1><blockquote><p><strong>期刊 / 会议</strong>：CVPR2021<br><strong>作者 / 机构</strong>：Gu Wang,  Tsinghua University, BNRist<br><strong>关键词</strong>：位姿估计；端到端<br><strong>时间</strong>：2021<br><strong>代码</strong>：<a href="https://github.com/THU-DA-6D-Pose-Group/GDR-Net">https://github.com/THU-DA-6D-Pose-Group/GDR-Net</a></p></blockquote><h2 id="1-目标问题-21">1 目标问题</h2><p>提出一种端到端的位姿估计算法。</p><h2 id="2-方法-21">2 方法</h2><p><img src="https://img.mahaofei.com/img/20230316104020.png" alt=""></p><p><strong>（1）网络架构</strong></p><p>首先向GDR-Net提供256x256的ROI图，预测出三个64x64的中间特征图</p><ul><li>稠密对应图$M_{2D-3D}$：将稠密坐标映射$M_{XYZ}$对跌倒2D像素坐标上得到，反映了对象的几何形状信息。</li><li>表面区域注意图$M_{SRA}$：采用最远点采样从$M_{XYZ}$中到处，代表了对象的对称性。</li><li>可见对象掩码$M_{vis}$</li></ul><p>使用一个简单的2D卷积Patch Pnp模块直接从特征图中回归6D对象姿态。Patch PnP模块由三个卷积层组成，然后用两个全连接层用于扁平化特征，最后连个全连接层输出R6D旋转和tSITE平移。</p><h2 id="3-思考-21">3 思考</h2><p>本文专注于图像的特征提取和处理工作，实现从单一图片预测位姿的功能。</p><h1>二、算法复现</h1><h2 id="2-1-数据集准备">2.1 数据集准备</h2><p>下载<a href="https://bop.felk.cvut.cz/datasets/">BOP数据集</a>和<a href="https://pjreddie.com/projects/pascal-voc-dataset-mirror/">VOC2012数据集</a>，从<a href="https://mailstsinghuaeducn-my.sharepoint.com/:f:/g/personal/liuxy21_mails_tsinghua_edu_cn/EgOQzGZn9A5DlaQhgpTtHBwB2Bwyx8qmvLauiHFcJbnGSw?e=EZ60La">Onedrive (password: groupji)</a>或者<a href="https://pan.baidu.com/s/1FzTO4Emfu-DxYkNG40EDKw">百度网盘(密码: vp58)</a>下载test_boxes，完成后datasets文件夹的结构如下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">datasets/</span><br><span class="line">├── BOP_DATASETS   # https://bop.felk.cvut.cz/datasets/</span><br><span class="line">    ├──tudl</span><br><span class="line">    ├──lmo</span><br><span class="line">    ├──ycbv</span><br><span class="line">    ├──icbin</span><br><span class="line">    ├──hb</span><br><span class="line">    ├──itodd</span><br><span class="line">    └──tless</span><br><span class="line">└──VOCdevkit</span><br></pre></td></tr></table></figure><p>从<a href="https://mailstsinghuaeducn-my.sharepoint.com/:f:/g/personal/liuxy21_mails_tsinghua_edu_cn/EgOQzGZn9A5DlaQhgpTtHBwB2Bwyx8qmvLauiHFcJbnGSw?e=EZ60La">Onedrive (password: groupji)</a>或者<a href="https://pan.baidu.com/s/1LhXblEic6pYf1i6hOm6Otw">百度网盘(密码10t3)</a>下载预训练模型，并将其放到<code>./output</code>文件夹内。</p><h2 id="2-2-环境准备">2.2 环境准备</h2><p>要求Ubuntu 18.04/20.04, CUDA 10.1/10.2/11.6, python &gt;= 3.7, PyTorch &gt;= 1.9, torchvision</p><p><strong>（1）创建虚拟环境</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n gdrnpp python=3.7</span><br><span class="line">conda activate grdnpp</span><br></pre></td></tr></table></figure><p><strong>（2）安装依赖</strong></p><p>打开<code>requirements/requirement.txt</code>，修改第48行为<code>pytorch-lightning==1.6.0</code></p><p>运行<code>sh scripts/install_deps.sh</code></p><p><strong>（3）从<a href="https://github.com/facebookresearch/detectron2">源码</a>安装detectron2</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install &#x27;git+https://github.com/facebookresearch/detectron2.git&#x27;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">(add --user <span class="keyword">if</span> you don<span class="string">&#x27;t have permission)</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">Or, to install it from a local clone:</span></span></span><br><span class="line">git clone https://github.com/facebookresearch/detectron2.git</span><br><span class="line">python -m pip install -e detectron2</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">On macOS, you may need to prepend the above commands with a few environment variables:</span></span></span><br><span class="line">CC=clang CXX=clang++ ARCHFLAGS=&quot;-arch x86_64&quot; python -m pip install ...</span><br></pre></td></tr></table></figure><p><strong>（4）编译 fps 的cpp扩展</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh core/csrc/compile.sh</span><br></pre></td></tr></table></figure><p><strong>（5）编译egl_renderer的cpp扩展</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh lib/egl_renderer/compile_cpp_egl_renderer.sh</span><br></pre></td></tr></table></figure><h2 id="2-3-目标检测算法">2.3 目标检测算法</h2><p>从 <a href="https://mailstsinghuaeducn-my.sharepoint.com/:f:/g/personal/liuxy21_mails_tsinghua_edu_cn/EkCTrRfHUZVEtD7eHwLkYSkBCTXlh9ekDteSzK6jM4oo-A?e=m0aNCy">Onedrive</a> (password: groupji) or <a href="https://pan.baidu.com/s/1AU7DGCmZWsH9VgQnbTRjow">BaiDuYunPan</a>(password: aw68)中下载预训练模型。</p><p><strong>（1）训练</strong></p><p><code>./det/yolox/tools/train_yolox.sh &lt;config_path&gt; &lt;gpu_ids&gt; (other args)</code></p><p><strong>（2）测试</strong></p><p><code>./det/yolox/tools/test_yolox.sh &lt;config_path&gt; &lt;gpu_ids&gt; &lt;ckpt_path&gt; (other args)</code></p><h2 id="2-4-位姿估计算法">2.4 位姿估计算法</h2><p><strong>（1）训练</strong></p><p>打开<code>core/gdrn_modeling/datasets/lm_pbr.py</code>，注释第190行<code>assert osp.exists(xyz_path), xyz_path</code></p><p><code>./core/gdrn_modeling/train_gdrn.sh &lt;config_path&gt; &lt;gpu_ids&gt; (other args)</code></p><p>例如：</p><p><code>./core/gdrn_modeling/train_gdrn.sh configs/gdrn/ycbv/convnext_a6_AugCosyAAEGray_BG05_mlL1_DMask_amodalClipBox_classAware_ycbv.py 0</code></p><p><strong>（2）测试</strong></p><p><code>./core/gdrn_modeling/test_gdrn.sh &lt;config_path&gt; &lt;gpu_ids&gt; &lt;ckpt_path&gt; (other args)</code></p><p>例如：</p><p><code>./core/gdrn_modeling/test_gdrn.sh configs/gdrn/ycbv/convnext_a6_AugCosyAAEGray_BG05_mlL1_DMask_amodalClipBox_classAware_ycbv.py 0 output/gdrn/ycbv/convnext_a6_AugCosyAAEGray_BG05_mlL1_DMask_amodalClipBox_classAware_ycbv/model_final_wo_optim.pth</code></p>]]></content>
       
       
       <categories>
@@ -348,9 +348,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 视觉 </tag>
             
@@ -400,7 +400,7 @@
       <link href="/post/f0f72f50.html"/>
       <url>/post/f0f72f50.html</url>
       
-        <content type="html"><![CDATA[<h1>ECCV2020</h1><h2 id="01-CosyPose-Consistent-multi-view-multi-object-6D-pose-estimation">01. CosyPose: Consistent multi-view multi-object 6D pose estimation</h2><blockquote><p><strong>期刊 / 会议</strong>：ECCV2020<br><strong>作者 / 机构</strong>：Yann Labbe,  Ecole normale superieure, CNRS, PSL Research University, Paris, France<br><strong>关键词</strong>：位姿估计<br><strong>时间</strong>：2020<br><strong>代码</strong>：<a href="https://github.com/ylabbe/cosypose">https://github.com/ylabbe/cosypose</a></p></blockquote><h4 id="1-目标问题-17">1 目标问题</h4><p>在相机位置未知的情况下，利用多视角信息来提高物体姿态估计的准确性和鲁棒性</p><h4 id="2-方法-17">2 方法</h4><p><strong>（1）建立6D姿态初始候选对象</strong></p><p>给定一组具有已知3D模型的对象和场景的单个图像，我们为每个对象输出一组候选检测，并为每个检测输出对象相对于与图像相关联的相机的6D姿态。</p><p><strong>（2）对象候选匹配</strong></p><p>匹配多个视图中可见的对象，以获得单个一致的场景。</p><p><strong>（3）全局场景细化</strong></p><p>所有物体和相机的6D姿态都经过了优化，以最大限度地减少全局重投影误差。</p><h4 id="3-思考-17">3 思考</h4><p><strong>（1）创新点</strong></p><ul><li>提出了一种基于渲染和比较的单视角单物体6D姿态估计方法，用于生成每个图像中的物体姿态假设。</li><li>开发了一种基于RANSAC的鲁棒方法，用于匹配不同图像中的单个物体姿态假设，并利用这些对象级别的对应关系来恢复相机之间的相对位置。</li><li>开发了一种基于对象级别捆绑调整（object-level bundle adjustment）的全局优化方法，用于在所有视角下最小化重投影误差，并改善噪声单视角物体姿态。</li></ul><p><strong>（2）实用性</strong></p><p>从多个视图中推测物体的6D位姿，对于抓取场景实用性较差。</p><h1>ECCV2022</h1><h2 id="01-DProST-Dynamic-Projective-Spatial-Transformer-Network-for-6D-Pose-Estimation">01. DProST: Dynamic Projective Spatial Transformer Network for 6D Pose Estimation</h2><blockquote><p><strong>期刊 / 会议</strong>：ECCV2022<br><strong>作者 / 机构</strong>：<br><strong>关键词</strong>：<br><strong>时间</strong>：2022<br><strong>代码</strong>：<a href="https://github.com/parkjaewoo0611/DProST">https://github.com/parkjaewoo0611/DProST</a><br><strong>数据集</strong>：LINEMOD</p></blockquote><h4 id="1-目标问题-18">1 目标问题</h4><p>提出了一种新的基于投影网格的姿态估计系统。</p><p><img src="https://img.mahaofei.com/img/20230402093533.png" alt=""></p><h4 id="2-方法-18">2 方法</h4><ul><li>使用深度神经网络从RGB图像中提取特征，并预测物体位置和大小。</li><li>在相机空间上根据预测位置和大小生成一个锥形光束网格，并将其反向变换到物体空间。</li><li>使用参考图像和掩码从物体模型或重建特征中提取纹理特征，并将其映射到变换后的网格上。</li><li>使用双线性插值从映射后的纹理特征中采样得到重建图像，并与输入图像进行比较。</li><li>使用基于网格距离和网格匹配损失函数来优化网络参数和姿态参数。</li></ul><h4 id="3-思考-18">3 思考</h4><p>深度神经网络提取特征，投影网格重建图像，使用损失函数优化参数。</p><h2 id="02-DCL-Net-Deep-Correspondence-Learning-Network-for6D-Pose-Estimation">02. DCL-Net: Deep Correspondence Learning Network for6D Pose Estimation</h2><blockquote><p><strong>期刊 / 会议</strong>：ECCV2022<br><strong>作者 / 机构</strong>：Hongyang Li, South China University of Technology, Guangzhou, China<br><strong>关键词</strong>：位姿估计<br><strong>时间</strong>：2022<br><strong>代码</strong>：<a href="https://github.com/Gorilla-Lab-SCUT/DCL-Net">https://github.com/Gorilla-Lab-SCUT/DCL-Net</a><br><strong>数据集</strong>：LINEMOD</p></blockquote><h4 id="1-目标问题-19">1 目标问题</h4><p>从点对应关系中直接估计6D物体姿态，而不是使用间接的对应学习目标</p><h4 id="2-方法-19">2 方法</h4><p>这篇论文的主要方法是提出了一种新的深度对应学习网络（DCL-Net），它利用双重特征解耦和对齐（FDA）模块，在特征空间中建立相机坐标系和物体坐标系之间的部分到部分对应关系和完整到完整对应关系。具体步骤如下：</p><ul><li>首先，对于部分物体观测和其CAD模型，分别提取它们的点特征图；</li><li>然后，设计两个FDA模块，分别建立部分到部分对应关系和完整到完整对应关系。具体来说，每个FDA模块将两个点特征图作为输入，并将每个特征图解耦为独立的姿态特征图和匹配特征图；然后利用匹配特征图学习一个注意力图来建立深度对应关系；最后，根据注意力图将两个系统的姿态特征图和匹配特征图进行对齐和配对，得到姿态特征对和匹配特征对；</li><li>接着，将两个FDA模块得到的两组对应关系进行融合，因为它们具有互补优势；然后利用融合后的匹配特征对学习置信度得分来衡量深度对应关系的质量；同时利用置信度得分加权融合后的姿态特征对来直接回归物体姿态；</li><li>最后，提出了一个基于置信度的姿态优化网络来进一步迭代地提高姿态精度。</li></ul><h4 id="3-思考-19">3 思考</h4><p>点特征方法。</p><h2 id="03-Perspective-Flow-Aggregation-for-Data-Limited-6D-Object-Pose-Estimation">03. Perspective Flow Aggregation for Data-Limited 6D Object Pose Estimation</h2><blockquote><p><strong>期刊 / 会议</strong>：ECCV2022<br><strong>作者 / 机构</strong>：Yinlin Hu, EPFL CVLab, Lausanne, Switzerland<br><strong>关键词</strong>：位姿估计；少数据情况<br><strong>时间</strong>：2022<br><strong>代码</strong>：<a href="https://github.com/cvlab-epfl/perspective-flow-aggregation">https://github.com/cvlab-epfl/perspective-flow-aggregation</a><br><strong>数据集</strong>：LINEMOD</p></blockquote><h4 id="1-目标问题-20">1 目标问题</h4><p>在数据有限的情况下，使用合成图像或少量真实图像来训练一个6D物体姿态估计的模型</p><h4 id="2-方法-20">2 方法</h4><ul><li>首先，利用合成图像和真实图像（如果有的话）来训练一个基于深度学习的特征提取器，用于从输入图像中提取出与物体姿态相关的特征。</li><li>然后，利用合成图像和真实图像（如果有的话）来训练一个基于透视流（perspective flow）的模块，用于将输入图像中的特征点映射到目标物体模型上。透视流是指由于相机和物体之间相对运动而导致的特征点在不同视角下的位移。</li><li>最后，利用一种称为透视流聚合（perspective flow aggregation）的技术，将多个透视流进行融合，并通过最小二乘法求解出最优的6D物体姿态。</li></ul><h4 id="3-思考-20">3 思考</h4><p>投影透视方法。</p><h2 id="04-Learning-Based-Point-Cloud-Registration-for-6D-Object-Pose-Estimation-in-the-Real-World">04. Learning-Based Point Cloud Registration for 6D Object Pose Estimation in the Real World</h2><blockquote><p><strong>期刊 / 会议</strong>：ECCV2022<br><strong>作者 / 机构</strong>：Zheng Dang, CVLab, EPFL, Lausanne, Switzerland<br><strong>关键词</strong>：位姿估计<br><strong>时间</strong>：2022<br><strong>代码</strong>：<a href="https://github.com/AnsonYanxin/MatchNorm">https://github.com/AnsonYanxin/MatchNorm</a><br><strong>数据集</strong>：LINEMOD</p></blockquote><h4 id="1-目标问题-21">1 目标问题</h4><h4 id="2-方法-21">2 方法</h4><ul><li>首先，它提出了一种基于深度学习的点云匹配模块，用于从源点云和目标点云中提取特征，并计算两个点云之间的相似度矩阵。</li><li>然后，它提出了一种基于归一化的点云对齐模块，用于根据相似度矩阵找到最佳的刚性变换矩阵，使得源点云和目标点云之间的距离最小化</li></ul><h4 id="3-思考-21">3 思考</h4><p>代码不完全。</p>]]></content>
+        <content type="html"><![CDATA[<h1>ECCV2020</h1><h2 id="01-CosyPose-Consistent-multi-view-multi-object-6D-pose-estimation">01. CosyPose: Consistent multi-view multi-object 6D pose estimation</h2><blockquote><p><strong>期刊 / 会议</strong>：ECCV2020<br><strong>作者 / 机构</strong>：Yann Labbe,  Ecole normale superieure, CNRS, PSL Research University, Paris, France<br><strong>关键词</strong>：位姿估计<br><strong>时间</strong>：2020<br><strong>代码</strong>：<a href="https://github.com/ylabbe/cosypose">https://github.com/ylabbe/cosypose</a></p></blockquote><h4 id="1-目标问题-16">1 目标问题</h4><p>在相机位置未知的情况下，利用多视角信息来提高物体姿态估计的准确性和鲁棒性</p><h4 id="2-方法-16">2 方法</h4><p><strong>（1）建立6D姿态初始候选对象</strong></p><p>给定一组具有已知3D模型的对象和场景的单个图像，我们为每个对象输出一组候选检测，并为每个检测输出对象相对于与图像相关联的相机的6D姿态。</p><p><strong>（2）对象候选匹配</strong></p><p>匹配多个视图中可见的对象，以获得单个一致的场景。</p><p><strong>（3）全局场景细化</strong></p><p>所有物体和相机的6D姿态都经过了优化，以最大限度地减少全局重投影误差。</p><h4 id="3-思考-16">3 思考</h4><p><strong>（1）创新点</strong></p><ul><li>提出了一种基于渲染和比较的单视角单物体6D姿态估计方法，用于生成每个图像中的物体姿态假设。</li><li>开发了一种基于RANSAC的鲁棒方法，用于匹配不同图像中的单个物体姿态假设，并利用这些对象级别的对应关系来恢复相机之间的相对位置。</li><li>开发了一种基于对象级别捆绑调整（object-level bundle adjustment）的全局优化方法，用于在所有视角下最小化重投影误差，并改善噪声单视角物体姿态。</li></ul><p><strong>（2）实用性</strong></p><p>从多个视图中推测物体的6D位姿，对于抓取场景实用性较差。</p><h1>ECCV2022</h1><h2 id="01-DProST-Dynamic-Projective-Spatial-Transformer-Network-for-6D-Pose-Estimation">01. DProST: Dynamic Projective Spatial Transformer Network for 6D Pose Estimation</h2><blockquote><p><strong>期刊 / 会议</strong>：ECCV2022<br><strong>作者 / 机构</strong>：<br><strong>关键词</strong>：<br><strong>时间</strong>：2022<br><strong>代码</strong>：<a href="https://github.com/parkjaewoo0611/DProST">https://github.com/parkjaewoo0611/DProST</a><br><strong>数据集</strong>：LINEMOD</p></blockquote><h4 id="1-目标问题-17">1 目标问题</h4><p>提出了一种新的基于投影网格的姿态估计系统。</p><p><img src="https://img.mahaofei.com/img/20230402093533.png" alt=""></p><h4 id="2-方法-17">2 方法</h4><ul><li>使用深度神经网络从RGB图像中提取特征，并预测物体位置和大小。</li><li>在相机空间上根据预测位置和大小生成一个锥形光束网格，并将其反向变换到物体空间。</li><li>使用参考图像和掩码从物体模型或重建特征中提取纹理特征，并将其映射到变换后的网格上。</li><li>使用双线性插值从映射后的纹理特征中采样得到重建图像，并与输入图像进行比较。</li><li>使用基于网格距离和网格匹配损失函数来优化网络参数和姿态参数。</li></ul><h4 id="3-思考-17">3 思考</h4><p>深度神经网络提取特征，投影网格重建图像，使用损失函数优化参数。</p><h2 id="02-DCL-Net-Deep-Correspondence-Learning-Network-for6D-Pose-Estimation">02. DCL-Net: Deep Correspondence Learning Network for6D Pose Estimation</h2><blockquote><p><strong>期刊 / 会议</strong>：ECCV2022<br><strong>作者 / 机构</strong>：Hongyang Li, South China University of Technology, Guangzhou, China<br><strong>关键词</strong>：位姿估计<br><strong>时间</strong>：2022<br><strong>代码</strong>：<a href="https://github.com/Gorilla-Lab-SCUT/DCL-Net">https://github.com/Gorilla-Lab-SCUT/DCL-Net</a><br><strong>数据集</strong>：LINEMOD</p></blockquote><h4 id="1-目标问题-18">1 目标问题</h4><p>从点对应关系中直接估计6D物体姿态，而不是使用间接的对应学习目标</p><h4 id="2-方法-18">2 方法</h4><p>这篇论文的主要方法是提出了一种新的深度对应学习网络（DCL-Net），它利用双重特征解耦和对齐（FDA）模块，在特征空间中建立相机坐标系和物体坐标系之间的部分到部分对应关系和完整到完整对应关系。具体步骤如下：</p><ul><li>首先，对于部分物体观测和其CAD模型，分别提取它们的点特征图；</li><li>然后，设计两个FDA模块，分别建立部分到部分对应关系和完整到完整对应关系。具体来说，每个FDA模块将两个点特征图作为输入，并将每个特征图解耦为独立的姿态特征图和匹配特征图；然后利用匹配特征图学习一个注意力图来建立深度对应关系；最后，根据注意力图将两个系统的姿态特征图和匹配特征图进行对齐和配对，得到姿态特征对和匹配特征对；</li><li>接着，将两个FDA模块得到的两组对应关系进行融合，因为它们具有互补优势；然后利用融合后的匹配特征对学习置信度得分来衡量深度对应关系的质量；同时利用置信度得分加权融合后的姿态特征对来直接回归物体姿态；</li><li>最后，提出了一个基于置信度的姿态优化网络来进一步迭代地提高姿态精度。</li></ul><h4 id="3-思考-18">3 思考</h4><p>点特征方法。</p><h2 id="03-Perspective-Flow-Aggregation-for-Data-Limited-6D-Object-Pose-Estimation">03. Perspective Flow Aggregation for Data-Limited 6D Object Pose Estimation</h2><blockquote><p><strong>期刊 / 会议</strong>：ECCV2022<br><strong>作者 / 机构</strong>：Yinlin Hu, EPFL CVLab, Lausanne, Switzerland<br><strong>关键词</strong>：位姿估计；少数据情况<br><strong>时间</strong>：2022<br><strong>代码</strong>：<a href="https://github.com/cvlab-epfl/perspective-flow-aggregation">https://github.com/cvlab-epfl/perspective-flow-aggregation</a><br><strong>数据集</strong>：LINEMOD</p></blockquote><h4 id="1-目标问题-19">1 目标问题</h4><p>在数据有限的情况下，使用合成图像或少量真实图像来训练一个6D物体姿态估计的模型</p><h4 id="2-方法-19">2 方法</h4><ul><li>首先，利用合成图像和真实图像（如果有的话）来训练一个基于深度学习的特征提取器，用于从输入图像中提取出与物体姿态相关的特征。</li><li>然后，利用合成图像和真实图像（如果有的话）来训练一个基于透视流（perspective flow）的模块，用于将输入图像中的特征点映射到目标物体模型上。透视流是指由于相机和物体之间相对运动而导致的特征点在不同视角下的位移。</li><li>最后，利用一种称为透视流聚合（perspective flow aggregation）的技术，将多个透视流进行融合，并通过最小二乘法求解出最优的6D物体姿态。</li></ul><h4 id="3-思考-19">3 思考</h4><p>投影透视方法。</p><h2 id="04-Learning-Based-Point-Cloud-Registration-for-6D-Object-Pose-Estimation-in-the-Real-World">04. Learning-Based Point Cloud Registration for 6D Object Pose Estimation in the Real World</h2><blockquote><p><strong>期刊 / 会议</strong>：ECCV2022<br><strong>作者 / 机构</strong>：Zheng Dang, CVLab, EPFL, Lausanne, Switzerland<br><strong>关键词</strong>：位姿估计<br><strong>时间</strong>：2022<br><strong>代码</strong>：<a href="https://github.com/AnsonYanxin/MatchNorm">https://github.com/AnsonYanxin/MatchNorm</a><br><strong>数据集</strong>：LINEMOD</p></blockquote><h4 id="1-目标问题-20">1 目标问题</h4><h4 id="2-方法-20">2 方法</h4><ul><li>首先，它提出了一种基于深度学习的点云匹配模块，用于从源点云和目标点云中提取特征，并计算两个点云之间的相似度矩阵。</li><li>然后，它提出了一种基于归一化的点云对齐模块，用于根据相似度矩阵找到最佳的刚性变换矩阵，使得源点云和目标点云之间的距离最小化</li></ul><h4 id="3-思考-20">3 思考</h4><p>代码不完全。</p>]]></content>
       
       
       <categories>
@@ -815,9 +815,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 视觉 </tag>
             
@@ -1762,9 +1762,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 视觉 </tag>
             
@@ -2214,9 +2214,9 @@
       
         <tags>
             
-            <tag> ROS </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> ROS </tag>
             
         </tags>
       
@@ -2415,9 +2415,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> slam </tag>
             
@@ -2446,9 +2446,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> slam </tag>
             
@@ -2477,9 +2477,9 @@
       
         <tags>
             
-            <tag> bugs </tag>
-            
             <tag> 单片机 </tag>
+            
+            <tag> bugs </tag>
             
         </tags>
       
@@ -2506,9 +2506,9 @@
       
         <tags>
             
-            <tag> ROS </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> ROS </tag>
             
         </tags>
       
@@ -2593,9 +2593,9 @@
       
         <tags>
             
-            <tag> ROS </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> ROS </tag>
             
         </tags>
       
@@ -2684,9 +2684,9 @@
       
         <tags>
             
-            <tag> ROS </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> ROS </tag>
             
         </tags>
       
@@ -2820,11 +2820,11 @@
     
     
     <entry>
-      <title>百度网盘不限速下载方法</title>
-      <link href="/post/e5808c6a.html"/>
-      <url>/post/e5808c6a.html</url>
+      <title>Windows各版本与Office全系列激活方法</title>
+      <link href="/post/c5d699a.html"/>
+      <url>/post/c5d699a.html</url>
       
-        <content type="html"><![CDATA[<h1>一、安装TamperMonkey扩展程序（油猴）</h1><p>需要使用Edge浏览器或Chrome浏览器。</p><h2 id="1-1-如何使用Edge浏览器安装油猴">1.1 如何使用Edge浏览器安装油猴</h2><p>使用Edge浏览器安装油猴十分简单，直接进入<a href="https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd?hl=zh-CN">【扩展应用商店】</a>安装即可。</p><h2 id="1-2-如何使用Chrome浏览器安装油猴">1.2 如何使用Chrome浏览器安装油猴</h2><ol><li><p>如果可以科学上网，进入<a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=zh-CN">【Chrome扩展程序商店】</a>，点击右侧的添加至chrome即可。<br>ps.查外文文献查资料会经常需要科学上网。<br><img src="https://img.mahaofei.com/img/202112230923512-tampermonkey.png" alt=""></p></li><li><p>如果无法打开上面的网页，可以<a href="https://huffie.lanzouw.com/i6TuUuhjdyd">【点此下载】</a>离线包。①将下载的压缩文件解压；②打开浏览器扩展程序管理页面；③右上角打开开发者模式；④将解压出来的【TamperMonkey.crx】文件拖到到此页面。</p></li></ol><p><img src="https://img.mahaofei.com/img/202112230924215-chrome-extension.png" alt=""><br><img src="https://img.mahaofei.com/img/202112230924091-chrome-extension.png" alt=""></p><h2 id="二、安装油猴脚本">二、安装油猴脚本</h2><p>这一步不论什么浏览器都一样。打开<a href="https://greasyfork.org/zh-CN/scripts/436446-%E7%BD%91%E7%9B%98%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E5%8A%A9%E6%89%8B">【此网页】</a>，安装脚本即可。</p><p>ps. 油猴是一个非常实用的插件，GreasyFork里面有很多实用的脚本，想了解的可以自行探索。</p><h1>三、开始下载</h1><h2 id="3-1-下载方法">3.1 下载方法</h2><p>进入<a href="http://pan.baidu.com/">百度网盘网页版</a>，选中要下载的文件，点击左上角的下载助手-API下载，即可直接下载。</p><p><img src="https://pic.rmb.bdstatic.com/bjh/32b2bead4b1c7fc806eacfde29b78f975055.gif" alt=""></p><p><img src="https://pic.rmb.bdstatic.com/bjh/5511a57ed37398ab870ab0095b78948a6031.gif" alt=""></p><h2 id="3-2-更快的下载">3.2 更快的下载</h2><p><strong>默认的网页下载是单线程的，而如果想要下载更快，还可以使用多线程下载器，比如IDM。</strong></p><p>如果你已经在使用IDM，那么可以跳过这一步。</p><p>如果没有，可以使用<a href="https://huffie.lanzouw.com/i6TuUuhjdyd">【点此下载】</a>离线包解压的文件夹中的IDM绿色版。</p><ol><li>将压缩包解压后运行【绿化.bat】；<br><img src="https://img.mahaofei.com/img/202112230928396-lvhua.png" alt=""></li><li>运行【IDMan.exe】</li><li>打开【选项】菜单，点击【下载】栏，将用户代理UA修改为：<strong>softxm;netdisk</strong><br><img src="https://img.mahaofei.com/img/202112230929578-daili.png" alt=""></li><li>点击【连接】栏，将最大连接数设置为<strong>4</strong>，点击【确定】<br><img src="https://img.mahaofei.com/img/202112230929559-linknumber.png" alt=""></li></ol><h2 id="3-3-选择文件下载">3.3 选择文件下载</h2><p>还是使用上面的方法，进行下载。</p><p>下载速度根据当前网络状况，校园网一般在<strong>5MB/s~10MB/s</strong><br><img src="https://img.mahaofei.com/img/202112230930623-ceshi.png" alt=""></p><h1>四、其它方法</h1><p>据我所知，有一款工具名为<a href="https://kinhdown.kinh.cc/">KinhDown</a>也十分好用，有兴趣的可以去官网了解一下。</p>]]></content>
+        <content type="html"><![CDATA[<h1>Office推荐方法</h1><p><a href="https://account.microsoft.com/services">https://account.microsoft.com/services</a></p><p>到这个网站能看到自己已经购买过的office，一般买过电脑后，都会附赠office，从这里下载然后安装，再登陆自己的账号，就能正常使用了，而且是绝对正版的。</p><p><img src="https://img.mahaofei.com/img/20230314162622.png" alt=""></p><h1>万能激活方法</h1><p>这里提供一个工具的下载链接：<a href="https://huffie.lanzouw.com/i1w7Vuxyzxa">https://huffie.lanzouw.com/i1w7Vuxyzxa</a>，解压后以管理员身份运行。</p><p>具体功能和使用方法不必多说，看图即可（一键激活）。</p><p><strong>需要注意：解压之前一定退出所有安全管家，如果还是找不到，看一下是不是被Windows Defender删掉了</strong></p><p><img src="https://img.mahaofei.com/img/202112230939435-winoffice-1.png" alt=""></p><p>如果完成后，出现【Microsoft office无法验证此产品的许可证，应使用控制面板修复office程序】</p><ol><li>点击【其它】</li><li>选择产品【Microsoft Office 20XX】；选择版本选择【XXXX】（你自己的版本）</li><li>选择类型【Fix_Banner_New】</li><li>点击【开始】</li></ol><p>就可以修复许可证弹窗了。</p><h1>许可证问题解决方案</h1><p>如果按照上面的Fix_Banner_New还是解决不了许可证弹窗问题，那么按照官方回答的方法：</p><p><a href="https://answers.microsoft.com/zh-hans/msoffice/forum/all/win10-office-16/3bf97673-1a84-46be-9e15-71f9859368f4">https://answers.microsoft.com/zh-hans/msoffice/forum/all/win10-office-16/3bf97673-1a84-46be-9e15-71f9859368f4</a></p><p>《修改注册表权限》</p><ol><li>登陆管理者账号</li><li>同时按【win键+R】，输入regedit，打开【注册表】</li><li>展开 【HKEY_USERS】&gt;【 S-1-5-20】</li><li>右键单击【 S-1-5-20】&gt;【权限】</li><li>选择【添加】</li><li>键入登录的用户的名称，选择【检查名称】&gt;【确定】</li><li>选择【高级】&gt;【高级安全设置】&gt;【权限】选项卡</li><li>为下方的用户，添加权限：  【编辑】&gt;【基本权限】&gt; 选择【完全控制】&gt; 【确定】</li></ol><ul><li>刚刚添加的用户</li><li>【NETWORK SERVICE】</li></ul><ol start="9"><li>返回到【高级安全设置】&gt; 勾选【替换所有子对象权限项目】&gt;【确定】</li><li>重启电脑</li></ol><p>如果没找到【NETWORK SERVICE】用户，那么就按照第6步手动添加一个。</p>]]></content>
       
       
       <categories>
@@ -2847,11 +2847,11 @@
     
     
     <entry>
-      <title>Windows各版本与Office全系列激活方法</title>
-      <link href="/post/c5d699a.html"/>
-      <url>/post/c5d699a.html</url>
+      <title>百度网盘不限速下载方法</title>
+      <link href="/post/e5808c6a.html"/>
+      <url>/post/e5808c6a.html</url>
       
-        <content type="html"><![CDATA[<h1>Office推荐方法</h1><p><a href="https://account.microsoft.com/services">https://account.microsoft.com/services</a></p><p>到这个网站能看到自己已经购买过的office，一般买过电脑后，都会附赠office，从这里下载然后安装，再登陆自己的账号，就能正常使用了，而且是绝对正版的。</p><p><img src="https://img.mahaofei.com/img/20230314162622.png" alt=""></p><h1>万能激活方法</h1><p>这里提供一个工具的下载链接：<a href="https://huffie.lanzouw.com/i1w7Vuxyzxa">https://huffie.lanzouw.com/i1w7Vuxyzxa</a>，解压后以管理员身份运行。</p><p>具体功能和使用方法不必多说，看图即可（一键激活）。</p><p><strong>需要注意：解压之前一定退出所有安全管家，如果还是找不到，看一下是不是被Windows Defender删掉了</strong></p><p><img src="https://img.mahaofei.com/img/202112230939435-winoffice-1.png" alt=""></p><p>如果完成后，出现【Microsoft office无法验证此产品的许可证，应使用控制面板修复office程序】</p><ol><li>点击【其它】</li><li>选择产品【Microsoft Office 20XX】；选择版本选择【XXXX】（你自己的版本）</li><li>选择类型【Fix_Banner_New】</li><li>点击【开始】</li></ol><p>就可以修复许可证弹窗了。</p><h1>许可证问题解决方案</h1><p>如果按照上面的Fix_Banner_New还是解决不了许可证弹窗问题，那么按照官方回答的方法：</p><p><a href="https://answers.microsoft.com/zh-hans/msoffice/forum/all/win10-office-16/3bf97673-1a84-46be-9e15-71f9859368f4">https://answers.microsoft.com/zh-hans/msoffice/forum/all/win10-office-16/3bf97673-1a84-46be-9e15-71f9859368f4</a></p><p>《修改注册表权限》</p><ol><li>登陆管理者账号</li><li>同时按【win键+R】，输入regedit，打开【注册表】</li><li>展开 【HKEY_USERS】&gt;【 S-1-5-20】</li><li>右键单击【 S-1-5-20】&gt;【权限】</li><li>选择【添加】</li><li>键入登录的用户的名称，选择【检查名称】&gt;【确定】</li><li>选择【高级】&gt;【高级安全设置】&gt;【权限】选项卡</li><li>为下方的用户，添加权限：  【编辑】&gt;【基本权限】&gt; 选择【完全控制】&gt; 【确定】</li></ol><ul><li>刚刚添加的用户</li><li>【NETWORK SERVICE】</li></ul><ol start="9"><li>返回到【高级安全设置】&gt; 勾选【替换所有子对象权限项目】&gt;【确定】</li><li>重启电脑</li></ol><p>如果没找到【NETWORK SERVICE】用户，那么就按照第6步手动添加一个。</p>]]></content>
+        <content type="html"><![CDATA[<h1>一、安装TamperMonkey扩展程序（油猴）</h1><p>需要使用Edge浏览器或Chrome浏览器。</p><h2 id="1-1-如何使用Edge浏览器安装油猴">1.1 如何使用Edge浏览器安装油猴</h2><p>使用Edge浏览器安装油猴十分简单，直接进入<a href="https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd?hl=zh-CN">【扩展应用商店】</a>安装即可。</p><h2 id="1-2-如何使用Chrome浏览器安装油猴">1.2 如何使用Chrome浏览器安装油猴</h2><ol><li><p>如果可以科学上网，进入<a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=zh-CN">【Chrome扩展程序商店】</a>，点击右侧的添加至chrome即可。<br>ps.查外文文献查资料会经常需要科学上网。<br><img src="https://img.mahaofei.com/img/202112230923512-tampermonkey.png" alt=""></p></li><li><p>如果无法打开上面的网页，可以<a href="https://huffie.lanzouw.com/i6TuUuhjdyd">【点此下载】</a>离线包。①将下载的压缩文件解压；②打开浏览器扩展程序管理页面；③右上角打开开发者模式；④将解压出来的【TamperMonkey.crx】文件拖到到此页面。</p></li></ol><p><img src="https://img.mahaofei.com/img/202112230924215-chrome-extension.png" alt=""><br><img src="https://img.mahaofei.com/img/202112230924091-chrome-extension.png" alt=""></p><h2 id="二、安装油猴脚本">二、安装油猴脚本</h2><p>这一步不论什么浏览器都一样。打开<a href="https://greasyfork.org/zh-CN/scripts/436446-%E7%BD%91%E7%9B%98%E7%9B%B4%E9%93%BE%E4%B8%8B%E8%BD%BD%E5%8A%A9%E6%89%8B">【此网页】</a>，安装脚本即可。</p><p>ps. 油猴是一个非常实用的插件，GreasyFork里面有很多实用的脚本，想了解的可以自行探索。</p><h1>三、开始下载</h1><h2 id="3-1-下载方法">3.1 下载方法</h2><p>进入<a href="http://pan.baidu.com/">百度网盘网页版</a>，选中要下载的文件，点击左上角的下载助手-API下载，即可直接下载。</p><p><img src="https://pic.rmb.bdstatic.com/bjh/32b2bead4b1c7fc806eacfde29b78f975055.gif" alt=""></p><p><img src="https://pic.rmb.bdstatic.com/bjh/5511a57ed37398ab870ab0095b78948a6031.gif" alt=""></p><h2 id="3-2-更快的下载">3.2 更快的下载</h2><p><strong>默认的网页下载是单线程的，而如果想要下载更快，还可以使用多线程下载器，比如IDM。</strong></p><p>如果你已经在使用IDM，那么可以跳过这一步。</p><p>如果没有，可以使用<a href="https://huffie.lanzouw.com/i6TuUuhjdyd">【点此下载】</a>离线包解压的文件夹中的IDM绿色版。</p><ol><li>将压缩包解压后运行【绿化.bat】；<br><img src="https://img.mahaofei.com/img/202112230928396-lvhua.png" alt=""></li><li>运行【IDMan.exe】</li><li>打开【选项】菜单，点击【下载】栏，将用户代理UA修改为：<strong>softxm;netdisk</strong><br><img src="https://img.mahaofei.com/img/202112230929578-daili.png" alt=""></li><li>点击【连接】栏，将最大连接数设置为<strong>4</strong>，点击【确定】<br><img src="https://img.mahaofei.com/img/202112230929559-linknumber.png" alt=""></li></ol><h2 id="3-3-选择文件下载">3.3 选择文件下载</h2><p>还是使用上面的方法，进行下载。</p><p>下载速度根据当前网络状况，校园网一般在<strong>5MB/s~10MB/s</strong><br><img src="https://img.mahaofei.com/img/202112230930623-ceshi.png" alt=""></p><h1>四、其它方法</h1><p>据我所知，有一款工具名为<a href="https://kinhdown.kinh.cc/">KinhDown</a>也十分好用，有兴趣的可以去官网了解一下。</p>]]></content>
       
       
       <categories>
@@ -2934,9 +2934,9 @@
       
         <tags>
             
-            <tag> ROS </tag>
-            
             <tag> 实验 </tag>
+            
+            <tag> ROS </tag>
             
         </tags>
       
@@ -4890,9 +4890,9 @@
       
         <tags>
             
-            <tag> Ubuntu </tag>
-            
             <tag> 网站搭建 </tag>
+            
+            <tag> Ubuntu </tag>
             
         </tags>
       
@@ -4919,9 +4919,9 @@
       
         <tags>
             
-            <tag> Ubuntu </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> Ubuntu </tag>
             
         </tags>
       
@@ -5588,9 +5588,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> WordPress </tag>
+            
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -5675,9 +5675,9 @@
       
         <tags>
             
-            <tag> 网站搭建 </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> 网站搭建 </tag>
             
         </tags>
       
@@ -5704,9 +5704,9 @@
       
         <tags>
             
-            <tag> 网站搭建 </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> 网站搭建 </tag>
             
             <tag> WordPress </tag>
             
@@ -5735,9 +5735,9 @@
       
         <tags>
             
-            <tag> 网站搭建 </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> 网站搭建 </tag>
             
         </tags>
       
@@ -6203,11 +6203,11 @@
       
         <tags>
             
-            <tag> bugs </tag>
-            
             <tag> 单片机 </tag>
             
             <tag> Proteus </tag>
+            
+            <tag> bugs </tag>
             
         </tags>
       
@@ -6338,43 +6338,6 @@
     
     
     <entry>
-      <title>【6D位姿估计算法】DenseFusion代码结构</title>
-      <link href="/post/2f1e8a35.html"/>
-      <url>/post/2f1e8a35.html</url>
-      
-        <content type="html"><![CDATA[<h1>一、数据读取</h1><h2 id="1-1-train-py中的数据加载">1.1 train.py中的数据加载</h2><p><strong>数据集定义</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加载训练数据集和测试数据集</span></span><br><span class="line"><span class="keyword">if</span> opt.dataset == <span class="string">&#x27;ycb&#x27;</span>:</span><br><span class="line">    dataset = PoseDataset_ycb(<span class="string">&#x27;train&#x27;</span>, opt.num_points, <span class="literal">True</span>, opt.dataset_root, opt.noise_trans, opt.refine_start)</span><br><span class="line"><span class="keyword">elif</span> opt.dataset == <span class="string">&#x27;linemod&#x27;</span>:</span><br><span class="line">    dataset = PoseDataset_linemod(<span class="string">&#x27;train&#x27;</span>, opt.num_points, <span class="literal">True</span>, opt.dataset_root, opt.noise_trans, opt.refine_start)</span><br><span class="line"><span class="comment"># dataloader使用opt.workers个进程加速读取数据</span></span><br><span class="line">dataloader = torch.utils.data.DataLoader(dataset, batch_size=<span class="number">1</span>, shuffle=<span class="literal">True</span>, num_workers=opt.workers)</span><br><span class="line"><span class="keyword">if</span> opt.dataset == <span class="string">&#x27;ycb&#x27;</span>:</span><br><span class="line">    test_dataset = PoseDataset_ycb(<span class="string">&#x27;test&#x27;</span>, opt.num_points, <span class="literal">False</span>, opt.dataset_root, <span class="number">0.0</span>, opt.refine_start)</span><br><span class="line"><span class="keyword">elif</span> opt.dataset == <span class="string">&#x27;linemod&#x27;</span>:</span><br><span class="line">    test_dataset = PoseDataset_linemod(<span class="string">&#x27;test&#x27;</span>, opt.num_points, <span class="literal">False</span>, opt.dataset_root, <span class="number">0.0</span>, opt.refine_start)</span><br><span class="line">testdataloader = torch.utils.data.DataLoader(test_dataset, batch_size=<span class="number">1</span>, shuffle=<span class="literal">False</span>, num_workers=opt.workers)</span><br></pre></td></tr></table></figure><p><strong>数据读取</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i, data <span class="keyword">in</span> <span class="built_in">enumerate</span>(dataloader, <span class="number">0</span>):</span><br><span class="line">points, choose, img, target, model_points, idx = data</span><br></pre></td></tr></table></figure><h2 id="1-2-dataset-py数据读取">1.2 dataset.py数据读取</h2><h3 id="1-2-1-初始化">1.2.1 初始化</h3><p><strong>（1）参数输入</strong></p><ul><li>mode：模式，共有三种，train、test、eval</li><li>num：输入的点云个数（这里linemod默认500个）</li><li>add_noise：是否加入噪声（实验中将train加入噪声，test和eval不加入）</li><li>root：数据集的根目录</li><li>noise_trans：噪声超参数</li><li>refine：是否启用refine过程</li></ul><p><strong>（2）加载数据集文件</strong></p><p>针对数据集中每一个文件夹（物体类别序号），开始读取。</p><p>首先根据mode模式参数不同，获取train.txt或者test.txt，即得到哪些图片模型文件是要被读取来进行训练或测试的。这里train读取train.txt，test和eval模式都读取test.txt。每读取一行train.txt或test.txt：</p><ul><li>添加RGB图、深度图、mask标签图的路径到三个列表（list_rgb、list_depth、list_label）中，其中mask标签图如果是eval模式，则添加语义分割后的mask标签，如果是train或test模式，就添加标准的mask。</li><li>添加类别号list_obj</li><li>添加图片编号list_rank<br>（这里的几个列表按顺序保存了所有物体的txt对应的图片）</li></ul><p>然后加载该物体类别的元数据信息meta，包括每一个图像的旋转矩阵、平移矩阵、包围矩形框的坐标、物体类别号。（每个meta[item]保存了一个物体item的元数据）</p><p>最后加载该物体的三维点云文件。（每个pt[item]保存了一个物体item的点云）</p><p><strong>（3）初始化参数</strong></p><p>初始化设置一些参数：</p><ul><li>相机内参</li><li>xmap，ymap：xmap 数组的第 i 行和第 j 列的值为j，ymap 数组的第 i 行和第 j 列的值为i</li><li>图像调整参数trancolor，通过颜色变换可以使图像变得更随机，从而防止模型对数据集过度拟合，作为噪声项根据需要添加。</li><li>图像归一化参数，通过归一化可以是模型在训练的时候更快的收敛，并降低对输入数据的敏感度</li><li>图像分割列表，将图像分成多块</li><li>点云最大数量、最小数量</li><li>对陈物体的序号</li></ul><h3 id="1-2-2-数据集读取函数">1.2.2 数据集读取函数</h3><p>当train.py使用dataloader读取数据时，每迭代一次，调用数据集类的def getitem(self, index)返回一组数据信息。</p><ul><li>cloud：深度图+内参计算的点云</li><li>choose：用于选取的choose列表</li><li>img_masked：物体所在标准包围框的RGB图</li><li>target：模型点云齐次变换后的点云</li><li>model_points：模型点云</li><li>self.objlist.index(obj)：该物体在objlist的索引</li></ul><p><strong>（1）加载图片</strong></p><p>使用PIL的Image模块加载当前索引批次的RGB图片、深度图、mask标签图、类别号、图片序号信息。并且要保证mask标签图也是BRG三通道图。</p><p>根据物体类别号和图片序号，在meta中找到当前数据批次对应的元数据</p><p><strong>（2）获取掩码（得到物体所在的标准大小矩形区域）</strong></p><p>获取深度图的掩码，根据深度图上每个像素的值是否为0，来构造一个掩码，以确定深度图上的哪些像素值有效，哪些像素值无效。掩码是一个布尔数组，其中的值为True的元素表示相应位置的值有效，值为False的元素表示相应位置的值无效。</p><p>获取mask掩码，将实例分割后的结果(eval)，或者标准mask(train/test)中值为255的像素作为掩码保存在mask_label数组中，并转换为1通道。</p><p>取两个掩码图的交集作为mask，其中depth为true代表深度值有效，label为true代表此处有物体</p><p>根据超参数确定是否为RGB添加噪声（改变亮度、对比度、饱和度、色调），然后提取RGB图的前三个通道，并将图像的维度从(height, width, channel)转换为(channel, height, width)。很多图像处理的库都把通道数放在第1维，这样可以方便地对每一个通道进行操作。</p><p>根据元数据中的包围框坐标，或eval时使用mask_to_bbox获取mask图像中物体的包围框，利用get_bbox将包围框转换为标准大小的包围框（标准大小在border_list中定义）。</p><p>利用标准大小的包围框获取RGB图像中物体所在的矩形区域。</p><p><strong>（3）获得物体上500个随机点的x、y、深度值点云</strong></p><p>将物体所在标准包围框区域的mask展开到1维，选取为true的部分的下标，赋值给choose，此时choose就是所有非零元素的下标的数组。</p><ul><li>如果choose长为0，则返回6个0张量</li><li>如果choose超过500，则随机选取500个作为choose</li><li>如果choose介于0-500个，则使用warp模式填充[1,2,3] -&gt; [1,2,3,1,2,3,…]</li></ul><p>根据物体所在标准包围框，获得对应区域的深度图，并展开至1维，然后使用choose进行索引，得到choose的深度值，然后转换为列向量。对xmap和ymap进行同样的操作。</p><p>利用相机参数，以及choose点的x、y、深度，计算choose的500个点的相机坐标系下的三维坐标，并将x、y、深度三个列向量(500,1)拼接为(500,3)的点云cloud。</p><p>根据超参数判断是否为x、y、depth点云添加噪声</p><p><strong>（4）读取模型点云和齐次变换后的模型点云</strong></p><p>读取该物体的模型点云（从ply文件中读取），在点云中随机删除，最后只留下500个点云。</p><p>从元数据中读取真实的旋转矩阵、平移矩阵。利用齐次变换得到当前姿态的点云target。</p><p>根据超参数判断是否为模型变换得到的点云target添加噪声</p><h1>二、网络模型</h1><h2 id="2-1-模型定义">2.1 模型定义</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># estimator为PoseNet网络，即用于预测姿态的主干网络</span></span><br><span class="line">estimator = PoseNet(num_points = opt.num_points, num_obj = opt.num_objects)</span><br><span class="line">estimator.cuda()</span><br><span class="line"><span class="comment"># refiner为PoseRefineNet网络，用于后续迭代自优化</span></span><br><span class="line">refiner = PoseRefineNet(num_points = opt.num_points, num_obj = opt.num_objects)</span><br><span class="line">refiner.cuda()</span><br></pre></td></tr></table></figure><h2 id="2-2-修改ResNet-18网络">2.2 修改ResNet-18网络</h2><p>定义一个ModifiedResnet网络，将ResNet-18网络模型转换为nn.DataParallel模型，便于在多GPU下训练。</p><p>网络输入一个特征向量，返回一个经修改的ResNet-18网络的特征向量。</p><h2 id="2-3-PoseNetFeat特征融合网络">2.3 PoseNetFeat特征融合网络</h2><p>输入</p><ul><li>x (batchsize,3,500)，由xydepth生成的三维点云</li><li>emb (batchsize,di(32),500)，标准包围框区域的RGB图像，经过ModifiedResnet得到的特征图，经过choose选择后的特征<br>输出</li><li>前向计算得到(batchsize, 128+256+1024,500)的向量，64x2通道特征+128x2通道特征+1024通道全局特征</li></ul><h2 id="2-4-PoseNet姿态提取网络">2.4 PoseNet姿态提取网络</h2><p>输入</p><ul><li>img (batchsize, w, h)，标准包围框区域的RGB图像</li><li>x (batchsize,500,3)，由xydepth生成的三维点云</li><li>choose (batchsize,1,500)，选择数组</li><li>obj (batchsize, 1)，物体索引序号<br>输出</li><li>out_rx (1,500,4)，回归得到的四元数</li><li>out_tx (1,500,3)，回归得到的平移变量</li><li>out_cx (1,500,1)，回归得到的置信度</li><li>emb (batchsize,di(32),500)，标准包围框区域的RGB图像，经过ModifiedResnet得到的特征图，经过choose选择后的特征</li></ul><h2 id="2-5-PoseRefineNetFeat优化特征融合网络">2.5 PoseRefineNetFeat优化特征融合网络</h2><p>与PoseNetFeat结构基本一致。</p><p>但是PoseNetFeat先将pointfeat_2进行池化，再转换到1024通道得到全局特征，再和pointfeat_1和pointfeat_2拼接。</p><p>而PoseRefineNetFeat则是先将pointfeat_1和pointfeat_2拼接作为pointfeat_3，然后进行池化得到融合特征。</p><p>输入：</p><ul><li>x (batchsize,3,500)，由xydepth生成的三维点云</li><li>emb (batchsize,di(32),500)，标准包围框区域的RGB图像，经过ModifiedResnet得到的特征图，经过choose选择后的特征<br>输出</li><li>前向计算得到(batchsize, 1024)的特征向量</li></ul><h2 id="2-6-PoseRefineNet姿态优化网络">2.6 PoseRefineNet姿态优化网络</h2><p>输入：</p><ul><li>x，预测的三维坐标(batchsize,3,500)</li><li>emb，标准包围框区域的RGB图像，经过ModifiedResnet得到的特征图，经过choose选择后的特征(batchsize,di(32),500)</li><li>obj，物体索引序号(batchsize, 1)<br>输出：</li><li>out_rx(1,4)，回归得到的四元数，预测的三维坐标相对于真实三维坐标的变换</li><li>out_tx(1,4)，回归得到的平移变量，预测的三维坐标相对于真实三维坐标的变换</li></ul><h1>三、损失函数</h1><h2 id="3-1-Loss初始化">3.1 Loss初始化</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对loss进行初始化</span></span><br><span class="line"><span class="comment"># num_points_mesh=500，sym_list对陈物体列表</span></span><br><span class="line">criterion = Loss(opt.num_points_mesh, opt.sym_list)</span><br><span class="line">criterion_refine = Loss_refine(opt.num_points_mesh, opt.sym_list)</span><br></pre></td></tr></table></figure><h2 id="3-2-Loss计算">3.2 Loss计算</h2><p>输入：</p><ul><li>pred_r，(1, 500, 4)，预测得到的四元数</li><li>pred_t，(1, 500, 3)，预测得到的平移变量</li><li>pred_c，(1, 500, 1)，预测得到的置信度</li><li>target，(bs, 500, 3)，根据model_points点云信息，以及标准旋转偏移矩阵转换过的目标点云</li><li>model_points，(bs, 500, 3)，模型点云信息</li><li>idx，(1)，物体类别序号</li><li>points，(bs, 500, 3)，深度三维坐标</li><li>opt.w，权重参数</li><li>opt.refine_start，是否开始refine过程<br>输出：</li><li>loss，损失值</li><li>dis，置信度最大的点的距离</li><li>new_points，由points转换到世界坐标系下的点云坐标</li><li>new_target，由target转换到世界坐标系下的点云坐标</li></ul><p>首先将预测得到的四元数转换为旋转矩阵。</p><p>然后将model_points和target都复制500次，用于对每个点进行计算。</p><p>利用<code>pred = torch.add(torch.bmm(model_points, base), points + pred_t)</code>公式求出预测值。</p><ul><li>model_points是从点云文件中读取的，其坐标是在世界坐标系下定义的，坐标原点为点云文件中固定的零点。</li><li>target是model_points在相机坐标系下的坐标，也就是物体在相机坐标系下的点云坐标，也就是物体的实际坐标。</li><li>pred_r是世界坐标系和相机坐标系的变换矩阵。</li><li>pred_t我也不知道是什么</li><li>pred是预测得到的model_points在相机坐标系下的坐标，也就是预测的物体实际坐标。<br>其中<code>torch.bmm(model_points, base)</code>利用旋转矩阵将model_points姿态转换到相机坐标系下，然后本来加上target_t就是实际坐标，但是这里加上<code>points+pred_t</code>得到预测的坐标。</li></ul><p>再对对称物体进行单独的处理。</p><p>计算预测的点云pred和真实的点云target之间的距离，求平均值来计算loss，并保存置信度最大的距离loss。</p><p>找到置信度最大的点对应的平移向量和旋转矩阵，利用points(相机坐标系点云)逆变换回世界坐标系得到new_points，将target同样逆变换回世界坐标系得到new_target。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 科研 </category>
-          
-          <category> 论文笔记 </category>
-          
-          <category> 位姿估计 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 深度学习 </tag>
-            
-            <tag> 实验 </tag>
-            
-            <tag> 视觉 </tag>
-            
-            <tag> 位姿估计 </tag>
-            
-            <tag> DenseFusion </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>【论文笔记】面向非结构化环境的机器人6D抓取技术研究</title>
       <link href="/post/ff098567.html"/>
       <url>/post/ff098567.html</url>
@@ -6400,6 +6363,43 @@
             <tag> 视觉 </tag>
             
             <tag> 机器人抓取 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【6D位姿估计算法】DenseFusion代码结构</title>
+      <link href="/post/2f1e8a35.html"/>
+      <url>/post/2f1e8a35.html</url>
+      
+        <content type="html"><![CDATA[<h1>一、数据读取</h1><h2 id="1-1-train-py中的数据加载">1.1 train.py中的数据加载</h2><p><strong>数据集定义</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加载训练数据集和测试数据集</span></span><br><span class="line"><span class="keyword">if</span> opt.dataset == <span class="string">&#x27;ycb&#x27;</span>:</span><br><span class="line">    dataset = PoseDataset_ycb(<span class="string">&#x27;train&#x27;</span>, opt.num_points, <span class="literal">True</span>, opt.dataset_root, opt.noise_trans, opt.refine_start)</span><br><span class="line"><span class="keyword">elif</span> opt.dataset == <span class="string">&#x27;linemod&#x27;</span>:</span><br><span class="line">    dataset = PoseDataset_linemod(<span class="string">&#x27;train&#x27;</span>, opt.num_points, <span class="literal">True</span>, opt.dataset_root, opt.noise_trans, opt.refine_start)</span><br><span class="line"><span class="comment"># dataloader使用opt.workers个进程加速读取数据</span></span><br><span class="line">dataloader = torch.utils.data.DataLoader(dataset, batch_size=<span class="number">1</span>, shuffle=<span class="literal">True</span>, num_workers=opt.workers)</span><br><span class="line"><span class="keyword">if</span> opt.dataset == <span class="string">&#x27;ycb&#x27;</span>:</span><br><span class="line">    test_dataset = PoseDataset_ycb(<span class="string">&#x27;test&#x27;</span>, opt.num_points, <span class="literal">False</span>, opt.dataset_root, <span class="number">0.0</span>, opt.refine_start)</span><br><span class="line"><span class="keyword">elif</span> opt.dataset == <span class="string">&#x27;linemod&#x27;</span>:</span><br><span class="line">    test_dataset = PoseDataset_linemod(<span class="string">&#x27;test&#x27;</span>, opt.num_points, <span class="literal">False</span>, opt.dataset_root, <span class="number">0.0</span>, opt.refine_start)</span><br><span class="line">testdataloader = torch.utils.data.DataLoader(test_dataset, batch_size=<span class="number">1</span>, shuffle=<span class="literal">False</span>, num_workers=opt.workers)</span><br></pre></td></tr></table></figure><p><strong>数据读取</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i, data <span class="keyword">in</span> <span class="built_in">enumerate</span>(dataloader, <span class="number">0</span>):</span><br><span class="line">points, choose, img, target, model_points, idx = data</span><br></pre></td></tr></table></figure><h2 id="1-2-dataset-py数据读取">1.2 dataset.py数据读取</h2><h3 id="1-2-1-初始化">1.2.1 初始化</h3><p><strong>（1）参数输入</strong></p><ul><li>mode：模式，共有三种，train、test、eval</li><li>num：输入的点云个数（这里linemod默认500个）</li><li>add_noise：是否加入噪声（实验中将train加入噪声，test和eval不加入）</li><li>root：数据集的根目录</li><li>noise_trans：噪声超参数</li><li>refine：是否启用refine过程</li></ul><p><strong>（2）加载数据集文件</strong></p><p>针对数据集中每一个文件夹（物体类别序号），开始读取。</p><p>首先根据mode模式参数不同，获取train.txt或者test.txt，即得到哪些图片模型文件是要被读取来进行训练或测试的。这里train读取train.txt，test和eval模式都读取test.txt。每读取一行train.txt或test.txt：</p><ul><li>添加RGB图、深度图、mask标签图的路径到三个列表（list_rgb、list_depth、list_label）中，其中mask标签图如果是eval模式，则添加语义分割后的mask标签，如果是train或test模式，就添加标准的mask。</li><li>添加类别号list_obj</li><li>添加图片编号list_rank<br>（这里的几个列表按顺序保存了所有物体的txt对应的图片）</li></ul><p>然后加载该物体类别的元数据信息meta，包括每一个图像的旋转矩阵、平移矩阵、包围矩形框的坐标、物体类别号。（每个meta[item]保存了一个物体item的元数据）</p><p>最后加载该物体的三维点云文件。（每个pt[item]保存了一个物体item的点云）</p><p><strong>（3）初始化参数</strong></p><p>初始化设置一些参数：</p><ul><li>相机内参</li><li>xmap，ymap：xmap 数组的第 i 行和第 j 列的值为j，ymap 数组的第 i 行和第 j 列的值为i</li><li>图像调整参数trancolor，通过颜色变换可以使图像变得更随机，从而防止模型对数据集过度拟合，作为噪声项根据需要添加。</li><li>图像归一化参数，通过归一化可以是模型在训练的时候更快的收敛，并降低对输入数据的敏感度</li><li>图像分割列表，将图像分成多块</li><li>点云最大数量、最小数量</li><li>对陈物体的序号</li></ul><h3 id="1-2-2-数据集读取函数">1.2.2 数据集读取函数</h3><p>当train.py使用dataloader读取数据时，每迭代一次，调用数据集类的def getitem(self, index)返回一组数据信息。</p><ul><li>cloud：深度图+内参计算的点云</li><li>choose：用于选取的choose列表</li><li>img_masked：物体所在标准包围框的RGB图</li><li>target：模型点云齐次变换后的点云</li><li>model_points：模型点云</li><li>self.objlist.index(obj)：该物体在objlist的索引</li></ul><p><strong>（1）加载图片</strong></p><p>使用PIL的Image模块加载当前索引批次的RGB图片、深度图、mask标签图、类别号、图片序号信息。并且要保证mask标签图也是BRG三通道图。</p><p>根据物体类别号和图片序号，在meta中找到当前数据批次对应的元数据</p><p><strong>（2）获取掩码（得到物体所在的标准大小矩形区域）</strong></p><p>获取深度图的掩码，根据深度图上每个像素的值是否为0，来构造一个掩码，以确定深度图上的哪些像素值有效，哪些像素值无效。掩码是一个布尔数组，其中的值为True的元素表示相应位置的值有效，值为False的元素表示相应位置的值无效。</p><p>获取mask掩码，将实例分割后的结果(eval)，或者标准mask(train/test)中值为255的像素作为掩码保存在mask_label数组中，并转换为1通道。</p><p>取两个掩码图的交集作为mask，其中depth为true代表深度值有效，label为true代表此处有物体</p><p>根据超参数确定是否为RGB添加噪声（改变亮度、对比度、饱和度、色调），然后提取RGB图的前三个通道，并将图像的维度从(height, width, channel)转换为(channel, height, width)。很多图像处理的库都把通道数放在第1维，这样可以方便地对每一个通道进行操作。</p><p>根据元数据中的包围框坐标，或eval时使用mask_to_bbox获取mask图像中物体的包围框，利用get_bbox将包围框转换为标准大小的包围框（标准大小在border_list中定义）。</p><p>利用标准大小的包围框获取RGB图像中物体所在的矩形区域。</p><p><strong>（3）获得物体上500个随机点的x、y、深度值点云</strong></p><p>将物体所在标准包围框区域的mask展开到1维，选取为true的部分的下标，赋值给choose，此时choose就是所有非零元素的下标的数组。</p><ul><li>如果choose长为0，则返回6个0张量</li><li>如果choose超过500，则随机选取500个作为choose</li><li>如果choose介于0-500个，则使用warp模式填充[1,2,3] -&gt; [1,2,3,1,2,3,…]</li></ul><p>根据物体所在标准包围框，获得对应区域的深度图，并展开至1维，然后使用choose进行索引，得到choose的深度值，然后转换为列向量。对xmap和ymap进行同样的操作。</p><p>利用相机参数，以及choose点的x、y、深度，计算choose的500个点的相机坐标系下的三维坐标，并将x、y、深度三个列向量(500,1)拼接为(500,3)的点云cloud。</p><p>根据超参数判断是否为x、y、depth点云添加噪声</p><p><strong>（4）读取模型点云和齐次变换后的模型点云</strong></p><p>读取该物体的模型点云（从ply文件中读取），在点云中随机删除，最后只留下500个点云。</p><p>从元数据中读取真实的旋转矩阵、平移矩阵。利用齐次变换得到当前姿态的点云target。</p><p>根据超参数判断是否为模型变换得到的点云target添加噪声</p><h1>二、网络模型</h1><h2 id="2-1-模型定义">2.1 模型定义</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># estimator为PoseNet网络，即用于预测姿态的主干网络</span></span><br><span class="line">estimator = PoseNet(num_points = opt.num_points, num_obj = opt.num_objects)</span><br><span class="line">estimator.cuda()</span><br><span class="line"><span class="comment"># refiner为PoseRefineNet网络，用于后续迭代自优化</span></span><br><span class="line">refiner = PoseRefineNet(num_points = opt.num_points, num_obj = opt.num_objects)</span><br><span class="line">refiner.cuda()</span><br></pre></td></tr></table></figure><h2 id="2-2-修改ResNet-18网络">2.2 修改ResNet-18网络</h2><p>定义一个ModifiedResnet网络，将ResNet-18网络模型转换为nn.DataParallel模型，便于在多GPU下训练。</p><p>网络输入一个特征向量，返回一个经修改的ResNet-18网络的特征向量。</p><h2 id="2-3-PoseNetFeat特征融合网络">2.3 PoseNetFeat特征融合网络</h2><p>输入</p><ul><li>x (batchsize,3,500)，由xydepth生成的三维点云</li><li>emb (batchsize,di(32),500)，标准包围框区域的RGB图像，经过ModifiedResnet得到的特征图，经过choose选择后的特征<br>输出</li><li>前向计算得到(batchsize, 128+256+1024,500)的向量，64x2通道特征+128x2通道特征+1024通道全局特征</li></ul><h2 id="2-4-PoseNet姿态提取网络">2.4 PoseNet姿态提取网络</h2><p>输入</p><ul><li>img (batchsize, w, h)，标准包围框区域的RGB图像</li><li>x (batchsize,500,3)，由xydepth生成的三维点云</li><li>choose (batchsize,1,500)，选择数组</li><li>obj (batchsize, 1)，物体索引序号<br>输出</li><li>out_rx (1,500,4)，回归得到的四元数</li><li>out_tx (1,500,3)，回归得到的平移变量</li><li>out_cx (1,500,1)，回归得到的置信度</li><li>emb (batchsize,di(32),500)，标准包围框区域的RGB图像，经过ModifiedResnet得到的特征图，经过choose选择后的特征</li></ul><h2 id="2-5-PoseRefineNetFeat优化特征融合网络">2.5 PoseRefineNetFeat优化特征融合网络</h2><p>与PoseNetFeat结构基本一致。</p><p>但是PoseNetFeat先将pointfeat_2进行池化，再转换到1024通道得到全局特征，再和pointfeat_1和pointfeat_2拼接。</p><p>而PoseRefineNetFeat则是先将pointfeat_1和pointfeat_2拼接作为pointfeat_3，然后进行池化得到融合特征。</p><p>输入：</p><ul><li>x (batchsize,3,500)，由xydepth生成的三维点云</li><li>emb (batchsize,di(32),500)，标准包围框区域的RGB图像，经过ModifiedResnet得到的特征图，经过choose选择后的特征<br>输出</li><li>前向计算得到(batchsize, 1024)的特征向量</li></ul><h2 id="2-6-PoseRefineNet姿态优化网络">2.6 PoseRefineNet姿态优化网络</h2><p>输入：</p><ul><li>x，预测的三维坐标(batchsize,3,500)</li><li>emb，标准包围框区域的RGB图像，经过ModifiedResnet得到的特征图，经过choose选择后的特征(batchsize,di(32),500)</li><li>obj，物体索引序号(batchsize, 1)<br>输出：</li><li>out_rx(1,4)，回归得到的四元数，预测的三维坐标相对于真实三维坐标的变换</li><li>out_tx(1,4)，回归得到的平移变量，预测的三维坐标相对于真实三维坐标的变换</li></ul><h1>三、损失函数</h1><h2 id="3-1-Loss初始化">3.1 Loss初始化</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对loss进行初始化</span></span><br><span class="line"><span class="comment"># num_points_mesh=500，sym_list对陈物体列表</span></span><br><span class="line">criterion = Loss(opt.num_points_mesh, opt.sym_list)</span><br><span class="line">criterion_refine = Loss_refine(opt.num_points_mesh, opt.sym_list)</span><br></pre></td></tr></table></figure><h2 id="3-2-Loss计算">3.2 Loss计算</h2><p>输入：</p><ul><li>pred_r，(1, 500, 4)，预测得到的四元数</li><li>pred_t，(1, 500, 3)，预测得到的平移变量</li><li>pred_c，(1, 500, 1)，预测得到的置信度</li><li>target，(bs, 500, 3)，根据model_points点云信息，以及标准旋转偏移矩阵转换过的目标点云</li><li>model_points，(bs, 500, 3)，模型点云信息</li><li>idx，(1)，物体类别序号</li><li>points，(bs, 500, 3)，深度三维坐标</li><li>opt.w，权重参数</li><li>opt.refine_start，是否开始refine过程<br>输出：</li><li>loss，损失值</li><li>dis，置信度最大的点的距离</li><li>new_points，由points转换到世界坐标系下的点云坐标</li><li>new_target，由target转换到世界坐标系下的点云坐标</li></ul><p>首先将预测得到的四元数转换为旋转矩阵。</p><p>然后将model_points和target都复制500次，用于对每个点进行计算。</p><p>利用<code>pred = torch.add(torch.bmm(model_points, base), points + pred_t)</code>公式求出预测值。</p><ul><li>model_points是从点云文件中读取的，其坐标是在世界坐标系下定义的，坐标原点为点云文件中固定的零点。</li><li>target是model_points在相机坐标系下的坐标，也就是物体在相机坐标系下的点云坐标，也就是物体的实际坐标。</li><li>pred_r是世界坐标系和相机坐标系的变换矩阵。</li><li>pred_t我也不知道是什么</li><li>pred是预测得到的model_points在相机坐标系下的坐标，也就是预测的物体实际坐标。<br>其中<code>torch.bmm(model_points, base)</code>利用旋转矩阵将model_points姿态转换到相机坐标系下，然后本来加上target_t就是实际坐标，但是这里加上<code>points+pred_t</code>得到预测的坐标。</li></ul><p>再对对称物体进行单独的处理。</p><p>计算预测的点云pred和真实的点云target之间的距离，求平均值来计算loss，并保存置信度最大的距离loss。</p><p>找到置信度最大的点对应的平移向量和旋转矩阵，利用points(相机坐标系点云)逆变换回世界坐标系得到new_points，将target同样逆变换回世界坐标系得到new_target。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 科研 </category>
+          
+          <category> 论文笔记 </category>
+          
+          <category> 位姿估计 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 实验 </tag>
+            
+            <tag> 深度学习 </tag>
+            
+            <tag> 视觉 </tag>
+            
+            <tag> 位姿估计 </tag>
+            
+            <tag> DenseFusion </tag>
             
         </tags>
       

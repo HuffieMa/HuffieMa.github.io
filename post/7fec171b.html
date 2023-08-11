@@ -207,7 +207,7 @@
 <p><code>ur5.launch</code>：用于启动 gazebo 仿真环境。具体包括以下几个部分，启动空环境、定义 robot_description 参数服务器、发送到gazebo中生成机器人、启动并加载控制器。</p>
 <p><code>ur5_moveit_planning_execution.launch</code>：用于启动 MoveIt 相关组件。具体包括以下几个部分：设置 sim参数， 根据 sim 参数重映射 follow_joint_trajectory 话题，启动MoveIt。</p>
 <p><code>moveit_rviz.launch</code>：用于启动 Rviz 相关组件。具体包括以下几个部分：加载配置参数，启动Rviz。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">roslaunch ur_gazebo ur5_with_gripper.launch</span><br><span class="line">roslaunch ur5_single_arm_moveit_config ur5_moveit_planning_execution.launch</span><br><span class="line">roslaunch ur5_gripper_moveit_config moveit_rviz.launch config:=true</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">有夹爪</span></span><br><span class="line">roslaunch ur_gazebo ur5_with_gripper.launch</span><br><span class="line">roslaunch ur5_single_arm_moveit_config ur5_moveit_planning_execution.launch</span><br><span class="line">roslaunch ur5_gripper_moveit_config moveit_rviz.launch config:=true</span><br></pre></td></tr></table></figure>
 <p><img src="https://img.mahaofei.com/img/202308041008966.png" alt=""></p>
 <h2 id="1-5-导入自定义物体">1.5 导入自定义物体</h2>
 <p><strong>（1）网络方法</strong></p>

@@ -119,74 +119,128 @@
         <a style="color: #447ec9" href="https://github.com/HaofeiMa/robot_grasping_method">Project Page(Code soon)</a>
         </p>
 		 -->
+		<b>Description: </b>
+		<p class="w3-justify">
+			Because of the irregularities on the object's surface and variations in lighting conditions, 
+			point cloud images obtained from a single perspective often contain significant gaps and errors at the object's edges, 
+			which can lead to inaccurate grasping pose estimations. 
+			To tackle these challenges, this article proposes a practical robot grasping method based on 6D pose estimation and point cloud fusion. 
+			First, 6D pose estimation is conducted, 
+			utilizing the results from model point cloud and pose estimation to complete the input point cloud through ICP (Iterative Closest Point). 
+			Subsequently, the resulting complete object point cloud is used to estimate the 6D grasping pose of the object with the help of the grasping direction estimation network.
+		</p>
+		<b>Finished Works: </b>
         <p class="w3-justify">
-			Establish a model-free 6D pose estimation network based on perspective matching. Construct and train the pose estimation network to achieve precise pose estimation for seen objects and a rough estimation method for untrained objects. Create a pose refinement network for untrained objects when sparse point clouds are accessible.
+			1. Establish a model-free 6D pose estimation network based on perspective matching. Construct and train the pose estimation network to achieve precise pose estimation for seen objects and a rough estimation method for untrained objects. Create a pose refinement network for untrained objects when sparse point clouds are accessible.
         </p> 
         <p class="w3-justify">
-			Propose a point cloud fusion and filtering method based on pose estimation. This method addresses the issue of point cloud gaps at the edge of objects when the robot collects samples from a single perspective. The point cloud fusion method is designed to utilize the output of pose estimation to fill in the gaps in the input point cloud and remove noise.
+			2. Propose a point cloud fusion and filtering method based on pose estimation. This method addresses the issue of point cloud gaps at the edge of objects when the robot collects samples from a single perspective. The point cloud fusion method is designed to utilize the output of pose estimation to fill in the gaps in the input point cloud and remove noise.
 		</p> 
         <p class="w3-justify">
-			Perform grasp pose estimation using the completed point cloud. Utilizing the grasping angle prediction network and a fast search strategy, the completed point cloud enhances the stability of grasping pose generation, thereby improving the success rate of grasping and its robustness.
+			3. Perform grasp pose estimation using the completed point cloud. Utilizing the grasping angle prediction network and a fast search strategy, the completed point cloud enhances the stability of grasping pose generation, thereby improving the success rate of grasping and its robustness.
         </p> 
         <p class="w3-justify">
-			Test the system in simulation and the real world using a 6DoF robot, a Realsense camera, and a laptop (ROS/Ubuntu 20.04) as the host computer.
+			4. Test the system in simulation and the real world using a 6DoF robot, a Realsense camera, and a laptop (ROS/Ubuntu 20.04) as the host computer.
         </p> 	
-    <h4><li>Autonomous Suture Operation Robot System for Endoscopic Surgery <span style="float:right">02/2023 ~ 07/2023</span> </li></h4>
+	<hr>
+    <h4><li>Autonomous Suture Robot System for Endoscopic Surgery <span style="float:right">02/2023 ~ 07/2023</span> </li></h4>
         <img style="width:96%;" src="images/projects/Autonomous_Suture_Operation_Robot_System_for_Endoscopic_Surgery.png"> 
+		<b>Description: </b>
         <p class="w3-justify">
-			Perform the recognition and segmentation of surgical instruments and lesion tissues based on Yolov8, and determine the spatial position of the end of the surgical instruments.
+			The research objective is to enhance the efficiency and accuracy of autonomous suturing in endoscopic surgery. 
+			This involves designing a 3DOF autonomous suturing instrument, 
+			developing an efficient laparoscopic surgery robot based on 3D laparoscopy, 
+			and establishing a robot system that integrates visual, expert, and navigation systems.
+		</p>
+		<b>Finished Works: </b>
+		<p class="w3-justify">
+			1. Perform the recognition and segmentation of surgical instruments and lesion tissues based on Yolov8, and determine the spatial position of the end of the surgical instruments.
         </p>
         <p class="w3-justify">
-			Build a vision and robotic arm fusion system, perform hand-eye calibration of cameras and robotic arms, and execute basic robot actions for visual servo.
+			2. Build a vision and robotic arm fusion system, perform hand-eye calibration of cameras and robotic arms, and execute basic robot actions for visual servo.
         </p> 
-
+	<hr>
     <h4><li>Rock Core Box Handling Robot <span style="float:right">08/2022 ~ 02/2023</span> </li></h4>
         <img style="width:96%;" src="images/projects/Rock_Core_Box_Handling_Robot.jpg"> 
         <p class="w3-justify">
         <a style="color: #447ec9" href="https://cprs.patentstar.com.cn/Search/Detail?ANE=6AEA9FGC9CGB9ECA9GIG9HHF6BAAAHGA9AEC9GFE9AIH7BCA"> Patent (Pending) </a>
         </p>
+		<b>Description: </b>
         <p class="w3-justify">
-			Build a sensing system that utilizes infrared sensors to detect surrounding obstacles, as well as fractional laser sensors to detect the current stacking height and alignment.
+			Rock Core samples obtained from drilling before oil extraction are crucial data for assessing mining value, and they are stored in dedicated core boxes. 
+			During research and analysis, it's essential to arrange these rock core boxes neatly on-site in a designated order, one box at a time. 
+			However, these boxes are typically heavy, resulting in a high labor intensity that can impact transportation efficiency. 
+			The present invention aims to address the labor intensity associated with the current method of transporting core boxes, ultimately improving transportation efficiency.
+		</p>
+		<b>Finished Works: </b>
+		<p class="w3-justify">
+			1. Build a sensing system that utilizes infrared sensors to detect surrounding obstacles, as well as fractional laser sensors to detect the current stacking height and alignment.
         </p> 
         <p class="w3-justify">
-			Implement rock core box instance segmentation based on Mask RCNN, combined with a depth camera to determine its corner space coordinates for visual servo during the robot handling process.
+			2. Implement rock core box instance segmentation based on Mask RCNN, combined with a depth camera to determine its corner space coordinates for visual servo during the robot handling process.
         </p> 
         <p class="w3-justify">
-			Utilize a monocular camera and Aruco markers to achieve 2D pose adjustment of the robot in place by identifying the offset distance and angle of the Aruco marker.
+			3. Utilize a monocular camera and Aruco markers to achieve 2D pose adjustment of the robot in place by identifying the offset distance and angle of the Aruco marker.
         </p> 
-    <h4><li>Medical Multi-DoF Pan-Tilt Control System Based on Binocular Vision <span style="float:right">01/2022 ~ 06/2022</span> </li></h4>
+	<hr>
+    <h4><li>Medical Pan-Tilt Control System Based on Binocular Vision <span style="float:right">01/2022 ~ 06/2022</span> </li></h4>
         <img style="width:96%;" src="images/projects/Medical_Multi-DoF_Pan-Tilt_Control_System_Based_on_Binocular_Vision.jpg">
         <p class="w3-justify">
         <a style="color: #447ec9" href="https://github.com/HaofeiMa/Multi-DOF_PTZ"> Project Page </a> | <a style="color: #447ec9" href="https://www.youtube.com/watch?v=gDLijtdpC2w"> Demo Video </a>
         </p>
+        <b>Description: </b>
         <p class="w3-justify">
+			In traditional medical processes, traditional Chinese medicine practitioners often need to frequently change positions and adjust their angles to view the surgical area. 
+			Additionally, during rehabilitation treatment, the camera's range can be inadequate to cover the patient's moving area. 
+			Current recording methods commonly used suffer from limitations and lack automation. This article introduces a multi-degree-of-freedom pan-tilt system designed to track the positions of doctors and patients.
+		</p>
+		<p class="w3-justify">
 			Design the mechanical structure and simulate the platform's motion, using internal toothed rotary bearings to minimize the structural size. Protective structures have been designed for all sensor components.
         </p> 
-        <p class="w3-justify">
-			Design hardware control algorithms for pan-tilt using STM32 and A4988 drivers, and establish communication between STM32 and the host computer's ROS system for pan-tilt motion control within ROS.
+        <b>Finished Works: </b>
+		<p class="w3-justify">
+			1. Design hardware control algorithms for pan-tilt using STM32 and A4988 drivers, and establish communication between STM32 and the host computer's ROS system for pan-tilt motion control within ROS.
         </p> 
         <p class="w3-justify">
-			Propose a target tracking method based on HOG and SIFT feature matching, capable of short-term single target tracking while maintaining robustness to changes in the target object's appearance.
+			2. Propose a target tracking method based on HOG and SIFT feature matching, capable of short-term single target tracking while maintaining robustness to changes in the target object's appearance.
         </p> 
         <p class="w3-justify">
-			Construct an experimental Pan-Tilt system and conduct experiments with all proposed algorithms, using 3D printed structural components, a Realsense camera, and stepper motors.
-        </p> 		
-    <h4><li> Spherical Metamorphic Environmental Information Collection Robot <span style="float:right">11/2020 ~ 05/2021</span> </li></h4>
+			3. Construct an experimental Pan-Tilt system and conduct experiments with all proposed algorithms, using 3D printed structural components, a Realsense camera, and stepper motors.
+        </p> 	
+	<hr>		
+    <h4><li> Spherical Environmental Information Collection Robot <span style="float:right">11/2020 ~ 05/2021</span> </li></h4>
         <img style="width:47%;" src="images/projects/Spherical_Metamorphic_Environmental_Information_Collection_Robot.gif"> <img style="width:49%;" src="images/projects/Spherical_Metamorphic_Environmental_Information_Collection_Robot.png">
         <p class="w3-justify">
         <a style="color: #447ec9" href="https://cprs.patentstar.com.cn/Search/Detail?ANE=9ICD8GCA9BHB8EDA9IAB6FBA5BCA9IEE9DIE8DEA8DAA9GDE"> Utility Model Patent </a>
         </p>
+        <b>Description: </b>
         <p class="w3-justify">
-			Design the three-dimensional structure of the spherical robot, including the placement of controllers, sensors inside the sphere, and the spatial arrangement of leg motors.
+			Monitoring essential information in various hazardous environments, such as petrochemical plants, chemical plants, and disaster sites, is vital for disaster prevention and reduction. 
+			In response to this need, our team has designed a spherical environment monitoring robot system. 
+			It features a spherical metamorphic structure with multiple telescopic feet that enable the robot to rotate, roll, and achieve all-round motion with high stability. 
+			These robots utilize self-organized network communication technology to offer multiple monitoring modes, 
+			and the collected data is packaged and transmitted to the upper computer system, enabling real-time dynamic monitoring of complex environmental information over a wide area.
+		</p>
+        <b>Finished Works: </b>
+		<p class="w3-justify">
+			1. Design the three-dimensional structure of the spherical robot, including the placement of controllers, sensors inside the sphere, and the spatial arrangement of leg motors.
         </p>
         <p class="w3-justify">
-			Implement control of spherical robot leg motors using STM32, calculate motion strategies, and achieve robot motion.
+			2. Implement control of spherical robot leg motors using STM32, calculate motion strategies, and achieve robot motion.
         </p>
         <p class="w3-justify">
-			Integrate , accelerometers, temperature and humidity sensors, gas sensors, etc., into the STM32 control system for Bluetooth-controlled robot motion and sensor data reception.
-        </p>		
+			3. Integrate , accelerometers, temperature and humidity sensors, gas sensors, etc., into the STM32 control system for Bluetooth-controlled robot motion and sensor data reception.
+        </p>	
+	<hr>		
     <h4><li> Identity Recognition and Temperature Detection Device <span style="float:right">06/2020 ~ 10/2021</span> </li></h4>
+        <b>Description: </b>
         <p class="w3-justify">
+			In response to the need for contactless temperature measurement and identity recognition during the epidemic, we have developed corresponding device designs. 
+			The system utilizes the STM32 microcontroller as the main control board to collect temperature data using the infrared temperature sensor module. 
+			Facial information recognition and mask detection are accomplished through the OpenMV module.
+		</p>
+        <b>Finished Works: </b>
+		<p class="w3-justify">
 			Propose a facial recognition and mask wearing detection methods using single camera.
         </p>  
         <p class="w3-justify">

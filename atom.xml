@@ -128,9 +128,9 @@
     <category term="ros" scheme="https://www.mahaofei.com/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA/ros/"/>
     
     
-    <category term="ROS" scheme="https://www.mahaofei.com/tags/ROS/"/>
-    
     <category term="bugs" scheme="https://www.mahaofei.com/tags/bugs/"/>
+    
+    <category term="ROS" scheme="https://www.mahaofei.com/tags/ROS/"/>
     
   </entry>
   
@@ -153,9 +153,9 @@
     <category term="实验" scheme="https://www.mahaofei.com/categories/%E7%A7%91%E7%A0%94/%E5%AE%9E%E9%AA%8C/"/>
     
     
-    <category term="ROS" scheme="https://www.mahaofei.com/tags/ROS/"/>
-    
     <category term="实验" scheme="https://www.mahaofei.com/tags/%E5%AE%9E%E9%AA%8C/"/>
+    
+    <category term="ROS" scheme="https://www.mahaofei.com/tags/ROS/"/>
     
     <category term="抓取" scheme="https://www.mahaofei.com/tags/%E6%8A%93%E5%8F%96/"/>
     
@@ -211,9 +211,9 @@
     <category term="抓取" scheme="https://www.mahaofei.com/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/%E6%8A%93%E5%8F%96/"/>
     
     
-    <category term="实验" scheme="https://www.mahaofei.com/tags/%E5%AE%9E%E9%AA%8C/"/>
-    
     <category term="深度学习" scheme="https://www.mahaofei.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="实验" scheme="https://www.mahaofei.com/tags/%E5%AE%9E%E9%AA%8C/"/>
     
     <category term="抓取" scheme="https://www.mahaofei.com/tags/%E6%8A%93%E5%8F%96/"/>
     
@@ -327,9 +327,9 @@
     <category term="抓取" scheme="https://www.mahaofei.com/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/%E6%8A%93%E5%8F%96/"/>
     
     
-    <category term="实验" scheme="https://www.mahaofei.com/tags/%E5%AE%9E%E9%AA%8C/"/>
-    
     <category term="深度学习" scheme="https://www.mahaofei.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="实验" scheme="https://www.mahaofei.com/tags/%E5%AE%9E%E9%AA%8C/"/>
     
     <category term="抓取" scheme="https://www.mahaofei.com/tags/%E6%8A%93%E5%8F%96/"/>
     
@@ -381,9 +381,9 @@
     <category term="位姿估计" scheme="https://www.mahaofei.com/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/%E4%BD%8D%E5%A7%BF%E4%BC%B0%E8%AE%A1/"/>
     
     
-    <category term="实验" scheme="https://www.mahaofei.com/tags/%E5%AE%9E%E9%AA%8C/"/>
-    
     <category term="深度学习" scheme="https://www.mahaofei.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="实验" scheme="https://www.mahaofei.com/tags/%E5%AE%9E%E9%AA%8C/"/>
     
     <category term="视觉" scheme="https://www.mahaofei.com/tags/%E8%A7%86%E8%A7%89/"/>
     
@@ -419,9 +419,9 @@
     <category term="位姿估计" scheme="https://www.mahaofei.com/categories/%E7%A7%91%E7%A0%94/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/%E4%BD%8D%E5%A7%BF%E4%BC%B0%E8%AE%A1/"/>
     
     
-    <category term="实验" scheme="https://www.mahaofei.com/tags/%E5%AE%9E%E9%AA%8C/"/>
-    
     <category term="深度学习" scheme="https://www.mahaofei.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="实验" scheme="https://www.mahaofei.com/tags/%E5%AE%9E%E9%AA%8C/"/>
     
     <category term="视觉" scheme="https://www.mahaofei.com/tags/%E8%A7%86%E8%A7%89/"/>
     

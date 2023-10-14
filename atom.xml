@@ -543,9 +543,9 @@
     
     <category term="视觉" scheme="https://www.mahaofei.com/tags/%E8%A7%86%E8%A7%89/"/>
     
-    <category term="CVPR" scheme="https://www.mahaofei.com/tags/CVPR/"/>
-    
     <category term="位姿估计" scheme="https://www.mahaofei.com/tags/%E4%BD%8D%E5%A7%BF%E4%BC%B0%E8%AE%A1/"/>
+    
+    <category term="CVPR" scheme="https://www.mahaofei.com/tags/CVPR/"/>
     
   </entry>
   

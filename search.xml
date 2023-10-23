@@ -37,6 +37,39 @@
     
     
     <entry>
+      <title>【论文复现】MimicPlay从人类演示中学习机器人技能</title>
+      <link href="/post/21b38b7b.html"/>
+      <url>/post/21b38b7b.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="一、目标问题"><a href="#一、目标问题" class="headerlink" title="一、目标问题"></a>一、目标问题</h1><p>从人类演示中学习，是教授机器人操作技能的一种很有前途的方法。</p><p>目前大多数模仿学习算法仍然局限于学习短期的操作，例如开门或抓取特定物品。</p><p>而关于长期任务的研究，目前有两个方向：分层模仿学习和从演示数据中学习。分层学习旨在通过端到端实现高级规划到低级运动控制的学习。从演示数据中学习是指人类通过遥控机器人于环境互动来收集数据。</p><p>本文提出了一个分层学习框架，从大量人类演示数据中学习潜在的计划，来指导机器人在少量演示中实现视觉运动控制。</p><h1 id="二、主要方法"><a href="#二、主要方法" class="headerlink" title="二、主要方法"></a>二、主要方法</h1><p><img src="https://img.mahaofei.com/img/202310231710757.png" alt="image.png"></p><h2 id="2-1-收集人类数据"><a href="#2-1-收集人类数据" class="headerlink" title="2.1 收集人类数据"></a>2.1 收集人类数据</h2><p>人类在用手与环境互动的过程中，创造了一个手的轨迹。本文使用两台经过校准的相机来跟踪人类演示数据中的3D手轨迹，手部位置检测使用现有的库。</p><h2 id="2-2-从人类数据中学习3D潜在规划"><a href="#2-2-从人类数据中学习3D潜在规划" class="headerlink" title="2.2 从人类数据中学习3D潜在规划"></a>2.2 从人类数据中学习3D潜在规划</h2><p>问题：给定一个由目标图像表示的长期任务，策略产生以目标为条件的行动。</p><p>将该问题转化为分层学习策略，其中高级规划器从目标图像中提取关键特征，并转化成低维的规划，利用这些规划引导运动控制器动作。为了训练高级规划器，本文使用廉价的数据源（人类演示数据）</p><p><strong>（1）多模式潜在计划学习</strong></p><p>利用收集的人类演示数据和对应的3D手部轨迹，将学习规程转化为目标条件的3D轨迹生成任务。即将人类演示图像，目标图像处理为低维特征，利用MLP编码为潜在计划向量，利用潜在计划向量和手的位置，利用MLP解码为3D手部轨迹的预测。</p><p>为了解决不同人演示同一任务的差异，使用基于MLP的高斯混合模型来对潜在计划的轨迹分布进行建模。</p><p><strong>（2）处理人类演示数据和机器人之间的视觉差异</strong></p><p>本文考虑人与机器人在同一环境中，需要解决机器人与人类外观不同导致的视觉差异。通过计算人类和机器人的视觉编码器的特征嵌入的分布，最小化两者距离（此步骤机器人与人类视频不需要是对应的）</p><h2 id="2-3-多任务模仿学习"><a href="#2-3-多任务模仿学习" class="headerlink" title="2.3 多任务模仿学习"></a>2.3 多任务模仿学习</h2><p><strong>（1）用于潜在计划生成的视频提示</strong></p><p>使用单镜头视频作为目标指定提示，发送给训练好的潜在规划器，生成机器人可执行的潜在计划。</p><p>规划器将视频分成多个帧，每个时间步长，规划器从序列中取一个图像帧作为目标图像，生成潜在规划引导机器人动作。</p><p><strong>（2）基于Transformer的计划引导与模仿</strong></p><p>在执行复杂任务时，仅使用高层规划是不够的，还需要考虑底层的细节。因此考虑将机器人腕部相机和本体感觉都转换成低维特征向量，与潜在计划进行结合，利用Trasformer架构（因为其擅长管理长期运动生成）进行处理。</p><p><strong>（3）多任务</strong></p><p>在同一环境中的所有任务中共享相同的规划器和策略模型。</p><h1 id="三、实验方法"><a href="#三、实验方法" class="headerlink" title="三、实验方法"></a>三、实验方法</h1><h1 id="四、"><a href="#四、" class="headerlink" title="四、"></a>四、</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 科研 </category>
+          
+          <category> 论文笔记 </category>
+          
+          <category> 模仿学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 视觉 </tag>
+            
+            <tag> 模仿 </tag>
+            
+            <tag> 机器人动作 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Nerf(instant-ngp)快速实现三维重建</title>
       <link href="/post/ce3c8324.html"/>
       <url>/post/ce3c8324.html</url>
@@ -222,9 +255,9 @@
       
         <tags>
             
-            <tag> 实验 </tag>
-            
             <tag> ROS </tag>
+            
+            <tag> 实验 </tag>
             
             <tag> 抓取 </tag>
             
@@ -288,9 +321,9 @@
       
         <tags>
             
-            <tag> 实验 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> 实验 </tag>
             
             <tag> 抓取 </tag>
             
@@ -420,9 +453,9 @@
       
         <tags>
             
-            <tag> 实验 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> 实验 </tag>
             
             <tag> 抓取 </tag>
             
@@ -482,9 +515,9 @@
       
         <tags>
             
-            <tag> 实验 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> 实验 </tag>
             
             <tag> 视觉 </tag>
             
@@ -519,9 +552,9 @@
       
         <tags>
             
-            <tag> 实验 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> 实验 </tag>
             
             <tag> 视觉 </tag>
             
@@ -889,9 +922,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> Ubuntu </tag>
+            
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -1013,9 +1046,9 @@
       
         <tags>
             
-            <tag> 实验 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> 实验 </tag>
             
             <tag> 视觉 </tag>
             
@@ -1650,9 +1683,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> Ubuntu </tag>
+            
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -1915,7 +1948,7 @@
       <link href="/post/4ce74988.html"/>
       <url>/post/4ce74988.html</url>
       
-        <content type="html"><![CDATA[<blockquote><p>建议Ctrl+F，输入关键词查找该网页有没有你遇到的bug<br>或者看左侧的目录</p></blockquote><p>下面所有问题以及解决方法都是本人亲自遇到，且根据解决方法成功解决的，如果仍然有问题欢迎各位评论区讨论。</p><h1 id="版本问题"><a href="#版本问题" class="headerlink" title="版本问题"></a>版本问题</h1><h2 id="1-使用不用版本的Pytorch训练的权重模型无法加载。"><a href="#1-使用不用版本的Pytorch训练的权重模型无法加载。" class="headerlink" title="1. 使用不用版本的Pytorch训练的权重模型无法加载。"></a>1. 使用不用版本的Pytorch训练的权重模型无法加载。</h2><blockquote><p>pickle.UnpicklingError: A load persistent id instruction was encountered,<br>but no persistent_load function was specified.</p></blockquote><p><strong>Bug原因:</strong> 训练和测试的torch版本不一致。训练的时候是1.x，测试的时候是1.m。<br><strong>解决办法：</strong> 先在1.x版本下加载模型，然后在保存的时候设置<code>_use_new_zipfile_serialization=False</code>就行了。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.save(model.state_dict(), model_path, use_new_zipfile_serialization=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure><h2 id="2-ValueError-numpy-ufunc-size-changed-may-indicate-binary-incompatibility"><a href="#2-ValueError-numpy-ufunc-size-changed-may-indicate-binary-incompatibility" class="headerlink" title="2. ValueError: numpy.ufunc size changed, may indicate binary incompatibility."></a>2. ValueError: numpy.ufunc size changed, may indicate binary incompatibility.</h2><p>numpy版本过低导致，需要对numpy版本进行升级即可。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip uninstall numpy</span><br><span class="line">pip install numpy</span><br><span class="line">pip install --upgrade numpy </span><br></pre></td></tr></table></figure></p><h2 id="3-maskrcnn训练提示：FutureWarning-Input-image-dtype-is-bool"><a href="#3-maskrcnn训练提示：FutureWarning-Input-image-dtype-is-bool" class="headerlink" title="3. maskrcnn训练提示：FutureWarning: Input image dtype is bool"></a>3. maskrcnn训练提示：FutureWarning: Input image dtype is bool</h2><p>参考博客：<a href="https://blog.csdn.net/qq_39483453/article/details/118598535">https://blog.csdn.net/qq_39483453/article/details/118598535</a></p><p>scikit-image=0.17.2 的版本存在的问题，修改scikit-image包版本为0.16.2</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -U scikit-image==0.16.2</span><br></pre></td></tr></table></figure><h1 id="环境配置-包安装"><a href="#环境配置-包安装" class="headerlink" title="环境配置/包安装"></a>环境配置/包安装</h1><h2 id="1-No-module-named-‘pycocotools‘"><a href="#1-No-module-named-‘pycocotools‘" class="headerlink" title="1. No module named ‘pycocotools‘"></a>1. No module named ‘pycocotools‘</h2><p>参考博客：<a href="https://blog.csdn.net/weixin_42410915/article/details/109368497">超简单解决No module named ‘pycocotools‘</a></p><p><a href="https://pypi.tuna.tsinghua.edu.cn/simple/pycocotools-windows/">各版本pycocotools.whl文件</a></p><p>点击连接中任意一个版本，（我安装的是2.0.0），下载的时候一定要注意对应的python版本，cp36指的是python3.6，cp37和cp38同理。</p><p>下载之后，放入你喜欢的文件夹中，然后启动命令行，进入whl文件所在的目录，输入以下命令即可，注意install后面是你自己下载的whl文件全称</p><p><img src="https://img-blog.csdnimg.cn/20201029204744983.png" alt=""></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">activate tensorflow</span><br><span class="line">E:</span><br><span class="line">cd E:/windows/Downloads</span><br><span class="line">pip install pycocotools_windows-2.0-cp36-cp36m-win_amd64.whl</span><br></pre></td></tr></table></figure><h2 id="2-成功解决AttributeError-‘str‘-object-has-no-attribute-‘decode‘"><a href="#2-成功解决AttributeError-‘str‘-object-has-no-attribute-‘decode‘" class="headerlink" title="2. 成功解决AttributeError: ‘str‘ object has no attribute ‘decode‘"></a>2. 成功解决AttributeError: ‘str‘ object has no attribute ‘decode‘</h2><p>参考博客：<a href="https://blog.csdn.net/qq_41185868/article/details/82079079">https://blog.csdn.net/qq_41185868/article/details/82079079</a></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install &#x27;h5py&lt;3.0.0&#x27; -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure><h2 id="3-使用Google-Colab时，将Tensorflow版本转换到1-x版本"><a href="#3-使用Google-Colab时，将Tensorflow版本转换到1-x版本" class="headerlink" title="3. 使用Google Colab时，将Tensorflow版本转换到1.x版本"></a>3. 使用Google Colab时，将Tensorflow版本转换到1.x版本</h2><p>参考博客：<a href="https://blog.csdn.net/qq_44262417/article/details/105222696">https://blog.csdn.net/qq_44262417/article/details/105222696</a></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">%</span><span class="language-bash">tensorflow_version 1.x</span></span><br></pre></td></tr></table></figure><h2 id="4-长时间卡在Successfully-opened-dynamic-library-libcudnn-so-7"><a href="#4-长时间卡在Successfully-opened-dynamic-library-libcudnn-so-7" class="headerlink" title="4. 长时间卡在Successfully opened dynamic library libcudnn.so.7"></a>4. 长时间卡在Successfully opened dynamic library libcudnn.so.7</h2><p>原因是tensorflow版本与CUDA版本不匹配，我使用的是cuda11.6与tensorflow2.2.0。</p><p>经过查找，可以使用的组合包括CUDA11.2+Tensorflow2.5.0。</p><h1 id="数据格式不匹配"><a href="#数据格式不匹配" class="headerlink" title="数据格式不匹配"></a>数据格式不匹配</h1><h2 id="1-TypeError-expected-str-bytes-or-os-PathLike-object-not-NoneType"><a href="#1-TypeError-expected-str-bytes-or-os-PathLike-object-not-NoneType" class="headerlink" title="1. TypeError: expected str, bytes or os.PathLike object, not NoneType"></a>1. TypeError: expected str, bytes or os.PathLike object, not NoneType</h2><p>出现这个问题多半是没有指定路径，上述问题翻译过来是，期望一个字符串或者字节路径，而不是默认值，出现这个问题需要把指定路径的变量赋值即可。这种错误多半出现在运行开源代码时出现。</p><p>检查代码中对应位置的字符串变量，是否传入了确定的值，而非None。</p><h1 id="多GPU问题"><a href="#多GPU问题" class="headerlink" title="多GPU问题"></a>多GPU问题</h1><h2 id="1-ValueError-Memory-growth-cannot-differ-between-GPU-devices"><a href="#1-ValueError-Memory-growth-cannot-differ-between-GPU-devices" class="headerlink" title="1. ValueError: Memory growth cannot differ between GPU devices"></a>1. ValueError: Memory growth cannot differ between GPU devices</h2><p>多显卡问题。默认计算时使用所有的显卡，但是<code>set_memory_growth</code>只为了部分显卡设定，就造成了显卡模式不匹配的问题。比较简单的解决方法如下，在报错的代码之前添加：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.environ[&#x27;CUDA_VISIBLE_DEVICES&#x27;]=&#x27;0&#x27;</span><br></pre></td></tr></table></figure><p>而且需要知道一点，那就是os.environ[‘CUDA_VISIBLE_DEVICES’]=’0’这样的设置必须在调用TensorFlow框架之前声明否则不生效。</p>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>建议Ctrl+F，输入关键词查找该网页有没有你遇到的bug<br>或者看左侧的目录</p></blockquote><p>下面所有问题以及解决方法都是本人亲自遇到，且根据解决方法成功解决的，如果仍然有问题欢迎各位评论区讨论。</p><h1 id="版本问题"><a href="#版本问题" class="headerlink" title="版本问题"></a>版本问题</h1><h2 id="1-使用不用版本的Pytorch训练的权重模型无法加载。"><a href="#1-使用不用版本的Pytorch训练的权重模型无法加载。" class="headerlink" title="1. 使用不用版本的Pytorch训练的权重模型无法加载。"></a>1. 使用不用版本的Pytorch训练的权重模型无法加载。</h2><blockquote><p>pickle.UnpicklingError: A load persistent id instruction was encountered,<br>but no persistent_load function was specified.</p></blockquote><p><strong>Bug原因:</strong> 训练和测试的torch版本不一致。训练的时候是1.x，测试的时候是1.m。<br><strong>解决办法：</strong> 先在1.x版本下加载模型，然后在保存的时候设置<code>_use_new_zipfile_serialization=False</code>就行了。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.save(model.state_dict(), model_path, use_new_zipfile_serialization=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure><h2 id="2-ValueError-numpy-ufunc-size-changed-may-indicate-binary-incompatibility"><a href="#2-ValueError-numpy-ufunc-size-changed-may-indicate-binary-incompatibility" class="headerlink" title="2. ValueError: numpy.ufunc size changed, may indicate binary incompatibility."></a>2. ValueError: numpy.ufunc size changed, may indicate binary incompatibility.</h2><p>numpy版本过低导致，需要对numpy版本进行升级即可。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip uninstall numpy</span><br><span class="line">pip install numpy</span><br><span class="line">pip install --upgrade numpy </span><br></pre></td></tr></table></figure></p><h2 id="3-maskrcnn训练提示：FutureWarning-Input-image-dtype-is-bool"><a href="#3-maskrcnn训练提示：FutureWarning-Input-image-dtype-is-bool" class="headerlink" title="3. maskrcnn训练提示：FutureWarning: Input image dtype is bool"></a>3. maskrcnn训练提示：FutureWarning: Input image dtype is bool</h2><p>参考博客：<a href="https://blog.csdn.net/qq_39483453/article/details/118598535">https://blog.csdn.net/qq_39483453/article/details/118598535</a></p><p>scikit-image=0.17.2 的版本存在的问题，修改scikit-image包版本为0.16.2</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -U scikit-image==0.16.2</span><br></pre></td></tr></table></figure><h2 id="4-CUDA-版本不匹配"><a href="#4-CUDA-版本不匹配" class="headerlink" title="4. CUDA 版本不匹配"></a>4. CUDA 版本不匹配</h2><blockquote><p>问题日志：<br>The detected CUDA version (12.1) mismatches the version that was used to compile PyTorch (11.3). Please make sure to use the same CUDA versions.</p></blockquote><p>解决方法：安装多版本CUDA</p><p><strong>（1）下载CUDA</strong></p><p>前往<a href="https://developer.nvidia.com/cuda-toolkit-archive">官网</a>，下载低版本的cuda并安装</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://developer.download.nvidia.com/compute/cuda/11.3.0/local_installers/cuda_11.3.0_465.19.01_linux.run</span><br><span class="line">sudo sh cuda_11.3.0_465.19.01_linux.run</span><br></pre></td></tr></table></figure><p>取消安装cuda驱动Driver</p><p>Do you want to install a symbolic link at /usr/local/cuda? # 是否将安装目录通过软连接的方式 link 到 /usr/local/cuda<br>选择yes</p><p><strong>（2）多版本切换</strong></p><p>修改<code>~/.bashrc</code>中cuda的路径：打开<code>~/.bashrc</code>文件，在最后添加如下：（根据需要使用cuda版本修改版本号）：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PATH=&quot;/usr/local/cuda-10.2/bin:$PATH&quot;</span><br><span class="line">export LD_LIBRARY_PATH=&quot;/usr/lcoal/cuda-10.2/lib64:$LD_LIBRARY_PATH&quot;</span><br></pre></td></tr></table></figure><p>使用<code>nvcc --version</code>检查，如果发现显示为刚刚安装的CUDA版本，说明安装成功。</p><h1 id="环境配置-包安装"><a href="#环境配置-包安装" class="headerlink" title="环境配置/包安装"></a>环境配置/包安装</h1><h2 id="1-No-module-named-‘pycocotools‘"><a href="#1-No-module-named-‘pycocotools‘" class="headerlink" title="1. No module named ‘pycocotools‘"></a>1. No module named ‘pycocotools‘</h2><p>参考博客：<a href="https://blog.csdn.net/weixin_42410915/article/details/109368497">超简单解决No module named ‘pycocotools‘</a></p><p><a href="https://pypi.tuna.tsinghua.edu.cn/simple/pycocotools-windows/">各版本pycocotools.whl文件</a></p><p>点击连接中任意一个版本，（我安装的是2.0.0），下载的时候一定要注意对应的python版本，cp36指的是python3.6，cp37和cp38同理。</p><p>下载之后，放入你喜欢的文件夹中，然后启动命令行，进入whl文件所在的目录，输入以下命令即可，注意install后面是你自己下载的whl文件全称</p><p><img src="https://img-blog.csdnimg.cn/20201029204744983.png" alt=""></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">activate tensorflow</span><br><span class="line">E:</span><br><span class="line">cd E:/windows/Downloads</span><br><span class="line">pip install pycocotools_windows-2.0-cp36-cp36m-win_amd64.whl</span><br></pre></td></tr></table></figure><h2 id="2-成功解决AttributeError-‘str‘-object-has-no-attribute-‘decode‘"><a href="#2-成功解决AttributeError-‘str‘-object-has-no-attribute-‘decode‘" class="headerlink" title="2. 成功解决AttributeError: ‘str‘ object has no attribute ‘decode‘"></a>2. 成功解决AttributeError: ‘str‘ object has no attribute ‘decode‘</h2><p>参考博客：<a href="https://blog.csdn.net/qq_41185868/article/details/82079079">https://blog.csdn.net/qq_41185868/article/details/82079079</a></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install &#x27;h5py&lt;3.0.0&#x27; -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure><h2 id="3-使用Google-Colab时，将Tensorflow版本转换到1-x版本"><a href="#3-使用Google-Colab时，将Tensorflow版本转换到1-x版本" class="headerlink" title="3. 使用Google Colab时，将Tensorflow版本转换到1.x版本"></a>3. 使用Google Colab时，将Tensorflow版本转换到1.x版本</h2><p>参考博客：<a href="https://blog.csdn.net/qq_44262417/article/details/105222696">https://blog.csdn.net/qq_44262417/article/details/105222696</a></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">%</span><span class="language-bash">tensorflow_version 1.x</span></span><br></pre></td></tr></table></figure><h2 id="4-长时间卡在Successfully-opened-dynamic-library-libcudnn-so-7"><a href="#4-长时间卡在Successfully-opened-dynamic-library-libcudnn-so-7" class="headerlink" title="4. 长时间卡在Successfully opened dynamic library libcudnn.so.7"></a>4. 长时间卡在Successfully opened dynamic library libcudnn.so.7</h2><p>原因是tensorflow版本与CUDA版本不匹配，我使用的是cuda11.6与tensorflow2.2.0。</p><p>经过查找，可以使用的组合包括CUDA11.2+Tensorflow2.5.0。</p><h1 id="数据格式不匹配"><a href="#数据格式不匹配" class="headerlink" title="数据格式不匹配"></a>数据格式不匹配</h1><h2 id="1-TypeError-expected-str-bytes-or-os-PathLike-object-not-NoneType"><a href="#1-TypeError-expected-str-bytes-or-os-PathLike-object-not-NoneType" class="headerlink" title="1. TypeError: expected str, bytes or os.PathLike object, not NoneType"></a>1. TypeError: expected str, bytes or os.PathLike object, not NoneType</h2><p>出现这个问题多半是没有指定路径，上述问题翻译过来是，期望一个字符串或者字节路径，而不是默认值，出现这个问题需要把指定路径的变量赋值即可。这种错误多半出现在运行开源代码时出现。</p><p>检查代码中对应位置的字符串变量，是否传入了确定的值，而非None。</p><h1 id="多GPU问题"><a href="#多GPU问题" class="headerlink" title="多GPU问题"></a>多GPU问题</h1><h2 id="1-ValueError-Memory-growth-cannot-differ-between-GPU-devices"><a href="#1-ValueError-Memory-growth-cannot-differ-between-GPU-devices" class="headerlink" title="1. ValueError: Memory growth cannot differ between GPU devices"></a>1. ValueError: Memory growth cannot differ between GPU devices</h2><p>多显卡问题。默认计算时使用所有的显卡，但是<code>set_memory_growth</code>只为了部分显卡设定，就造成了显卡模式不匹配的问题。比较简单的解决方法如下，在报错的代码之前添加：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.environ[&#x27;CUDA_VISIBLE_DEVICES&#x27;]=&#x27;0&#x27;</span><br></pre></td></tr></table></figure><p>而且需要知道一点，那就是os.environ[‘CUDA_VISIBLE_DEVICES’]=’0’这样的设置必须在调用TensorFlow框架之前声明否则不生效。</p>]]></content>
       
       
       <categories>
@@ -1960,9 +1993,9 @@
       
         <tags>
             
-            <tag> 实验 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> 实验 </tag>
             
             <tag> 视觉 </tag>
             
@@ -2472,9 +2505,9 @@
       
         <tags>
             
-            <tag> 实验 </tag>
-            
             <tag> ROS </tag>
+            
+            <tag> 实验 </tag>
             
         </tags>
       
@@ -2673,9 +2706,9 @@
       
         <tags>
             
-            <tag> 实验 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> 实验 </tag>
             
             <tag> slam </tag>
             
@@ -2704,9 +2737,9 @@
       
         <tags>
             
-            <tag> 实验 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> 实验 </tag>
             
             <tag> slam </tag>
             
@@ -2735,9 +2768,9 @@
       
         <tags>
             
-            <tag> 单片机 </tag>
-            
             <tag> bugs </tag>
+            
+            <tag> 单片机 </tag>
             
         </tags>
       
@@ -2764,9 +2797,9 @@
       
         <tags>
             
-            <tag> 实验 </tag>
-            
             <tag> ROS </tag>
+            
+            <tag> 实验 </tag>
             
         </tags>
       
@@ -2775,11 +2808,11 @@
     
     
     <entry>
-      <title>Keil5 MDK版 下载与安装教程（STM32单片机编程软件）</title>
-      <link href="/post/1b083906.html"/>
-      <url>/post/1b083906.html</url>
+      <title>Keil5 C51版 下载与安装教程（51单片机编程软件）</title>
+      <link href="/post/6c3a51dc.html"/>
+      <url>/post/6c3a51dc.html</url>
       
-        <content type="html"><![CDATA[<blockquote><p>阿里云盘<br>链接：<a href="https://www.aliyundrive.com/s/42a1npEEsrw">https://www.aliyundrive.com/s/42a1npEEsrw</a><br>下载完成后将文件后缀名改回【.7z】即可正常解压。</p></blockquote><ol><li><p>解压安装包，<strong>以管理员身份运行</strong>【MDK528.exe】</p><p><img src="https://img.mahaofei.com/img/202112232006461-keilmdk-1.png" alt=""></p></li></ol><ol><li><p>按步骤一直安装就可以，每一步我都在下面截了图，可以对照一下。</p><p><img src="https://img.mahaofei.com/img/202112232007055-keilmdk-2.png" alt=""></p></li></ol><ol><li><p>选择我同意用户协议，然后next</p><p><img src="https://img.mahaofei.com/img/202112232007859-keilmdk-3.png" alt=""></p></li></ol><ol><li><p>选择安装位置，一定要和Keil C51版本安装在<strong>不同的文件夹</strong>中</p><p><img src="https://img.mahaofei.com/img/202112232007389-keilmdk-4.png" alt=""></p></li></ol><ol><li><p>信息随便填</p><p><img src="https://img.mahaofei.com/img/202112232010807-keilmdk-5.png" alt=""></p></li></ol><ol><li><p>等待安装，大约耗时1分钟左右</p><p><img src="https://img.mahaofei.com/img/202112232010318-keilmdk-6.png" alt=""></p></li></ol><ol><li><p>如果安装过程中弹出需要安装某驱动，一定要安装</p><p><img src="https://img.mahaofei.com/img/202112232011061-keilmdk-7.png" alt=""></p></li></ol><ol><li><p>不需要展示新特性，直接下一步点击finish完成即可。</p><p><img src="https://img.mahaofei.com/img/202112232011656-keilmdk-8.png" alt=""></p></li></ol><ol><li><p>出现下面这个包安装界面，直接关闭即可，后续我们手动安装包，要快得多</p><p><img src="https://img.mahaofei.com/img/202112232012974-keilmdk-9.png" alt=""></p></li></ol><blockquote><p>如果之前安装过Keil51版本，想要两个版本共存，需要加入以下步骤。如果仅安装Keil MDK版，可跳过此部分。</p><ol><li><p>打开C51安装路径，找到 TOOLS.INI  这个文件</p></li><li><p>以记事本打开【TOOLS.INI】这个文件，复制 [C51]（包括）以下的全部内容</p></li><li><p>粘贴至MDK-ARM安装目录下的  TOOLS.INI 文件末尾，保存，关闭。</p><p><img src="https://img.mahaofei.com/img/202112232012255-keilmdk-10.png" alt=""></p><ol><li>在桌面找到【Keil 5】的快捷方式，右键以管理员身份运行。然后打开【File -&gt; License Management】选项卡。</li></ol></li></ol></blockquote><pre><code> ![](https://img.mahaofei.com/img/202112232012315-keilmdk-11.png)</code></pre><ol><li><p>复制右上角的CID</p><p><img src="https://img.mahaofei.com/img/202112232013981-keilmdk-12.png" alt=""></p></li></ol><ol><li><p>打开解压的安装包，找到【keygen.exe】，右键以管理员身份运行</p><p><img src="https://img.mahaofei.com/img/202112232013788-keilmdk-13.png" alt=""></p></li></ol><ol><li><p><strong>粘贴CID</strong>到对应的输入框中，<strong>target选择ARM</strong>，然后点击<strong>Generate生成激活码</strong>。</p><p><img src="https://img.mahaofei.com/img/202112232014581-keilmdk-14.png" alt=""></p></li></ol><ol><li><p>复制生成的激活码，回到Keil中的【License Management】对话框，在下方LIC中粘贴激活码，然后点击Add LIC激活成功。（激活的日期过了也不影响使用）</p><p><img src="https://img.mahaofei.com/img/202112232014618-keilmdk-15.png" alt=""></p></li></ol><ol><li><p>安装剩下的两个库文件，直接双击就可以安装。（两个库文件分别对应STM32F1和F4的芯片）</p><p><img src="https://img.mahaofei.com/img/202112232014820-keilmdk-16.png" alt=""></p></li></ol><ol><li><p>至此安装完成，可以正常使用。</p><p><img src="https://img.mahaofei.com/img/202112232015660-keilmdk-17.png" alt=""></p></li></ol>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>阿里云盘<br>链接：<a href="https://www.aliyundrive.com/s/ttZBZXBNMja">https://www.aliyundrive.com/s/ttZBZXBNMja</a><br>下载完成后将文件后缀名改回【.7z】即可正常解压。</p></blockquote><ol><li><p>解压安装包，右键【C51-V957.exe】，<strong>以管理员身份运行</strong></p><p><img src="https://img.mahaofei.com/img/202112232002909-keil51-1.png" alt=""></p></li></ol><ol><li><p>莫得选择，<strong>点击next</strong>继续安装</p><p><img src="https://img.mahaofei.com/img/202112232002704-keil51-2.png" alt=""></p></li></ol><ol><li><p><strong>同意</strong>用户协议，<strong>点击next</strong>继续</p><p><img src="https://img.mahaofei.com/img/202112232003825-keil51-3.png" alt=""></p></li></ol><ol><li><p>选择安装路径，<strong>路径不能有中文</strong>，进行安装（注：如果想要安装51和MDK两个版本的Keil，也就是想要编写51单片机和32单片机两种程序，需要安装在两个单独的文件夹中）</p><p><img src="https://img.mahaofei.com/img/202112232003419-keil51-4.png" alt=""></p></li></ol><ol><li><p><strong>信息随便输</strong>，输完直接<strong>点击next</strong>就可以</p><p><img src="https://img.mahaofei.com/img/202112232003599-keil51-5.png" alt=""></p></li></ol><ol><li><p>安装过程很快，大约十几秒，点击finish完成安装</p><p><img src="https://img.mahaofei.com/img/202112232004114-keil51-6.png" alt=""></p><p><img src="https://img.mahaofei.com/img/202112232004458-keil51-7.png" alt=""></p></li></ol><ol><li><p>回到桌面，找到【Keil5】的快捷方式，右键<strong>以管理员身份运行</strong>，然后打开【File -&gt; License Management】选项卡</p><p><img src="https://img.mahaofei.com/img/202112232004254-keil51-8.png" alt=""></p><p><img src="https://img.mahaofei.com/img/202112232004032-keil51-9.png" alt=""></p></li></ol><ol><li><p>在解压的安装包中找到【Crack.exe】文件，<strong>右键以管理员身份运行</strong></p><p><img src="https://img.mahaofei.com/img/202112232005088-keil51-10.png" alt=""></p></li></ol><ol><li><p>在【License Management】中<strong>复制CID</strong>，<strong>粘贴到破解程序</strong>中，target选择C51，<strong>点击Generate</strong>生成激活码</p><p><img src="https://img.mahaofei.com/img/202112232005496-keil51-11.png" alt=""></p><p><img src="https://img.mahaofei.com/img/202112232005539-keil51-12.png" alt=""></p></li></ol><ol><li><p>将激活码粘贴回【License Management】下方的输入框中，并点击【Add LIC】</p><p><img src="https://img.mahaofei.com/img/202112232006203-keil51-13.png" alt=""></p></li></ol><ol><li><p>可以看到已经成功激活，激活时间到2032年</p><p><img src="https://img.mahaofei.com/img/202112232006493-keil51-14.png" alt=""></p></li></ol>]]></content>
       
       
       <categories>
@@ -2804,11 +2837,11 @@
     
     
     <entry>
-      <title>Keil5 C51版 下载与安装教程（51单片机编程软件）</title>
-      <link href="/post/6c3a51dc.html"/>
-      <url>/post/6c3a51dc.html</url>
+      <title>Keil5 MDK版 下载与安装教程（STM32单片机编程软件）</title>
+      <link href="/post/1b083906.html"/>
+      <url>/post/1b083906.html</url>
       
-        <content type="html"><![CDATA[<blockquote><p>阿里云盘<br>链接：<a href="https://www.aliyundrive.com/s/ttZBZXBNMja">https://www.aliyundrive.com/s/ttZBZXBNMja</a><br>下载完成后将文件后缀名改回【.7z】即可正常解压。</p></blockquote><ol><li><p>解压安装包，右键【C51-V957.exe】，<strong>以管理员身份运行</strong></p><p><img src="https://img.mahaofei.com/img/202112232002909-keil51-1.png" alt=""></p></li></ol><ol><li><p>莫得选择，<strong>点击next</strong>继续安装</p><p><img src="https://img.mahaofei.com/img/202112232002704-keil51-2.png" alt=""></p></li></ol><ol><li><p><strong>同意</strong>用户协议，<strong>点击next</strong>继续</p><p><img src="https://img.mahaofei.com/img/202112232003825-keil51-3.png" alt=""></p></li></ol><ol><li><p>选择安装路径，<strong>路径不能有中文</strong>，进行安装（注：如果想要安装51和MDK两个版本的Keil，也就是想要编写51单片机和32单片机两种程序，需要安装在两个单独的文件夹中）</p><p><img src="https://img.mahaofei.com/img/202112232003419-keil51-4.png" alt=""></p></li></ol><ol><li><p><strong>信息随便输</strong>，输完直接<strong>点击next</strong>就可以</p><p><img src="https://img.mahaofei.com/img/202112232003599-keil51-5.png" alt=""></p></li></ol><ol><li><p>安装过程很快，大约十几秒，点击finish完成安装</p><p><img src="https://img.mahaofei.com/img/202112232004114-keil51-6.png" alt=""></p><p><img src="https://img.mahaofei.com/img/202112232004458-keil51-7.png" alt=""></p></li></ol><ol><li><p>回到桌面，找到【Keil5】的快捷方式，右键<strong>以管理员身份运行</strong>，然后打开【File -&gt; License Management】选项卡</p><p><img src="https://img.mahaofei.com/img/202112232004254-keil51-8.png" alt=""></p><p><img src="https://img.mahaofei.com/img/202112232004032-keil51-9.png" alt=""></p></li></ol><ol><li><p>在解压的安装包中找到【Crack.exe】文件，<strong>右键以管理员身份运行</strong></p><p><img src="https://img.mahaofei.com/img/202112232005088-keil51-10.png" alt=""></p></li></ol><ol><li><p>在【License Management】中<strong>复制CID</strong>，<strong>粘贴到破解程序</strong>中，target选择C51，<strong>点击Generate</strong>生成激活码</p><p><img src="https://img.mahaofei.com/img/202112232005496-keil51-11.png" alt=""></p><p><img src="https://img.mahaofei.com/img/202112232005539-keil51-12.png" alt=""></p></li></ol><ol><li><p>将激活码粘贴回【License Management】下方的输入框中，并点击【Add LIC】</p><p><img src="https://img.mahaofei.com/img/202112232006203-keil51-13.png" alt=""></p></li></ol><ol><li><p>可以看到已经成功激活，激活时间到2032年</p><p><img src="https://img.mahaofei.com/img/202112232006493-keil51-14.png" alt=""></p></li></ol>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>阿里云盘<br>链接：<a href="https://www.aliyundrive.com/s/42a1npEEsrw">https://www.aliyundrive.com/s/42a1npEEsrw</a><br>下载完成后将文件后缀名改回【.7z】即可正常解压。</p></blockquote><ol><li><p>解压安装包，<strong>以管理员身份运行</strong>【MDK528.exe】</p><p><img src="https://img.mahaofei.com/img/202112232006461-keilmdk-1.png" alt=""></p></li></ol><ol><li><p>按步骤一直安装就可以，每一步我都在下面截了图，可以对照一下。</p><p><img src="https://img.mahaofei.com/img/202112232007055-keilmdk-2.png" alt=""></p></li></ol><ol><li><p>选择我同意用户协议，然后next</p><p><img src="https://img.mahaofei.com/img/202112232007859-keilmdk-3.png" alt=""></p></li></ol><ol><li><p>选择安装位置，一定要和Keil C51版本安装在<strong>不同的文件夹</strong>中</p><p><img src="https://img.mahaofei.com/img/202112232007389-keilmdk-4.png" alt=""></p></li></ol><ol><li><p>信息随便填</p><p><img src="https://img.mahaofei.com/img/202112232010807-keilmdk-5.png" alt=""></p></li></ol><ol><li><p>等待安装，大约耗时1分钟左右</p><p><img src="https://img.mahaofei.com/img/202112232010318-keilmdk-6.png" alt=""></p></li></ol><ol><li><p>如果安装过程中弹出需要安装某驱动，一定要安装</p><p><img src="https://img.mahaofei.com/img/202112232011061-keilmdk-7.png" alt=""></p></li></ol><ol><li><p>不需要展示新特性，直接下一步点击finish完成即可。</p><p><img src="https://img.mahaofei.com/img/202112232011656-keilmdk-8.png" alt=""></p></li></ol><ol><li><p>出现下面这个包安装界面，直接关闭即可，后续我们手动安装包，要快得多</p><p><img src="https://img.mahaofei.com/img/202112232012974-keilmdk-9.png" alt=""></p></li></ol><blockquote><p>如果之前安装过Keil51版本，想要两个版本共存，需要加入以下步骤。如果仅安装Keil MDK版，可跳过此部分。</p><ol><li><p>打开C51安装路径，找到 TOOLS.INI  这个文件</p></li><li><p>以记事本打开【TOOLS.INI】这个文件，复制 [C51]（包括）以下的全部内容</p></li><li><p>粘贴至MDK-ARM安装目录下的  TOOLS.INI 文件末尾，保存，关闭。</p><p><img src="https://img.mahaofei.com/img/202112232012255-keilmdk-10.png" alt=""></p><ol><li>在桌面找到【Keil 5】的快捷方式，右键以管理员身份运行。然后打开【File -&gt; License Management】选项卡。</li></ol></li></ol></blockquote><pre><code> ![](https://img.mahaofei.com/img/202112232012315-keilmdk-11.png)</code></pre><ol><li><p>复制右上角的CID</p><p><img src="https://img.mahaofei.com/img/202112232013981-keilmdk-12.png" alt=""></p></li></ol><ol><li><p>打开解压的安装包，找到【keygen.exe】，右键以管理员身份运行</p><p><img src="https://img.mahaofei.com/img/202112232013788-keilmdk-13.png" alt=""></p></li></ol><ol><li><p><strong>粘贴CID</strong>到对应的输入框中，<strong>target选择ARM</strong>，然后点击<strong>Generate生成激活码</strong>。</p><p><img src="https://img.mahaofei.com/img/202112232014581-keilmdk-14.png" alt=""></p></li></ol><ol><li><p>复制生成的激活码，回到Keil中的【License Management】对话框，在下方LIC中粘贴激活码，然后点击Add LIC激活成功。（激活的日期过了也不影响使用）</p><p><img src="https://img.mahaofei.com/img/202112232014618-keilmdk-15.png" alt=""></p></li></ol><ol><li><p>安装剩下的两个库文件，直接双击就可以安装。（两个库文件分别对应STM32F1和F4的芯片）</p><p><img src="https://img.mahaofei.com/img/202112232014820-keilmdk-16.png" alt=""></p></li></ol><ol><li><p>至此安装完成，可以正常使用。</p><p><img src="https://img.mahaofei.com/img/202112232015660-keilmdk-17.png" alt=""></p></li></ol>]]></content>
       
       
       <categories>
@@ -2851,9 +2884,9 @@
       
         <tags>
             
-            <tag> 实验 </tag>
-            
             <tag> ROS </tag>
+            
+            <tag> 实验 </tag>
             
         </tags>
       
@@ -2942,9 +2975,9 @@
       
         <tags>
             
-            <tag> 实验 </tag>
-            
             <tag> ROS </tag>
+            
+            <tag> 实验 </tag>
             
         </tags>
       
@@ -3192,9 +3225,9 @@
       
         <tags>
             
-            <tag> 实验 </tag>
-            
             <tag> ROS </tag>
+            
+            <tag> 实验 </tag>
             
         </tags>
       
@@ -5148,9 +5181,9 @@
       
         <tags>
             
-            <tag> 网站搭建 </tag>
-            
             <tag> Ubuntu </tag>
+            
+            <tag> 网站搭建 </tag>
             
         </tags>
       
@@ -5177,9 +5210,9 @@
       
         <tags>
             
-            <tag> 树莓派 </tag>
-            
             <tag> Ubuntu </tag>
+            
+            <tag> 树莓派 </tag>
             
         </tags>
       
@@ -5933,9 +5966,9 @@
       
         <tags>
             
-            <tag> 树莓派 </tag>
-            
             <tag> 网站搭建 </tag>
+            
+            <tag> 树莓派 </tag>
             
         </tags>
       
@@ -5962,9 +5995,9 @@
       
         <tags>
             
-            <tag> 树莓派 </tag>
-            
             <tag> 网站搭建 </tag>
+            
+            <tag> 树莓派 </tag>
             
             <tag> WordPress </tag>
             
@@ -5993,9 +6026,9 @@
       
         <tags>
             
-            <tag> 树莓派 </tag>
-            
             <tag> 网站搭建 </tag>
+            
+            <tag> 树莓派 </tag>
             
         </tags>
       
@@ -6461,11 +6494,11 @@
       
         <tags>
             
+            <tag> bugs </tag>
+            
             <tag> 单片机 </tag>
             
             <tag> Proteus </tag>
-            
-            <tag> bugs </tag>
             
         </tags>
       
@@ -6649,9 +6682,9 @@
       
         <tags>
             
-            <tag> 实验 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> 实验 </tag>
             
             <tag> 视觉 </tag>
             

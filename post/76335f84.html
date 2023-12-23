@@ -223,8 +223,8 @@
 <p>下载COLMAP源代码</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/colmap/colmap</span><br><span class="line">cd colmap</span><br></pre></td></tr></table></figure>
 <p>修改<code>CMakeLists.txt</code>文件，添加下面的内容</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set(CMAKE_CUDA_ARCHITECTURES &quot;70&quot;)</span><br></pre></td></tr></table></figure>
-<p>开始编译、安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set(CMAKE_CUDA_ARCHITECTURES 86)</span><br></pre></td></tr></table></figure>
+<p>开始编译、安装（注意一定要退出conda环境再编译安装）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake .. -GNinja</span><br><span class="line">ninja</span><br><span class="line">sudo ninja install</span><br></pre></td></tr></table></figure>
 <p><strong>（2）CloudCompare</strong></p>
 <p><strong>方式1：snap（推荐）</strong></p>

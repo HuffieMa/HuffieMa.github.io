@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>【论文笔记】Diffusion Policy基于扩散策略的视觉运动策略学习</title>
+      <link href="/post/6390a380.html"/>
+      <url>/post/6390a380.html</url>
+      
+        <content type="html"><![CDATA[<h1>一、论文笔记</h1><blockquote><p><strong>标题</strong>：Diffusion Policy: Visuomotor Policy Learning via Action Diffusion<br><strong>作者团队</strong>：Columbia University, Toyota, MIT<br><strong>期刊会议</strong>：RSS<br><strong>时间</strong>：2023<br><strong>代码</strong>：<a href="https://github.com/real-stanford/diffusion_policy">https://github.com/real-stanford/diffusion_policy</a></p></blockquote><h2 id="1-1-目标问题">1.1 目标问题</h2><p>策略基础：隐式策略函数学习基于 action 和 observation 的能量函数并进行最小化。而扩散策略则是学习梯度场将噪声细化为动作。将机器人的视觉运动策略表示为一个去噪扩散的过程。</p><h2 id="1-2-方法">1.2 方法</h2><h2 id="1-3-总结">1.3 总结</h2><h1>二、代码复现（仿真）</h1><h2 id="2-1-环境搭建">2.1 环境搭建</h2><p><strong>（1）基础依赖</strong></p><ul><li>Ubuntu 20.04</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install -y libosmesa6-dev libgl1-mesa-glx libglfw3 patchelf</span><br></pre></td></tr></table></figure><p><strong>（2）下载代码</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/real-stanford/diffusion_policy.git</span><br></pre></td></tr></table></figure><p><strong>（3）创建 conda 环境</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd diffusion_policy</span><br><span class="line">conda env create -f conda_environment.yaml</span><br></pre></td></tr></table></figure><h2 id="2-2-示例测试-1：PushT">2.2 示例测试 1：PushT</h2><p><strong>（1）下载训练数据</strong></p><p>在代码 repo 的根目录下，创建 data 子目录，下载相应的 zip 文件提取训练数据</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir data &amp;&amp; cd data</span><br><span class="line">wget https://diffusion-policy.cs.columbia.edu/data/training/pusht.zip</span><br><span class="line">unzip pusht.zip &amp;&amp; rm -f pusht.zip &amp;&amp; cd ..</span><br><span class="line">wget -O image_pusht_diffusion_policy_cnn.yaml https://diffusion-policy.cs.columbia.edu/data/experiments/image/pusht/diffusion_policy_cnn/config.yaml</span><br></pre></td></tr></table></figure><p><strong>（2）训练</strong></p><p>激活 conda 环境并登陆 wandb</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda activate robodiff</span><br><span class="line">wandb login</span><br></pre></td></tr></table></figure><p>在 GPU 0 上使用 seed 42 启动训练。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python train.py --config-dir=. --config-name=image_pusht_diffusion_policy_cnn.yaml training.seed=42 training.device=cuda:0 hydra.run.dir=&#x27;data/outputs/$&#123;now:%Y.%m.%d&#125;/$&#123;now:%H.%M.%S&#125;_$&#123;name&#125;_$&#123;task_name&#125;&#x27;</span><br></pre></td></tr></table></figure><p>这将创建一个格式 <code>data/outputs/yyyy.mm.dd/hh.mm.ss_&lt;method_name&gt;_&lt;task_name&gt;</code> 的目录，用于写入配置、日志和检查点。该策略将每 50 个周期评估一次，成功率记录在 <code>test/mean_score</code> wandb 上，以及一些推理的视频。</p><h2 id="2-3-示例测试-2：robomimic-lowdim-tool-hang">2.3 示例测试 2：robomimic_lowdim/tool_hang</h2><p><strong>（1）下载训练数据</strong></p><p>在代码 repo 的根目录下，创建 data 子目录，下载相应的 zip 文件提取训练数据</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir data &amp;&amp; cd data</span><br><span class="line">wget https://diffusion-policy.cs.columbia.edu/data/training/robomimic_lowdim.zip</span><br><span class="line">unzip robomimic_lowdim.zip &amp;&amp; rm -f robomimic_lowdim.zip &amp;&amp; cd ..</span><br><span class="line">wget -O low_dim_tool_hang_ph_diffusion_policy_transformer.yaml https://diffusion-policy.cs.columbia.edu/data/experiments/low_dim/tool_hang_ph/diffusion_policy_transformer/config.yaml</span><br></pre></td></tr></table></figure><p><strong>（2）训练</strong></p><p>激活 conda 环境并登陆 wandb</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda activate robodiff</span><br><span class="line">wandb login</span><br></pre></td></tr></table></figure><p>在 GPU 0 上使用 seed 42 启动训练。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python train.py --config-dir=. --config-name=low_dim_tool_hang_ph_diffusion_policy_transformer.yaml training.seed=42 training.device=cuda:0 hydra.run.dir=&#x27;data/outputs/$&#123;now:%Y.%m.%d&#125;/$&#123;now:%H.%M.%S&#125;_$&#123;name&#125;_$&#123;task_name&#125;&#x27;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 科研 </category>
+          
+          <category> 模仿动作 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 模仿学习 </tag>
+            
+            <tag> 机器人 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【论文笔记】ACT 使用低成本硬件的双手操作模仿学习</title>
       <link href="/post/24d9497f.html"/>
       <url>/post/24d9497f.html</url>

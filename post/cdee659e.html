@@ -266,7 +266,7 @@ rosdep update如果出现超时问题<br>
 <p><strong>（4）安装其它工具和依赖包</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential</span><br></pre></td></tr></table></figure>
 <p><strong>（5）设置bash环境</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;source /opt/ros/melodic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;source /opt/ros/noetic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
 <h2 id="2-3-Realsense驱动">2.3 Realsense驱动</h2>
 <blockquote>
 <p>参考官方文档：<a target="_blank" rel="noopener" href="https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md">librealsense/distribution_linux.md at master · IntelRealSense/librealsense · GitHub</a></p>
@@ -281,7 +281,7 @@ rosdep update如果出现超时问题<br>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install librealsense2-dkms</span><br><span class="line">sudo apt-get install librealsense2-utils</span><br><span class="line">sudo apt-get install librealsense2-dev  </span><br><span class="line">sudo apt-get install librealsense2-dbg</span><br></pre></td></tr></table></figure>
 <p>验证安装，使用<code>realsense-viewer</code>测试驱动是否安装完成。</p>
 <p><strong>（2）安装ROS包</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/catkin_ws/src</span><br><span class="line">git clone -b ros1-legacy https://github.com/IntelRealSense/realsense-ros.git</span><br><span class="line">cd ~/catkin_ws &amp;&amp; catkin_make</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/catkin_ws/src</span><br><span class="line">cd ~/catkin_ws/src</span><br><span class="line">git clone -b ros1-legacy https://github.com/IntelRealSense/realsense-ros.git</span><br><span class="line">cd ~/catkin_ws &amp;&amp; catkin_make</span><br></pre></td></tr></table></figure>
 <p>一定要注意clone的分支，默认是ros2，如果是ros1环境需要指定分支。</p>
 <h1>三、常用软件</h1>
 <h2 id="3-0-AppImage系列软件">3.0 AppImage系列软件</h2>

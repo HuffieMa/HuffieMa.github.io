@@ -4,33 +4,6 @@
   
     
     <entry>
-      <title>双系统Windows访问Ubuntu文件</title>
-      <link href="/post/4903df0a.html"/>
-      <url>/post/4903df0a.html</url>
-      
-        <content type="html"><![CDATA[<p>由于 Windos 和 Ubuntu 双系统在使用过程中，难免会遇到在使用一个系统时，会需要查看存放在另一个系统中的文件。</p><p>而在 Ubuntu 中可以直接挂载 Windows 中的磁盘来实现文件访问，但是 Windows 却没有提供这样的功能。</p><p>本文推荐一款软件 <code>Ext2Fsd</code> 可以将整个 Ubuntu 分区作为一个磁盘挂载在 Linux 下。</p><h2 id="Ext2Fsd-下载">Ext2Fsd 下载</h2><p>Ext2Fsd 可以用来读取 ext 格式的硬盘，经过<a href="https://zhuanlan.zhihu.com/p/642359809">网友测试</a>，推荐下载 <a href="https://link.zhihu.com/?target=https%3A//sourceforge.net/projects/ext2fsd/files/Ext2fsd/0.68/">v0.68</a> 版本，以下是下载链接：</p><p><a href="https://sourceforge.net/projects/ext2fsd/files/Ext2fsd/0.68/">https://sourceforge.net/projects/ext2fsd/files/Ext2fsd/0.68/</a></p><p>下载其中的<a href="https://sourceforge.net/projects/ext2fsd/files/Ext2fsd/0.68/Ext2Fsd-0.68.exe/download" title="Click to download Ext2Fsd-0.68.exe">Ext2Fsd-0.68.exe</a></p><p>下载完成后安装即可。</p><h2 id="Ext2Fsd-使用">Ext2Fsd 使用</h2><p>使用方法非常简单，只需要选中 Ubuntu 所在的分区，然后右键 <code>加载装配点盘符</code> 即可。</p><p><img src="https://img.mahaofei.com/img/202403101046022.png" alt="image.png"></p><p>此时会发现系统中多了一个盘，可以读写 Linux 中的所有文件</p><p><img src="https://img.mahaofei.com/img/202403101048010.png" alt="image.png"></p><blockquote><p>注意，Ubuntu 系统文件读写务必谨慎操作。</p></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> 实用工具 </category>
-          
-          <category> Windows工具 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 实用工具 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>【论文笔记】ACT 使用低成本硬件的双手操作模仿学习</title>
       <link href="/post/24d9497f.html"/>
       <url>/post/24d9497f.html</url>

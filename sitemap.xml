@@ -2468,6 +2468,13 @@
   </url>
   
   <url>
+    <loc>https://www.mahaofei.com/tags/MuJoCo/</loc>
+    <lastmod>2024-12-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.mahaofei.com/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/</loc>
     <lastmod>2024-12-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -2489,13 +2496,6 @@
   </url>
   
   <url>
-    <loc>https://www.mahaofei.com/tags/MuJoCo/</loc>
-    <lastmod>2024-12-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.mahaofei.com/tags/%E8%A7%86%E8%A7%89/</loc>
     <lastmod>2024-12-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -2503,14 +2503,14 @@
   </url>
   
   <url>
-    <loc>https://www.mahaofei.com/tags/%E4%BD%8D%E5%A7%BF%E4%BC%B0%E8%AE%A1/</loc>
+    <loc>https://www.mahaofei.com/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%8A%93%E5%8F%96/</loc>
     <lastmod>2024-12-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.mahaofei.com/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%8A%93%E5%8F%96/</loc>
+    <loc>https://www.mahaofei.com/tags/%E4%BD%8D%E5%A7%BF%E4%BC%B0%E8%AE%A1/</loc>
     <lastmod>2024-12-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2615,14 +2615,14 @@
   </url>
   
   <url>
-    <loc>https://www.mahaofei.com/tags/opencv/</loc>
+    <loc>https://www.mahaofei.com/tags/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2024-12-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.mahaofei.com/tags/%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://www.mahaofei.com/tags/opencv/</loc>
     <lastmod>2024-12-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

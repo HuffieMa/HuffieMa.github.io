@@ -2642,14 +2642,14 @@
   </url>
   
   <url>
-    <loc>https://www.mahaofei.com/tags/ECCV/</loc>
+    <loc>https://www.mahaofei.com/tags/CVPR/</loc>
     <lastmod>2025-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.mahaofei.com/tags/CVPR/</loc>
+    <loc>https://www.mahaofei.com/tags/ECCV/</loc>
     <lastmod>2025-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2684,14 +2684,7 @@
   </url>
   
   <url>
-    <loc>https://www.mahaofei.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/</loc>
-    <lastmod>2025-01-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mahaofei.com/tags/Proteus/</loc>
+    <loc>https://www.mahaofei.com/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</loc>
     <lastmod>2025-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2705,7 +2698,14 @@
   </url>
   
   <url>
-    <loc>https://www.mahaofei.com/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</loc>
+    <loc>https://www.mahaofei.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/</loc>
+    <lastmod>2025-01-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mahaofei.com/tags/Proteus/</loc>
     <lastmod>2025-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3022,14 +3022,14 @@
   </url>
   
   <url>
-    <loc>https://www.mahaofei.com/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%8D%95%E7%89%87%E6%9C%BA/</loc>
+    <loc>https://www.mahaofei.com/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E6%A0%91%E8%8E%93%E6%B4%BE/</loc>
     <lastmod>2025-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.mahaofei.com/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E6%A0%91%E8%8E%93%E6%B4%BE/</loc>
+    <loc>https://www.mahaofei.com/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%8D%95%E7%89%87%E6%9C%BA/</loc>
     <lastmod>2025-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
